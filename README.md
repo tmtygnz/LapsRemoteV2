@@ -1,4 +1,4 @@
-# Laps Remote 2 [![Laps Remote Stats](https://circleci.com/gh/jostimian/LapsRemoteV2.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)
+# Laps Remote 2 [![Laps Remote Stats](https://circleci.com/gh/jostimian/LapsRemoteV2.svg?style=svg)](https://circleci.com/gh/jostimian/LapsRemoteV2)
 
 <img width="100" height="100" src="./img/ico.ico" align ="right">
 
