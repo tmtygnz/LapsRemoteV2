@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.IO;
+using System.Windows;
 
 namespace LapsRemote.Logging
 {
@@ -49,6 +50,36 @@ namespace LapsRemote.Logging
 				Time = Time
 			};
 			LogQueue.Enqueue(MsgToEnq);
+		}
+		
+		public static void MessageBoxLog(string LogMessage, Level Level, DateTime Time)
+		{
+			Message MsgToEnq = new Message
+			{
+				LogMessage = LogMessage,
+				Level = Level,
+				Time = Time
+			};
+			LogQueue.Enqueue(MsgToEnq);
+
+			switch (Level)
+			{
+				case Level.Fatal:
+					MessageBox.Show(LogMessage, Time.ToString(),MessageBoxButton.OK,MessageBoxImage.Error);
+					break;
+
+				case Level.Error:
+					MessageBox.Show(LogMessage, Time.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
+					break;
+
+				case Level.Warning:
+					MessageBox.Show(LogMessage, Time.ToString(), MessageBoxButton.OK, MessageBoxImage.Warning);
+					break;
+
+				case Level.Debug:
+					MessageBox.Show(LogMessage, Time.ToString(), MessageBoxButton.OK, MessageBoxImage.Information);
+					break;
+			}
 		}
 
 		private static void DiskWrite(Message LogMessage)

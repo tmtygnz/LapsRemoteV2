@@ -11,17 +11,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LapsRemote.Logging;
 
 namespace LapsRemote.Screens
 {
-	/// <summary>
-	/// Interaction logic for Main.xaml
-	/// </summary>
-	public partial class Main : Window
-	{
-		public Main()
-		{
-			InitializeComponent();
-		}
-	}
+    /// <summary>
+    /// Interaction logic for Main.xaml
+    /// </summary>
+    public partial class Main : Window
+    {
+        public Main()
+        {
+            InitializeComponent();
+        }
+    }
 }

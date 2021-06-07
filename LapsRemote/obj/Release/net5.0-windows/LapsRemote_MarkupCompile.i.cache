@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Release\net5.0-windows\
 LapsRemote
 none
 false
-TRACE;DEBUG;NET;NET5_0;NETCOREAPP
+TRACE;RELEASE;NET;NET5_0;NETCOREAPP
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\App.xaml
 1-1954262127
 
-8-712653722
+8-1540321285
 193-1891726104
 Screens\Main.xaml;
 
