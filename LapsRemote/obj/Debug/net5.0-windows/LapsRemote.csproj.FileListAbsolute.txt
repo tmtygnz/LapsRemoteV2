@@ -20,12 +20,9 @@ C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsR
 C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\ref\LapsRemote.dll
 C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.pdb
 C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.genruntimeconfig.cache
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.csproj.AssemblyReference.cache
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\MainWindow.g.cs
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\App.g.cs
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote_MarkupCompile.cache
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote_MarkupCompile.lref
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\MainWindow.baml
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.g.resources
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.AssemblyInfoInputs.cache
@@ -42,3 +39,6 @@ C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemo
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\ref\LapsRemote.dll
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\LapsRemote.pdb
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.genruntimeconfig.cache
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.csprojAssemblyReference.cache
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\Screens\Main.g.cs
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\Screens\Main.baml
