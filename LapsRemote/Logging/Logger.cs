@@ -27,7 +27,7 @@ namespace LapsRemote.Logging
 
 			if (!File.Exists(LogFilePath))
 				File.Create(LogFilePath);
-
+			
 			LogQueue = new Queue<Message>();
 			LogWriter = File.AppendText(LogFilePath);
 
