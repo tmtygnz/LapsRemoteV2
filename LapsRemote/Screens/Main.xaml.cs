@@ -44,5 +44,10 @@ namespace LapsRemote.Screens
 				Logger.Log(exp.StackTrace, Level.Error, DateTime.Now);
 			}
 		}
+
+		private void ExitClick(object sender, RoutedEventArgs e)
+		{
+			Application.Current.Shutdown();
+		}
 	}
 }

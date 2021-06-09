@@ -22,8 +22,8 @@
 	</mah:MetroWindow.RightWindowCommands>
 
 	<Menu>
-		<MenuItem Header="Files">
-			<MenuItem Header="Exit"/>
+		<MenuItem Header="Files" >
+			<MenuItem Header="Exit" Click="ExitClick"/>
 		</MenuItem>
 		<MenuItem Header="Vitals">
 			<MenuItem Header="Recording">
@@ -35,6 +35,3 @@
 	</Menu>
 
 </mah:MetroWindow>
-
-
- 
