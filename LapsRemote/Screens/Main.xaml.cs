@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,6 +15,7 @@ using MahApps.Metro.Controls;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using LapsRemote.Logging;
+using LapsRemote.Vitals;
 
 namespace LapsRemote.Screens
 {
@@ -22,14 +24,14 @@ namespace LapsRemote.Screens
     /// </summary>
     public partial class Main : MetroWindow
     {
-		double[] dataX;
-		double[] dataY; 
 		public Main()
         {
             InitializeComponent();
-			dataX = new double[] { 1, 2, 3, 4, 5 };
-			dataY = new double[] { 1, 4, 9, 16, 25 };
-			
+		}
+
+		private void MetroWindow_Activated(object sender, EventArgs e)
+		{
+			new Thread(() => UpdateVitalView()).Start();
 		}
 
 		private void OpenRepo(object sender, RoutedEventArgs e)
@@ -58,6 +60,21 @@ namespace LapsRemote.Screens
 		private void MetroWindow_Closed(object sender, EventArgs e)
 		{
 			Logger.KillAll();
+		}
+
+		private void UpdateVitalView()
+		{
+			while (true)
+			{
+				Thread.Sleep(100);
+				this.Dispatcher.Invoke(() =>
+				{
+					TemperatureTextView.Text = Temperature.RandomTemperature().ToString();
+					OxyStatTextIvew.Text = OxyStat.randomOxyStat().ToString();
+					RespRateTextView.Text = RespRate.randomRespRate().ToString();
+					BPMTextView.Text = BPM.randomBPM().ToString();
+				});
+			}
 		}
 	}
 }

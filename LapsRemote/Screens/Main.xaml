@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:LapsRemote.Screens"
         mc:Ignorable="d"
 		GlowBrush="{DynamicResource MahApps.Brushes.Accent1}"
-		Title="LRC" Height="720" Width="1280">
+		Title="LRC" Height="720" Width="1280" Activated="MetroWindow_Activated">
 
 	<mah:MetroWindow.RightWindowCommands>
 		<mah:WindowCommands>
@@ -84,7 +84,7 @@
 				</StackPanel>
 			</Border>
 
-			<Border x:Name="BPMStat" 
+			<Border x:Name="BPMRect" 
 					Height="200"
 					Width="150"
 					CornerRadius="20"
@@ -103,7 +103,7 @@
 				</StackPanel>
 			</Border>
 
-			<Border x:Name="RespRate" 
+			<Border x:Name="RespRateRect" 
 					Height="200"
 					Width="150"
 					CornerRadius="20"
