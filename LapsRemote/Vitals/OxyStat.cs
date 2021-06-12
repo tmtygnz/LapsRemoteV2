@@ -10,7 +10,7 @@ namespace LapsRemote.Vitals
 	{
 		public static int RandomOxyStat()
 		{
-			int rnd = new Random().Next(35, 37);
+			int rnd = new Random().Next(10, 50);
 			return rnd;
 		}
 	}

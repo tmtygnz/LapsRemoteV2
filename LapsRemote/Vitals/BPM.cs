@@ -10,7 +10,7 @@ namespace LapsRemote.Vitals
 	{
 		public static int RandomBPM()
 		{
-			int rnd = new Random().Next(35, 37);
+			int rnd = new Random().Next(60, 100);
 			return rnd;
 		}
 	}

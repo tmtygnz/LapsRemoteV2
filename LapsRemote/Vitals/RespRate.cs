@@ -10,7 +10,7 @@ namespace LapsRemote.Vitals
 	{
 		public static int RandomRespRate()
 		{
-			int rnd = new Random().Next(35, 37);
+			int rnd = new Random().Next(12, 16);
 			return rnd;
 		}
 	}
