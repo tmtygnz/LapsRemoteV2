@@ -8,7 +8,7 @@ namespace LapsRemote.Vitals
 {
 	class RespRate
 	{
-		public static int randomRespRate()
+		public static int RandomRespRate()
 		{
 			int rnd = new Random().Next(35, 37);
 			return rnd;

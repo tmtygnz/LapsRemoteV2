@@ -70,9 +70,9 @@ namespace LapsRemote.Screens
 				this.Dispatcher.Invoke(() =>
 				{
 					TemperatureTextView.Text = Temperature.RandomTemperature().ToString();
-					OxyStatTextIvew.Text = OxyStat.randomOxyStat().ToString();
-					RespRateTextView.Text = RespRate.randomRespRate().ToString();
-					BPMTextView.Text = BPM.randomBPM().ToString();
+					OxyStatTextIvew.Text = OxyStat.RandomOxyStat().ToString();
+					RespRateTextView.Text = RespRate.RandomRespRate().ToString();
+					BPMTextView.Text = BPM.RandomBPM().ToString();
 				});
 			}
 		}

@@ -8,7 +8,7 @@ namespace LapsRemote.Vitals
 {
 	class BPM
 	{
-		public static int randomBPM()
+		public static int RandomBPM()
 		{
 			int rnd = new Random().Next(35, 37);
 			return rnd;
