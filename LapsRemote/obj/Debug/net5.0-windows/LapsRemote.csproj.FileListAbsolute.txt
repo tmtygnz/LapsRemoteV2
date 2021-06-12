@@ -79,3 +79,5 @@ C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemo
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\MahApps.Metro.IconPacks.WeatherIcons.dll
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\MahApps.Metro.IconPacks.Zondicons.dll
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\MahApps.Metro.IconPacks.dll
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\ScottPlot.dll
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\ScottPlot.WPF.dll

@@ -20,10 +20,5 @@ namespace LapsRemote
 			Logger.Initialize();
 			Logger.Log("App Startup", Level.Debug, DateTime.Now);
 		}
-		protected override void OnExit(ExitEventArgs e)
-		{
-			base.OnExit(e);
-			Logger.KillAll();
-		}
 	}
 }

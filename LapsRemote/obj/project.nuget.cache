@@ -1,13 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "28xIVM1996TDB3GKy7mmTqyiwZqzIs4Z5jr9CLJG40X0ccWPt4n/sgJGWZp9RYyxhvN1hxtHUGfCV2fmK1IswA==",
+  "dgSpecHash": "nLiQk+S/53weAMb43grAvlLhEuC19O//pHYB3PEXr83rA+6O++5PoYv8U6uJUgGPMPY7Hs8jefy0nKxAzlecSQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\josti\\Desktop\\Root\\Personal\\Projects\\Laps Remote\\LapsRemoteWPF\\LapsRemote\\LapsRemote\\LapsRemote.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\josti\\.nuget\\packages\\controlzex\\4.4.0\\controlzex.4.4.0.nupkg.sha512",
     "C:\\Users\\josti\\.nuget\\packages\\mahapps.metro\\2.4.5\\mahapps.metro.2.4.5.nupkg.sha512",
     "C:\\Users\\josti\\.nuget\\packages\\mahapps.metro.iconpacks\\4.8.0\\mahapps.metro.iconpacks.4.8.0.nupkg.sha512",
+    "C:\\Users\\josti\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\josti\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\josti\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
+    "C:\\Users\\josti\\.nuget\\packages\\scottplot\\4.1.16\\scottplot.4.1.16.nupkg.sha512",
+    "C:\\Users\\josti\\.nuget\\packages\\scottplot.wpf\\4.1.16\\scottplot.wpf.4.1.16.nupkg.sha512",
+    "C:\\Users\\josti\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512",
     "C:\\Users\\josti\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
   ],
   "logs": []

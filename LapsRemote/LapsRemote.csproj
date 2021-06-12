@@ -7,12 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MahApps.Metro" Version="2.4.5" />
-    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.8.0" />
+    <Compile Remove="Icons\**" />
+    <EmbeddedResource Remove="Icons\**" />
+    <None Remove="Icons\**" />
+    <Page Remove="Icons\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Icons\" />
+    <PackageReference Include="MahApps.Metro" Version="2.4.5" />
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.8.0" />
+    <PackageReference Include="ScottPlot.WPF" Version="4.1.16" />
   </ItemGroup>
 
 </Project>

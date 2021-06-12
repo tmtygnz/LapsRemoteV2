@@ -12,7 +12,7 @@
 
 	<mah:MetroWindow.RightWindowCommands>
 		<mah:WindowCommands>
-			<Button ToolTip="Open Github Repo" Click="OpenRepo">
+			<Button ToolTip="Open Github Repository" Click="OpenRepo">
 				<iconPacks:PackIconMaterial VerticalAlignment="Center" Kind="Github" Width="20" Height="20"/>
 			</Button>
 			<Button ToolTip="Submit A Feature Or A Bug Fix Request">
@@ -21,17 +21,109 @@
 		</mah:WindowCommands>
 	</mah:MetroWindow.RightWindowCommands>
 
-	<Menu>
-		<MenuItem Header="Files" >
-			<MenuItem Header="Exit" Click="ExitClick"/>
-		</MenuItem>
-		<MenuItem Header="Vitals">
-			<MenuItem Header="Recording">
-				<MenuItem Header="Start"/>
-				<MenuItem Header="Save and Stop"/>
+	<DockPanel>
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="Files" >
+				<MenuItem Header="Exit" Click="ExitClick"/>
 			</MenuItem>
-			<MenuItem Header="Read"/>
-		</MenuItem>
-	</Menu>
+			<MenuItem Header="Vitals">
+				<MenuItem Header="Recording">
+					<MenuItem Header="Start"/>
+					<MenuItem Header="Save and Stop"/>
+				</MenuItem>
+				<MenuItem Header="Read"/>
+			</MenuItem>
+		</Menu>
+		<Grid Margin="20">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="auto"/>
+				<ColumnDefinition Width="auto"/>
+				<ColumnDefinition Width="auto"/>
+				<ColumnDefinition Width="auto"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+			</Grid.RowDefinitions>
+
+			<Border x:Name="TemperatureRect" 
+					Height="200"
+					Width="150"
+					CornerRadius="20"
+					Background="#f5e6ca"
+					Grid.Column="0"
+					Grid.Row="0">
+				<StackPanel Orientation="Vertical"
+							HorizontalAlignment="Center"
+							Margin="4">
+					<TextBlock Text="Temperature" FontSize="20"/>
+					<TextBlock x:Name="TemperatureTextView"
+							   Text="0" FontSize="100"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"/>
+				</StackPanel>
+			</Border>
+
+			<Border x:Name="OxyStatRect" 
+					Height="200"
+					Width="150"
+					CornerRadius="20"
+					Background="#f5e6ca"
+					Grid.Column="1"
+					Grid.Row="0"
+					Margin="9 0 0 0">
+				<StackPanel Orientation="Vertical"
+							HorizontalAlignment="Center"
+							Margin="4">
+					<TextBlock Text="02Stat" FontSize="20"/>
+					<TextBlock x:Name="OxyStatTextIvew"
+							   Text="0" FontSize="100"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"/>
+				</StackPanel>
+			</Border>
+
+			<Border x:Name="BPMStat" 
+					Height="200"
+					Width="150"
+					CornerRadius="20"
+					Background="#f5e6ca"
+					Grid.Column="2"
+					Grid.Row="0"
+					Margin="9 0 0 0">
+				<StackPanel Orientation="Vertical"
+							HorizontalAlignment="Center"
+							Margin="4">
+					<TextBlock Text="BPM" FontSize="20"/>
+					<TextBlock x:Name="BPMTextView"
+							   Text="0" FontSize="100"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"/>
+				</StackPanel>
+			</Border>
+
+			<Border x:Name="RespRate" 
+					Height="200"
+					Width="150"
+					CornerRadius="20"
+					Background="#f5e6ca"
+					Grid.Column="3"
+					Grid.Row="0"
+					Margin="9 0 0 0">
+				<StackPanel Orientation="Vertical"
+							HorizontalAlignment="Center"
+							Margin="4">
+					<TextBlock Text="RespRate" FontSize="20"/>
+					<TextBlock x:Name="RespRateTextView"
+							   Text="0" FontSize="100"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"/>
+				</StackPanel>
+			</Border>
+
+
+		</Grid>
+	</DockPanel>
 
 </mah:MetroWindow>

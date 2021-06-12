@@ -22,10 +22,15 @@ namespace LapsRemote.Screens
     /// </summary>
     public partial class Main : MetroWindow
     {
-        public Main()
+		double[] dataX;
+		double[] dataY; 
+		public Main()
         {
             InitializeComponent();
-        }
+			dataX = new double[] { 1, 2, 3, 4, 5 };
+			dataY = new double[] { 1, 4, 9, 16, 25 };
+			
+		}
 
 		private void OpenRepo(object sender, RoutedEventArgs e)
 		{
@@ -48,6 +53,11 @@ namespace LapsRemote.Screens
 		private void ExitClick(object sender, RoutedEventArgs e)
 		{
 			Application.Current.Shutdown();
+		}
+
+		private void MetroWindow_Closed(object sender, EventArgs e)
+		{
+			Logger.KillAll();
 		}
 	}
 }

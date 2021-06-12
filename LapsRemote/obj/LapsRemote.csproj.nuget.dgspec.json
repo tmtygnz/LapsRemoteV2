@@ -47,6 +47,10 @@
             "MahApps.Metro.IconPacks": {
               "target": "Package",
               "version": "[4.8.0, )"
+            },
+            "ScottPlot.WPF": {
+              "target": "Package",
+              "version": "[4.1.16, )"
             }
           },
           "imports": [
