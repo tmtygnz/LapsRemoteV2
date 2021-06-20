@@ -1,0 +1,129 @@
+﻿<mah:MetroWindow x:Class="LapsRemote.Screens.Main"
+		xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+		xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:LapsRemote.Screens"
+		xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+		GlowBrush="{DynamicResource MahApps.Brushes.Accent1}"
+		Title="Laps" Height="720" Width="1280" Activated="MetroWindow_Activated">
+
+	<mah:MetroWindow.RightWindowCommands>
+		<mah:WindowCommands>
+			<Button ToolTip="Open Github Repository" 
+					Command="{Binding OpenRepositoryWebsite}">
+				<iconPacks:PackIconMaterial VerticalAlignment="Center" Kind="Github" Width="20" Height="20"/>
+			</Button>
+			<Button ToolTip="Submit A Feature Or A Bug Fix Request">
+				<iconPacks:PackIconMaterial VerticalAlignment="Center" Width="20" Height="20" Kind="Bug"/>
+			</Button>
+		</mah:WindowCommands>
+	</mah:MetroWindow.RightWindowCommands>
+
+	<DockPanel>
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="Files" >
+				<MenuItem Header="Exit" Click="ExitClick"/>
+			</MenuItem>
+			<MenuItem Header="Vitals">
+				<MenuItem Header="Recording">
+					<MenuItem Header="Start"/>
+					<MenuItem Header="Save and Stop"/>
+				</MenuItem>
+				<MenuItem Header="Read"/>
+			</MenuItem>
+		</Menu>
+		<Grid Margin="20">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="auto"/>
+				<ColumnDefinition Width="auto"/>
+				<ColumnDefinition Width="auto"/>
+				<ColumnDefinition Width="auto"/>
+				<ColumnDefinition Width="auto"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+			</Grid.RowDefinitions>
+
+			<Border x:Name="TemperatureRect" 
+					Height="200"
+					Width="150"
+					CornerRadius="20"
+					Background="#f5e6ca"
+					Grid.Column="0"
+					Grid.Row="0">
+				<StackPanel Orientation="Vertical"
+							HorizontalAlignment="Center"
+							Margin="4">
+					<TextBlock Text="Temperature" FontSize="20"/>
+					<TextBlock x:Name="TemperatureTextView"
+							   Text="0" FontSize="100"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"/>
+				</StackPanel>
+			</Border>
+
+			<Border x:Name="OxyStatRect" 
+					Height="200"
+					Width="150"
+					CornerRadius="20"
+					Background="#f5e6ca"
+					Grid.Column="1"
+					Grid.Row="0"
+					Margin="9 0 0 0">
+				<StackPanel Orientation="Vertical"
+							HorizontalAlignment="Center"
+							Margin="4">
+					<TextBlock Text="02Stat" FontSize="20"/>
+					<TextBlock x:Name="OxyStatTextIvew"
+							   Text="0" FontSize="100"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"/>
+				</StackPanel>
+			</Border>
+
+			<Border x:Name="BPMRect" 
+					Height="200"
+					Width="150"
+					CornerRadius="20"
+					Background="#f5e6ca"
+					Grid.Column="2"
+					Grid.Row="0"
+					Margin="9 0 0 0">
+				<StackPanel Orientation="Vertical"
+							HorizontalAlignment="Center"
+							Margin="4">
+					<TextBlock Text="BPM" FontSize="20"/>
+					<TextBlock x:Name="BPMTextView"
+							   Text="0" FontSize="100"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"/>
+				</StackPanel>
+			</Border>
+
+			<Border x:Name="RespRateRect" 
+					Height="200"
+					Width="150"
+					CornerRadius="20"
+					Background="#f5e6ca"
+					Grid.Column="3"
+					Grid.Row="0"
+					Margin="9 0 0 0">
+				<StackPanel Orientation="Vertical"
+							HorizontalAlignment="Center"
+							Margin="4">
+					<TextBlock Text="RespRate" FontSize="20"/>
+					<TextBlock x:Name="RespRateTextView"
+							   Text="0" FontSize="100"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"/>
+				</StackPanel>
+			</Border>
+		</Grid>
+	</DockPanel>
+
+</mah:MetroWindow>

@@ -1,19 +1,45 @@
 {
   "version": 2,
-  "dgSpecHash": "nLiQk+S/53weAMb43grAvlLhEuC19O//pHYB3PEXr83rA+6O++5PoYv8U6uJUgGPMPY7Hs8jefy0nKxAzlecSQ==",
+  "dgSpecHash": "cf2OpSnxCNXJkD0v4TNukGJ5RD6WAU4UpqGigikB/HeGPqIu2Kt0k3/9Sr/UvDf2u9QZR3282bL4Cue5Eci5xQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\josti\\Desktop\\Root\\Personal\\Projects\\Laps Remote\\LapsRemoteWPF\\LapsRemote\\LapsRemote\\LapsRemote.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\josti\\.nuget\\packages\\controlzex\\4.4.0\\controlzex.4.4.0.nupkg.sha512",
+    "C:\\Users\\josti\\.nuget\\packages\\livecharts\\0.9.7\\livecharts.0.9.7.nupkg.sha512",
+    "C:\\Users\\josti\\.nuget\\packages\\livecharts.wpf\\0.9.7\\livecharts.wpf.0.9.7.nupkg.sha512",
     "C:\\Users\\josti\\.nuget\\packages\\mahapps.metro\\2.4.5\\mahapps.metro.2.4.5.nupkg.sha512",
     "C:\\Users\\josti\\.nuget\\packages\\mahapps.metro.iconpacks\\4.8.0\\mahapps.metro.iconpacks.4.8.0.nupkg.sha512",
     "C:\\Users\\josti\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\josti\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\josti\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
+    "C:\\Users\\josti\\.nuget\\packages\\oxyplot.core\\2.1.0-preview1\\oxyplot.core.2.1.0-preview1.nupkg.sha512",
+    "C:\\Users\\josti\\.nuget\\packages\\oxyplot.wpf\\2.1.0-preview1\\oxyplot.wpf.2.1.0-preview1.nupkg.sha512",
+    "C:\\Users\\josti\\.nuget\\packages\\oxyplot.wpf.shared\\2.1.0-preview1\\oxyplot.wpf.shared.2.1.0-preview1.nupkg.sha512",
     "C:\\Users\\josti\\.nuget\\packages\\scottplot\\4.1.16\\scottplot.4.1.16.nupkg.sha512",
     "C:\\Users\\josti\\.nuget\\packages\\scottplot.wpf\\4.1.16\\scottplot.wpf.4.1.16.nupkg.sha512",
     "C:\\Users\\josti\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512",
     "C:\\Users\\josti\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'LiveCharts 0.9.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "LiveCharts",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'LiveCharts.Wpf 0.9.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "LiveCharts.Wpf",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
 }
