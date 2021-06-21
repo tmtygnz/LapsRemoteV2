@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Diagnostics;
 using LapsRemote.Logging;
+using System.Windows.Input;
 
 namespace LapsRemote.ViewsModel
 {
 	class MainViewModel : ViewModelBase
 	{
 
-		public void OpenRepositoryWebsite()
+		public ICommand OpenRepositoryWebsite_Command => RelayCommand()
+		public void OpenRepositoryWebsite_Action()
 		{
 			try
 			{

@@ -36,24 +36,6 @@ namespace LapsRemote.Screens
 			DataContext = _viewModel;
 		}
 
-		private void OpenRepo(object sender, RoutedEventArgs e)
-		{
-			try
-			{
-				ProcessStartInfo psi = new ProcessStartInfo
-				{
-					UseShellExecute = true,
-					FileName = "https://github.com/jostimian/LapsRemoteV2"
-				};
-				Process.Start(psi);
-			}
-			catch (Exception exp)
-			{
-				Logger.MessageBoxLog("Cant open website", Level.Error, DateTime.Now);
-				Logger.Log(exp.StackTrace, Level.Error, DateTime.Now);
-			}
-		}
-
 		private void ExitClick(object sender, RoutedEventArgs e)
 		{
 			Application.Current.Shutdown();
