@@ -13,10 +13,11 @@
 	<mah:MetroWindow.RightWindowCommands>
 		<mah:WindowCommands>
 			<Button ToolTip="Open Github Repository" 
-					Command="{Binding OpenRepositoryWebsite}">
+					Command="{Binding OpenRepositoryWebsite_Command}">
 				<iconPacks:PackIconMaterial VerticalAlignment="Center" Kind="Github" Width="20" Height="20"/>
 			</Button>
-			<Button ToolTip="Submit A Feature Or A Bug Fix Request">
+			<Button ToolTip="Submit A Feature Or A Bug Fix Request"
+					Command="{Binding SubmitBug_Command}">
 				<iconPacks:PackIconMaterial VerticalAlignment="Center" Width="20" Height="20" Kind="Bug"/>
 			</Button>
 		</mah:WindowCommands>
@@ -25,7 +26,7 @@
 	<DockPanel>
 		<Menu DockPanel.Dock="Top">
 			<MenuItem Header="Files" >
-				<MenuItem Header="Exit" Click="ExitClick"/>
+				<MenuItem Header="Exit" Command="{Binding Exit_Command}"/>
 			</MenuItem>
 			<MenuItem Header="Vitals">
 				<MenuItem Header="Recording">
