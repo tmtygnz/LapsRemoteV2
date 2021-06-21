@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cf2OpSnxCNXJkD0v4TNukGJ5RD6WAU4UpqGigikB/HeGPqIu2Kt0k3/9Sr/UvDf2u9QZR3282bL4Cue5Eci5xQ==",
+  "dgSpecHash": "VglyRr28EIv3OGcokBh9Yk7yWzPdiGtKgU95BrqQNJ+pXJ41qtk2OdTn+prbWCbJIJH1UNUBhhmWCEGprVebPQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\josti\\Desktop\\Root\\Personal\\Projects\\Laps Remote\\LapsRemoteWPF\\LapsRemote\\LapsRemote\\LapsRemote.csproj",
   "expectedPackageFiles": [
@@ -18,27 +18,28 @@
     "C:\\Users\\josti\\.nuget\\packages\\scottplot\\4.1.16\\scottplot.4.1.16.nupkg.sha512",
     "C:\\Users\\josti\\.nuget\\packages\\scottplot.wpf\\4.1.16\\scottplot.wpf.4.1.16.nupkg.sha512",
     "C:\\Users\\josti\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512",
-    "C:\\Users\\josti\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
+    "C:\\Users\\josti\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
+    "C:\\Users\\josti\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.5\\microsoft.netcore.app.host.win-x64.5.0.5.nupkg.sha512"
   ],
   "logs": [
     {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'LiveCharts 0.9.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "message": "Package 'LiveCharts 0.9.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
       "libraryId": "LiveCharts",
       "targetGraphs": [
-        "net6.0-windows7.0"
+        "net5.0-windows7.0"
       ]
     },
     {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'LiveCharts.Wpf 0.9.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "message": "Package 'LiveCharts.Wpf 0.9.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
       "libraryId": "LiveCharts.Wpf",
       "targetGraphs": [
-        "net6.0-windows7.0"
+        "net5.0-windows7.0"
       ]
     }
   ]

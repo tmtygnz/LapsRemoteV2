@@ -8,7 +8,7 @@
 		xmlns:local="clr-namespace:LapsRemote.Screens"
 		xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
 		GlowBrush="{DynamicResource MahApps.Brushes.Accent1}"
-		Title="Laps" Height="720" Width="1280" Activated="MetroWindow_Activated">
+		Title="Laps" Height="720" Width="1280">
 
 	<mah:MetroWindow.RightWindowCommands>
 		<mah:WindowCommands>

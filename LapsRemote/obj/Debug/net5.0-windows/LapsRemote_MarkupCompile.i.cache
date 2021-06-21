@@ -1,5 +1,5 @@
 ﻿LapsRemote
-
+1.0.0.0
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\App.xaml
 12047235480
 
-12755290014
+14-1076292278
 2351638140927
 Views\Main.xaml;
 
-False
+True
 
