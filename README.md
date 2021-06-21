@@ -14,6 +14,8 @@ This month is the last quarter of my school year so i will be out in a few weeks
 - Implementing MVVM
 
 ## Installation And Usage
+Visual studio 2019 or 2022 preivew is recomended, This project is not tested in other environments.
+
 You can clone this repository using `git` or `gh`
 ```
 gh repo clone jostimian/LapsRemoteV2
