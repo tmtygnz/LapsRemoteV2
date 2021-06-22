@@ -18,33 +18,14 @@
           }
         }
       },
-      "LiveCharts/0.9.7": {
-        "runtime": {
-          "lib/net45/LiveCharts.dll": {
-            "assemblyVersion": "0.9.7.0",
-            "fileVersion": "0.9.7.0"
-          }
-        }
-      },
-      "LiveCharts.Wpf/0.9.7": {
-        "dependencies": {
-          "LiveCharts": "0.9.7"
-        },
-        "runtime": {
-          "lib/net45/LiveCharts.Wpf.dll": {
-            "assemblyVersion": "0.9.7.0",
-            "fileVersion": "0.9.7.0"
-          }
-        }
-      },
-      "MahApps.Metro/2.4.5": {
+      "MahApps.Metro/2.4.6": {
         "dependencies": {
           "ControlzEx": "4.4.0"
         },
         "runtime": {
           "lib/netcoreapp3.1/MahApps.Metro.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.4.5.4"
+            "fileVersion": "2.4.6.3"
           }
         },
         "resources": {
@@ -306,26 +287,12 @@
       "path": "controlzex/4.4.0",
       "hashPath": "controlzex.4.4.0.nupkg.sha512"
     },
-    "LiveCharts/0.9.7": {
+    "MahApps.Metro/2.4.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-p4xyBrUaNNfkWZSNsIle0r51cyVyFg0Yi0uBRZM5GQtdFiA/7guZHlffFyNUILIdux10Ch2hUaJpcZENVU9aaQ==",
-      "path": "livecharts/0.9.7",
-      "hashPath": "livecharts.0.9.7.nupkg.sha512"
-    },
-    "LiveCharts.Wpf/0.9.7": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-lv6YZoK0B4yWykMq5b9grZXtIbTj+OWu4sVN9GDpdgV6zffu64m4d5CW8KSjfSl9rB8VU649x1NZvhoU67hCDg==",
-      "path": "livecharts.wpf/0.9.7",
-      "hashPath": "livecharts.wpf.0.9.7.nupkg.sha512"
-    },
-    "MahApps.Metro/2.4.5": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-fUmU2yQgHqUTDDZT494+WcMBrg6G/960et7eqIvKGRRwH0I/d6cA6AuvRIJEQezxCFewweRbIkFvIOS62tjqug==",
-      "path": "mahapps.metro/2.4.5",
-      "hashPath": "mahapps.metro.2.4.5.nupkg.sha512"
+      "sha512": "sha512-4bmwsTtdATI3kkj4vnJ2fC+GNeAgSvaxS9JvbgyX9xb03qBI7+8nOltFumbHsc1rrmTYBSmHviqssmw2HrfvPw==",
+      "path": "mahapps.metro/2.4.6",
+      "hashPath": "mahapps.metro.2.4.6.nupkg.sha512"
     },
     "MahApps.Metro.IconPacks/4.8.0": {
       "type": "package",

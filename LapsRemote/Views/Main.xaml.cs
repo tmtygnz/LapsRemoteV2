@@ -15,8 +15,6 @@ using MahApps.Metro.Controls;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using LapsRemote.Logging;
-using LiveCharts;
-using LiveCharts.Wpf;
 using LapsRemote.ViewsModel;
 
 namespace LapsRemote.Screens
@@ -34,6 +32,10 @@ namespace LapsRemote.Screens
             InitializeComponent();
 			_viewModel = new MainViewModel();
 			DataContext = _viewModel;
+		}
+
+		private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+		{
 		}
 	}
 }

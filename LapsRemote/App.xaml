@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:LapsRemote"
              StartupUri="Views\Main.xaml">
-    <Application.Resources>
+	<Application.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
 				<!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
@@ -15,5 +15,7 @@
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>
+	
+	
 
 

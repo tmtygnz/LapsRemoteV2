@@ -6,7 +6,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:LapsRemote.Screens"
-		xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
 		GlowBrush="{DynamicResource MahApps.Brushes.Accent1}"
 		Title="Laps" Height="720" Width="1280">
 
@@ -62,7 +61,7 @@
 							Margin="4">
 					<TextBlock Text="Temperature" FontSize="20"/>
 					<TextBlock x:Name="TemperatureTextView"
-							   Text="0" FontSize="100"
+							   Text="{Binding TemperatureString}" FontSize="100"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"/>
 				</StackPanel>
@@ -81,7 +80,7 @@
 							Margin="4">
 					<TextBlock Text="02Stat" FontSize="20"/>
 					<TextBlock x:Name="OxyStatTextIvew"
-							   Text="0" FontSize="100"
+							   Text="{Binding OxyStatString}" FontSize="100"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"/>
 				</StackPanel>
@@ -100,7 +99,7 @@
 							Margin="4">
 					<TextBlock Text="BPM" FontSize="20"/>
 					<TextBlock x:Name="BPMTextView"
-							   Text="0" FontSize="100"
+							   Text="{Binding BPMString}" FontSize="100"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"/>
 				</StackPanel>
@@ -119,7 +118,7 @@
 							Margin="4">
 					<TextBlock Text="RespRate" FontSize="20"/>
 					<TextBlock x:Name="RespRateTextView"
-							   Text="0" FontSize="100"
+							   Text="{Binding RespRateString}" FontSize="100"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"/>
 				</StackPanel>

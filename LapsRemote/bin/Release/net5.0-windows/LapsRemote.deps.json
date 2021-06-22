@@ -8,8 +8,10 @@
     ".NETCoreApp,Version=v5.0": {
       "LapsRemote/1.0.0": {
         "dependencies": {
-          "MahApps.Metro": "2.4.5",
-          "MahApps.Metro.IconPacks": "4.8.0"
+          "MahApps.Metro": "2.4.6",
+          "MahApps.Metro.IconPacks": "4.8.0",
+          "OxyPlot.Wpf": "2.1.0-Preview1",
+          "ScottPlot.WPF": "4.1.16"
         },
         "runtime": {
           "LapsRemote.dll": {}
@@ -27,14 +29,14 @@
           }
         }
       },
-      "MahApps.Metro/2.4.5": {
+      "MahApps.Metro/2.4.6": {
         "dependencies": {
           "ControlzEx": "4.4.0"
         },
         "runtime": {
           "lib/netcoreapp3.1/MahApps.Metro.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.4.5.4"
+            "fileVersion": "2.4.6.3"
           }
         },
         "resources": {
@@ -171,12 +173,77 @@
           }
         }
       },
+      "Microsoft.NETCore.Platforms/5.0.0": {},
+      "Microsoft.Win32.SystemEvents/5.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "5.0.0"
+        }
+      },
       "Microsoft.Xaml.Behaviors.Wpf/1.1.19": {
         "runtime": {
           "lib/netcoreapp3.0/Microsoft.Xaml.Behaviors.dll": {
             "assemblyVersion": "1.1.0.0",
             "fileVersion": "1.1.19.35512"
           }
+        }
+      },
+      "OxyPlot.Core/2.1.0-Preview1": {
+        "runtime": {
+          "lib/netstandard2.0/OxyPlot.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
+      },
+      "OxyPlot.Wpf/2.1.0-Preview1": {
+        "dependencies": {
+          "OxyPlot.Core": "2.1.0-Preview1",
+          "OxyPlot.Wpf.Shared": "2.1.0-Preview1"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/OxyPlot.Wpf.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
+      },
+      "OxyPlot.Wpf.Shared/2.1.0-Preview1": {
+        "dependencies": {
+          "OxyPlot.Core": "2.1.0-Preview1"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/OxyPlot.Wpf.Shared.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
+      },
+      "ScottPlot/4.1.16": {
+        "dependencies": {
+          "System.Drawing.Common": "5.0.0"
+        },
+        "runtime": {
+          "lib/net5.0/ScottPlot.dll": {
+            "assemblyVersion": "4.1.16.0",
+            "fileVersion": "4.1.16.0"
+          }
+        }
+      },
+      "ScottPlot.WPF/4.1.16": {
+        "dependencies": {
+          "ScottPlot": "4.1.16",
+          "System.Drawing.Common": "5.0.0"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/ScottPlot.WPF.dll": {
+            "assemblyVersion": "4.1.16.0",
+            "fileVersion": "4.1.16.0"
+          }
+        }
+      },
+      "System.Drawing.Common/5.0.0": {
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "5.0.0"
         }
       },
       "System.Text.Json/4.7.2": {}
@@ -195,12 +262,12 @@
       "path": "controlzex/4.4.0",
       "hashPath": "controlzex.4.4.0.nupkg.sha512"
     },
-    "MahApps.Metro/2.4.5": {
+    "MahApps.Metro/2.4.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-fUmU2yQgHqUTDDZT494+WcMBrg6G/960et7eqIvKGRRwH0I/d6cA6AuvRIJEQezxCFewweRbIkFvIOS62tjqug==",
-      "path": "mahapps.metro/2.4.5",
-      "hashPath": "mahapps.metro.2.4.5.nupkg.sha512"
+      "sha512": "sha512-4bmwsTtdATI3kkj4vnJ2fC+GNeAgSvaxS9JvbgyX9xb03qBI7+8nOltFumbHsc1rrmTYBSmHviqssmw2HrfvPw==",
+      "path": "mahapps.metro/2.4.6",
+      "hashPath": "mahapps.metro.2.4.6.nupkg.sha512"
     },
     "MahApps.Metro.IconPacks/4.8.0": {
       "type": "package",
@@ -209,12 +276,68 @@
       "path": "mahapps.metro.iconpacks/4.8.0",
       "hashPath": "mahapps.metro.iconpacks.4.8.0.nupkg.sha512"
     },
+    "Microsoft.NETCore.Platforms/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VyPlqzH2wavqquTcYpkIIAQ6WdenuKoFN0BdYBbCWsclXacSOHNQn66Gt4z5NBqEYW0FAPm5rlvki9ZiCij5xQ==",
+      "path": "microsoft.netcore.platforms/5.0.0",
+      "hashPath": "microsoft.netcore.platforms.5.0.0.nupkg.sha512"
+    },
+    "Microsoft.Win32.SystemEvents/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Bh6blKG8VAKvXiLe2L+sEsn62nc1Ij34MrNxepD2OCrS5cpCwQa9MeLyhVQPQ/R4Wlzwuy6wMK8hLb11QPDRsQ==",
+      "path": "microsoft.win32.systemevents/5.0.0",
+      "hashPath": "microsoft.win32.systemevents.5.0.0.nupkg.sha512"
+    },
     "Microsoft.Xaml.Behaviors.Wpf/1.1.19": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-5sPWkbqImc2t1aQwIfJcKsUo7tOg1Tr8+6xVzZJB56Nzt4u9NlpcLofgdX/aRYpPKdWDA3U23Akw1KQzU5e82g==",
       "path": "microsoft.xaml.behaviors.wpf/1.1.19",
       "hashPath": "microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512"
+    },
+    "OxyPlot.Core/2.1.0-Preview1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RHP7AXyiVXArMIkdIbhf5SbcO5iXg3UPZmzI8y5HpxQq0nHDMFMvWDcd1v/zlhUCX5/uSCDLCl1xxd1V1OWBmQ==",
+      "path": "oxyplot.core/2.1.0-preview1",
+      "hashPath": "oxyplot.core.2.1.0-preview1.nupkg.sha512"
+    },
+    "OxyPlot.Wpf/2.1.0-Preview1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gZcC6Q4U3b5UVmY6/WF7rfeV5WeMc6MEb+t6EchN9ZjTiJSejmOO9k/2G9O1tHtfFYqMMDFG2QF1magkWmksxg==",
+      "path": "oxyplot.wpf/2.1.0-preview1",
+      "hashPath": "oxyplot.wpf.2.1.0-preview1.nupkg.sha512"
+    },
+    "OxyPlot.Wpf.Shared/2.1.0-Preview1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yTmvOFnpfnjdSwhHbtXU9PksCZ1RQbZ2FX38EpNPIQ8eWaH21p472+fdq62YIjih7DViax8FmmW+QEmzDNEGKw==",
+      "path": "oxyplot.wpf.shared/2.1.0-preview1",
+      "hashPath": "oxyplot.wpf.shared.2.1.0-preview1.nupkg.sha512"
+    },
+    "ScottPlot/4.1.16": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-N5OZPHfYyCDCvlhxMFVc5glzuGrZuenes2tVgYQY7rK+UBxXNR+ThJvKkdeBXvAijDWZzLOUZ+weqwthxlHlFQ==",
+      "path": "scottplot/4.1.16",
+      "hashPath": "scottplot.4.1.16.nupkg.sha512"
+    },
+    "ScottPlot.WPF/4.1.16": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YKpjGBM3Fkhx2LoyUX1tZiW732A7/EUKL006E5EEby6dgPPSzoRAoEebVjn7tlxwsRrNq5VwdRdgND5m20cn7g==",
+      "path": "scottplot.wpf/4.1.16",
+      "hashPath": "scottplot.wpf.4.1.16.nupkg.sha512"
+    },
+    "System.Drawing.Common/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SztFwAnpfKC8+sEKXAFxCBWhKQaEd97EiOL7oZJZP56zbqnLpmxACWA8aGseaUExciuEAUuR9dY8f7HkTRAdnw==",
+      "path": "system.drawing.common/5.0.0",
+      "hashPath": "system.drawing.common.5.0.0.nupkg.sha512"
     },
     "System.Text.Json/4.7.2": {
       "type": "package",

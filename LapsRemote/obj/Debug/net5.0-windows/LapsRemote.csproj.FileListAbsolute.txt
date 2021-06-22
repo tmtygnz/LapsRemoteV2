@@ -1,33 +1,9 @@
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.csprojAssemblyReference.cache
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\MainWindow.g.cs
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\App.g.cs
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote_MarkupCompile.cache
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote_MarkupCompile.lref
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\LapsRemote.exe
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\LapsRemote.deps.json
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\LapsRemote.runtimeconfig.json
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\LapsRemote.runtimeconfig.dev.json
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\LapsRemote.dll
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\ref\LapsRemote.dll
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\LapsRemote.pdb
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\MainWindow.baml
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.g.resources
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.AssemblyInfoInputs.cache
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.AssemblyInfo.cs
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.csproj.CoreCompileInputs.cache
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.dll
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\ref\LapsRemote.dll
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.pdb
-C:\Users\josti\source\repos\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.genruntimeconfig.cache
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\Views\Main.g.cs
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\App.g.cs
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote_MarkupCompile.cache
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote_MarkupCompile.lref
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.g.resources
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.AssemblyInfoInputs.cache
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.AssemblyInfo.cs
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.csproj.CoreCompileInputs.cache
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\App.baml
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\Views\Main.baml
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.dll
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\ref\LapsRemote.dll
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.pdb
@@ -38,13 +14,8 @@ C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemo
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\LapsRemote.dll
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\ref\LapsRemote.dll
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\LapsRemote.pdb
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.genruntimeconfig.cache
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\ControlzEx.dll
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\MahApps.Metro.dll
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\Microsoft.Xaml.Behaviors.dll
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\de\MahApps.Metro.resources.dll
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\App.baml
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.csproj.CopyComplete
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\MahApps.Metro.IconPacks.BootstrapIcons.dll
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\MahApps.Metro.IconPacks.BoxIcons.dll
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\MahApps.Metro.IconPacks.Codicons.dll
@@ -76,13 +47,18 @@ C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemo
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\MahApps.Metro.IconPacks.WeatherIcons.dll
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\MahApps.Metro.IconPacks.Zondicons.dll
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\MahApps.Metro.IconPacks.dll
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\ScottPlot.dll
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\ScottPlot.WPF.dll
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\Microsoft.Xaml.Behaviors.dll
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\OxyPlot.dll
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\OxyPlot.Wpf.dll
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\OxyPlot.Wpf.Shared.dll
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\LiveCharts.dll
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\LiveCharts.Wpf.dll
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\ScottPlot.dll
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\ScottPlot.WPF.dll
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\de\MahApps.Metro.resources.dll
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.csproj.AssemblyReference.cache
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\Views\Main.g.cs
-C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\Views\Main.baml
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.g.resources
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.AssemblyInfoInputs.cache
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.AssemblyInfo.cs
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.csproj.CoreCompileInputs.cache
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.csproj.CopyComplete
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.genruntimeconfig.cache
