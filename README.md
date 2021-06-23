@@ -10,8 +10,9 @@ by using telemedice
 This month is the last quarter of my school year so i will be out in a few weeks
 
 ## Currently Working On
-- Learning MVVM
-- Implementing MVVM
+- [x] Implementing MVVM
+- [ ] Adding Vitals Monitor
+- [ ] Adding video and audio check up call
 
 ## Installation And Usage
 Visual studio 2019 or 2022 preivew is recomended, This project is not tested in other environments.
