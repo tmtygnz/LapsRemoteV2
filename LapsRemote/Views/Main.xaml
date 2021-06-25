@@ -5,9 +5,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-		xmlns:local="clr-namespace:LapsRemote.Screens"
+        xmlns:liveChart="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+		xmlns:oxy="http://oxyplot.org/wpf"
 		GlowBrush="{DynamicResource MahApps.Brushes.Accent1}"
-		Title="Laps" Height="720" Width="1280">
+		Title="Laps" Height="1280" Width="1280">
 
 	<mah:MetroWindow.RightWindowCommands>
 		<mah:WindowCommands>
@@ -59,7 +60,7 @@
 				<StackPanel Orientation="Vertical"
 							HorizontalAlignment="Center"
 							Margin="4">
-					<TextBlock Text="Temperature" FontSize="20"/>
+					<TextBlock Text="Temperature" HorizontalAlignment="Center" FontSize="20"/>
 					<TextBlock x:Name="TemperatureTextView"
 							   Text="{Binding TemperatureString}" FontSize="100"
 							   HorizontalAlignment="Center"
@@ -78,7 +79,7 @@
 				<StackPanel Orientation="Vertical"
 							HorizontalAlignment="Center"
 							Margin="4">
-					<TextBlock Text="02Stat" FontSize="20"/>
+					<TextBlock Text="02Stat" HorizontalAlignment="Center" FontSize="20"/>
 					<TextBlock x:Name="OxyStatTextIvew"
 							   Text="{Binding OxyStatString}" FontSize="100"
 							   HorizontalAlignment="Center"
@@ -97,7 +98,7 @@
 				<StackPanel Orientation="Vertical"
 							HorizontalAlignment="Center"
 							Margin="4">
-					<TextBlock Text="BPM" FontSize="20"/>
+					<TextBlock Text="BPM" HorizontalAlignment="Center" FontSize="20"/>
 					<TextBlock x:Name="BPMTextView"
 							   Text="{Binding BPMString}" FontSize="100"
 							   HorizontalAlignment="Center"
@@ -116,13 +117,19 @@
 				<StackPanel Orientation="Vertical"
 							HorizontalAlignment="Center"
 							Margin="4">
-					<TextBlock Text="RespRate" FontSize="20"/>
+					<TextBlock Text="RespRate" HorizontalAlignment="Center" FontSize="20"/>
 					<TextBlock x:Name="RespRateTextView"
 							   Text="{Binding RespRateString}" FontSize="100"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"/>
 				</StackPanel>
 			</Border>
+			<oxy:PlotView Model="{Binding Model}"
+						  Grid.Column="0"
+						  Grid.Row="1"
+						  Grid.ColumnSpan="3"
+						  Height="400"
+						  Width="600"/>
 		</Grid>
 	</DockPanel>
 

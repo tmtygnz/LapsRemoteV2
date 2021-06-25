@@ -18,6 +18,25 @@
           }
         }
       },
+      "LiveCharts/0.9.7": {
+        "runtime": {
+          "lib/net45/LiveCharts.dll": {
+            "assemblyVersion": "0.9.7.0",
+            "fileVersion": "0.9.7.0"
+          }
+        }
+      },
+      "LiveCharts.Wpf/0.9.7": {
+        "dependencies": {
+          "LiveCharts": "0.9.7"
+        },
+        "runtime": {
+          "lib/net45/LiveCharts.Wpf.dll": {
+            "assemblyVersion": "0.9.7.0",
+            "fileVersion": "0.9.7.0"
+          }
+        }
+      },
       "MahApps.Metro/2.4.6": {
         "dependencies": {
           "ControlzEx": "4.4.0"
@@ -190,6 +209,22 @@
           }
         }
       },
+      "MindFusion.Charting.Wpf/2.2.1": {
+        "runtime": {
+          "lib/net45/MindFusion.Charting.Wpf.dll": {
+            "assemblyVersion": "2.2.0.450",
+            "fileVersion": "2.2.0.450"
+          },
+          "lib/net45/MindFusion.Gauges.Wpf.dll": {
+            "assemblyVersion": "1.0.1.450",
+            "fileVersion": "1.0.1.450"
+          },
+          "lib/net45/MindFusion.Licensing.dll": {
+            "assemblyVersion": "1.0.4.38034",
+            "fileVersion": "1.0.4.38034"
+          }
+        }
+      },
       "OxyPlot.Core/2.1.0-Preview1": {
         "runtime": {
           "lib/netstandard2.0/OxyPlot.dll": {
@@ -287,6 +322,20 @@
       "path": "controlzex/4.4.0",
       "hashPath": "controlzex.4.4.0.nupkg.sha512"
     },
+    "LiveCharts/0.9.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-p4xyBrUaNNfkWZSNsIle0r51cyVyFg0Yi0uBRZM5GQtdFiA/7guZHlffFyNUILIdux10Ch2hUaJpcZENVU9aaQ==",
+      "path": "livecharts/0.9.7",
+      "hashPath": "livecharts.0.9.7.nupkg.sha512"
+    },
+    "LiveCharts.Wpf/0.9.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lv6YZoK0B4yWykMq5b9grZXtIbTj+OWu4sVN9GDpdgV6zffu64m4d5CW8KSjfSl9rB8VU649x1NZvhoU67hCDg==",
+      "path": "livecharts.wpf/0.9.7",
+      "hashPath": "livecharts.wpf.0.9.7.nupkg.sha512"
+    },
     "MahApps.Metro/2.4.6": {
       "type": "package",
       "serviceable": true,
@@ -321,6 +370,13 @@
       "sha512": "sha512-5sPWkbqImc2t1aQwIfJcKsUo7tOg1Tr8+6xVzZJB56Nzt4u9NlpcLofgdX/aRYpPKdWDA3U23Akw1KQzU5e82g==",
       "path": "microsoft.xaml.behaviors.wpf/1.1.19",
       "hashPath": "microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512"
+    },
+    "MindFusion.Charting.Wpf/2.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bZQ67AOXShnB20m97BM96HousMbgUqUwXJkiTG0dtNjrTBlGxw1lN+7tZ3Ya6sGuKVFiDLtIaVvyCEYrLSHZWA==",
+      "path": "mindfusion.charting.wpf/2.2.1",
+      "hashPath": "mindfusion.charting.wpf.2.2.1.nupkg.sha512"
     },
     "OxyPlot.Core/2.1.0-Preview1": {
       "type": "package",

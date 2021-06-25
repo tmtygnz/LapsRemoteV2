@@ -62,3 +62,8 @@ C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemo
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.csproj.CoreCompileInputs.cache
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.csproj.CopyComplete
 C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\obj\Debug\net5.0-windows\LapsRemote.genruntimeconfig.cache
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\LiveCharts.dll
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\LiveCharts.Wpf.dll
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\MindFusion.Charting.Wpf.dll
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\MindFusion.Gauges.Wpf.dll
+C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Debug\net5.0-windows\MindFusion.Licensing.dll
