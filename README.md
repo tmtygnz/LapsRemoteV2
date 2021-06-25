@@ -13,6 +13,7 @@ This month is the last quarter of my school year so i will be out in a few weeks
 - [x] Implementing MVVM
 - [ ] Adding Vitals Monitor
 - [ ] Adding video and audio check up call
+- [ ] Better User Interface
 
 ## Installation And Usage
 Visual studio 2019 or 2022 preivew is recomended, This project is not tested in other environments.
