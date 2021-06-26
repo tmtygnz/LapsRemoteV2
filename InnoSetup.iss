@@ -25,8 +25,12 @@ LicenseFile=.\LICENSE
 ;PrivilegesRequired=lowest
 OutputDir=build
 OutputBaseFilename=LapsRemoteV2pre
-Compression=lzma
 SolidCompression=yes
+Compression=lzma2/ultra64
+LZMAUseSeparateProcess=yes
+LZMADictionarySize=1048576
+LZMANumFastBytes=273
+LZMANumBlockThreads=6
 WizardStyle=classic
 
 [Languages]
