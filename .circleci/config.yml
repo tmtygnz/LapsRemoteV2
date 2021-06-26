@@ -12,7 +12,9 @@ jobs:
       - checkout
       - run:
           name: "Build Application according to some given configuration"
-          command: dotnet.exe build --configuration Release
+          command: |
+            dotnet.exe build --configuration Release
+            ./build.ps1
 workflows:
   build:
     jobs:
