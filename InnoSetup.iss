@@ -20,15 +20,14 @@ AppPublisher={#MyAppPublisher}
 DefaultDirName={autopf}\{#MyAppName}
 ChangesAssociations=yes
 DisableProgramGroupPage=yes
-LicenseFile=C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LICENSE
-InfoBeforeFile=C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LICENSE
+LicenseFile=.\LICENSE
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
-OutputDir=C:\Users\josti\Desktop
-OutputBaseFilename=LapsRemoteV2-pre
+OutputDir=build
+OutputBaseFilename=LapsRemoteV2pre
 Compression=lzma
 SolidCompression=yes
-WizardStyle=modern
+WizardStyle=classic
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -37,7 +36,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\josti\Desktop\Root\Personal\Projects\Laps Remote\LapsRemoteWPF\LapsRemote\LapsRemote\bin\Release\net5.0-windows\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Build\LapsRemote\LapsRemote.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Build\LapsRemote\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
