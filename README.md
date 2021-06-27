@@ -15,14 +15,17 @@ This month is the last quarter of my school year so i will be out in a few weeks
 - [ ] Adding video and audio check up call
 - [ ] Better User Interface
 
-## Installation And Usage
-Visual studio 2019 or 2022 preivew is recomended, This project is not tested in other environments.
+## Build And Installation
+**Prerequisite**
+- [Dotnet 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
+- Visual Studio 2019 with .`NET desktop development` installed
+- [Inno Setup](https://jrsoftware.org/isinfo.php) (Optional)
 
-You can clone this repository using `git` or `gh`
-```
-gh repo clone jostimian/LapsRemoteV2
-```
-or
-```
-git clone https://github.com/jostimian/LapsRemoteV2.git
+**Steps**
+- Clone The Repository with `https://github.com/jostimian/LapsRemoteV2.git`
+- Run The `build.ps1` script with powershell. You can also use Visual Studio to build the application
+
+You can also use this command to make things easier
+```powershell
+git clone https://github.com/jostimian/LapsRemoteV2.git; .\LapsRemoteV2\build.ps1
 ```
