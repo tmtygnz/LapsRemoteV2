@@ -1,3 +1,4 @@
+  
 function Log {
     param (
         $StringOutput
@@ -56,7 +57,6 @@ if (-not(Test-Path -Path "$BuildDirectory\LapsRemoteArchived.zip")){
 }
 
 #Inno Setup Installer
-
 $InnoExecutableDirectory = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
 
 if (Test-Path -Path $InnoExecutableDirectory){
@@ -65,7 +65,7 @@ if (Test-Path -Path $InnoExecutableDirectory){
     Log("Setup Created")
 }
 else {
-    LogError("Inno Setup Not Found I ${env:ProgramFiles(x86)}\Inno Setup 6. Skipping...")
+    Log("Inno Setup Not Found I ${env:ProgramFiles(x86)}\Inno Setup 6. Skipping...")
 }
 
 foreach ($ItemFile in Get-ChildItem $BuildDirectory | Where-Object {$_.Name.EndsWith(".exe") -or $_.Name.EndsWith(".zip")} | Get-FileHash){

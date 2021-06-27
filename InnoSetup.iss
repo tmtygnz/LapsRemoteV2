@@ -28,9 +28,9 @@ OutputBaseFilename=LapsRemoteV2pre
 SolidCompression=yes
 Compression=lzma2/ultra64
 LZMAUseSeparateProcess=yes
-LZMADictionarySize=1048576
+LZMADictionarySize=131072
 LZMANumFastBytes=273
-LZMANumBlockThreads=6
+LZMANumBlockThreads=8
 WizardStyle=classic
 
 [Languages]
