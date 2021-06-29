@@ -25,7 +25,7 @@ This month is the last quarter of my school year so i will be out in a few weeks
 - Clone The Repository with `https://github.com/jostimian/LapsRemoteV2.git`
 - Run The `build.ps1` script with powershell. You can also use Visual Studio to build the application
 
-You can also use this command to make things easier
-```powershell
+Use this command to clone and build the project.
+```bash
 git clone https://github.com/jostimian/LapsRemoteV2.git; .\LapsRemoteV2\build.ps1
 ```
