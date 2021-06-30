@@ -24,6 +24,7 @@ namespace LapsRemote.ViewsModel
 
 		public MainViewModel()
 		{
+			Title = $"LAPS {Environment.OSVersion}";
 			Model = new PlotModel { Title = "Hello World" };
 			new Thread(new ThreadStart(UpdateVitals)).Start();
 		}
@@ -140,6 +141,20 @@ namespace LapsRemote.ViewsModel
 				if (value == _respRateString)
 					return;
 				_respRateString = value;
+				OnPropertyChanged();
+			}
+		}
+
+		private string _title;
+		public string Title
+		{
+			get => _title;
+
+			set 
+			{
+				if (value == _title)
+					return;
+				_title = value;
 				OnPropertyChanged();
 			}
 		}

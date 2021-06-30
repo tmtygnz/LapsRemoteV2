@@ -8,7 +8,7 @@
         xmlns:liveChart="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
 		xmlns:oxy="http://oxyplot.org/wpf"
 		GlowBrush="{DynamicResource MahApps.Brushes.Accent1}"
-		Title="Laps" Height="1280" Width="1280">
+		Title="{Binding Title}" Height="1280" Width="1280">
 
 	<mah:MetroWindow.RightWindowCommands>
 		<mah:WindowCommands>
