@@ -124,12 +124,6 @@
 							   VerticalAlignment="Center"/>
 				</StackPanel>
 			</Border>
-			<oxy:PlotView Model="{Binding Model}"
-						  Grid.Column="0"
-						  Grid.Row="1"
-						  Grid.ColumnSpan="3"
-						  Height="400"
-						  Width="600"/>
 		</Grid>
 	</DockPanel>
 
