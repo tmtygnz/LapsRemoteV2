@@ -16,6 +16,9 @@ This month is the last quarter of my school year so i will be out in a few weeks
 - [ ] Better User Interface
 
 ## Build And Installation
+**Note**
+If you are using older version of windows (Older than windows 10/11) some ui components might not work properly.
+
 **Prerequisite**
 - [Dotnet 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
 - Visual Studio 2019 with .`NET desktop development` installed
