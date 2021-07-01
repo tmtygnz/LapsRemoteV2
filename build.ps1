@@ -70,7 +70,7 @@ else {
 
 foreach ($ItemFile in Get-ChildItem $BuildDirectory | Where-Object {$_.Name.EndsWith(".exe") -or $_.Name.EndsWith(".zip")} | Get-FileHash){
     Log("$([System.IO.Path]::GetFileName($ItemFile.Path)) | $($ItemFile.Algorithm) | $($ItemFile.Hash)");
-    "$([System.IO.Path]::GetFileName($ItemFile.Path)) | $($ItemFile.Algorithm) | $($ItemFile.Hash)" | Out-File "$BuildDirectory\LapsRemote_Hash.txt" -Encoding utf8
+    "$([System.IO.Path]::GetFileName($ItemFile.Path)) | $($ItemFile.Algorithm) | $($ItemFile.Hash)" | Out-File "$BuildDirectory\LapsRemote_Hash.txt" -Encoding utf8 -Append
 }
 
 Log("Build Is Complete! You Can See Your Files Here $BuildDirectory")
