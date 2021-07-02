@@ -28,8 +28,4 @@
     <PackageReference Include="ScottPlot.WPF" Version="4.1.16" />
   </ItemGroup>
 
-  <ItemGroup>
-    <SplashScreen Include="Artboard 1.png" />
-  </ItemGroup>
-
 </Project>

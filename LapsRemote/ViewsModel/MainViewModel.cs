@@ -26,9 +26,11 @@ namespace LapsRemote.ViewsModel
 		{
 			Title = $"LAPS {Environment.OSVersion}";
 			Model = new PlotModel { Title = "Hello World" };
+			_isUpdating = true;
 			new Thread(new ThreadStart(UpdateVitals)).Start();
 		}
 
+		public bool _isUpdating { get; set; }
 
 		private PlotModel model;
 		public PlotModel Model
@@ -63,13 +65,6 @@ namespace LapsRemote.ViewsModel
 					Level.Error, DateTime.Now);
 				Logger.Log(exp.StackTrace, Level.Error, DateTime.Now);
 			}
-		}
-
-		public ICommand Exit_Command => new RelayCommand(param => Exit_Action());
-		public void Exit_Action()
-		{
-			App.Current.Shutdown();
-			Logger.KillAll();
 		}
 
 		public ICommand SubmitBug_Command => new RelayCommand(param => SubmitBug_Action());
@@ -163,7 +158,7 @@ namespace LapsRemote.ViewsModel
 		{
 			lock (this)
 			{
-				while (true)
+				while (_isUpdating)
 				{
 					Thread.Sleep(1000);
 					TemperatureString = Temperature.RandomTemperature().ToString();
