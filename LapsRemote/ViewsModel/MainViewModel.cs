@@ -14,8 +14,8 @@ using System.Windows;
 using LiveCharts;
 using LiveCharts.Wpf;
 using LiveCharts.Configurations;
-using OxyPlot;
-using OxyPlot.Series;
+using LiveCharts.Defaults;
+using System.Windows.Media;
 
 namespace LapsRemote.ViewsModel
 {
@@ -25,26 +25,26 @@ namespace LapsRemote.ViewsModel
 		public MainViewModel()
 		{
 			Title = $"LAPS {Environment.OSVersion}";
-			Model = new PlotModel { Title = "Hello World" };
+			MonitorModel = new SeriesCollection
+			{
+				new LineSeries
+				{
+					Stroke = new SolidColorBrush(Color.FromRgb(204, 255, 189)),
+					Fill = new SolidColorBrush(Color.FromArgb (0,0,0,0)),
+					LineSmoothness = 0.1,
+					StrokeThickness = 10,
+					Opacity = 1.0,
+					AreaLimit = -5,
+					Values = new ChartValues<ObservableValue>(),
+					PointGeometry = DefaultGeometries.None
+				}
+			};
+
 			_isUpdating = true;
 			new Thread(new ThreadStart(UpdateVitals)).Start();
 		}
 
-		public bool _isUpdating { get; set; }
-
-		private PlotModel model;
-		public PlotModel Model
-		{
-			get => model;
-
-			set
-			{
-				if (value == model)
-					return;
-				model = value;
-				OnPropertyChanged();
-			}
-		}
+		public bool _isUpdating;
 
 		public ICommand OpenRepositoryWebsite_Command => new RelayCommand(param => OpenRepositoryWebsite_Action());
 		public void OpenRepositoryWebsite_Action()
@@ -154,18 +154,53 @@ namespace LapsRemote.ViewsModel
 			}
 		}
 
+		private SeriesCollection _monitorModel;
+		public SeriesCollection MonitorModel
+		{
+			get => _monitorModel;
+			set
+			{
+				if (value == _monitorModel)
+					return;
+				_monitorModel = value;
+				OnPropertyChanged();
+			}
+		}
+
+		private double _maxY;
+		public double MaxY
+		{
+			get => _maxY;
+			set
+			{
+				if (value == _maxY)
+					return;
+				_maxY = value;
+				OnPropertyChanged();
+			}
+		}
+
 		public void UpdateVitals()
 		{
 			lock (this)
 			{
 				while (_isUpdating)
 				{
-					Thread.Sleep(1000);
+					Thread.Sleep(400);
 					TemperatureString = Temperature.RandomTemperature().ToString();
 					OxyStatString = OxyStat.RandomOxyStat().ToString();
 					BPMString = BPM.RandomBPM().ToString();
 					RespRateString = RespRate.RandomRespRate().ToString();
-					Model.Series.Add(new FunctionSeries(Math.Cos, 0, 10, 0.1, "cos(x)"));
+
+					if (double.Parse(BPMString) < 100 )
+						MaxY = 100;
+					else
+						MaxY = double.NaN;
+
+					MonitorModel[0].Values.Add(new ObservableValue(double.Parse(BPMString)));
+
+					if (MonitorModel[0].Values.Count > 19)
+						MonitorModel[0].Values.RemoveAt(0);
 				}
 			}
 		}

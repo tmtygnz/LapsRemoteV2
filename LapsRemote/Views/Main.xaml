@@ -7,7 +7,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:liveChart="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
 		xmlns:oxy="http://oxyplot.org/wpf"
-		GlowBrush="{DynamicResource MahApps.Brushes.Accent1}"
 		Title="{Binding Title}" Height="1280" Width="1280" Closing="MetroWindow_Closing">
 
 	<mah:MetroWindow.RightWindowCommands>
@@ -124,6 +123,30 @@
 							   VerticalAlignment="Center"/>
 				</StackPanel>
 			</Border>
+
+			<liveChart:CartesianChart Grid.Column="0"
+									  Grid.Row="1"
+									  Grid.ColumnSpan="4"
+									  Height="500"
+									  Width="700"
+									  Series="{Binding MonitorModel}"
+									  Hoverable="False"
+									  Margin="0 0 0 0">
+				<liveChart:CartesianChart.AxisX>
+					<liveChart:Axis MinValue="2"
+									MaxValue="18"
+									ShowLabels="False">
+						<liveChart:Axis.Separator>
+							<liveChart:Separator StrokeThickness="0"/>
+						</liveChart:Axis.Separator>
+					</liveChart:Axis>
+				</liveChart:CartesianChart.AxisX>
+
+				<liveChart:CartesianChart.AxisY>
+					<liveChart:Axis MinValue="0"
+									MaxValue="{Binding MaxY}"/>
+				</liveChart:CartesianChart.AxisY>
+			</liveChart:CartesianChart>
 		</Grid>
 	</DockPanel>
 

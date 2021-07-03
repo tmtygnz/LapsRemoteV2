@@ -36,10 +36,10 @@ namespace LapsRemote.Screens
 
 		private async void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			_viewModel._isUpdating = false;
 			Logger.Log("Closing App", Level.Debug, DateTime.Now);
-			App.Current.Shutdown();
+			_viewModel._isUpdating = false;
 			Logger.KillAll();
+			App.Current.Shutdown();
 		}
 	}
 }
