@@ -24,7 +24,7 @@ namespace LapsRemote.ViewsModel
 
 		public MainViewModel()
 		{
-			Title = $"LAPS {Environment.OSVersion}";
+			Title = $"LAPS {Environment.OSVersion} {SelectedIndex}";
 			MonitorModel = new SeriesCollection
 			{
 				new LineSeries
@@ -176,6 +176,19 @@ namespace LapsRemote.ViewsModel
 				if (value == _maxY)
 					return;
 				_maxY = value;
+				OnPropertyChanged();
+			}
+		}
+
+		private int _selectedIndex;
+		public int SelectedIndex
+		{
+			get => _selectedIndex;
+			set
+			{
+				if (value == _selectedIndex)
+					return;
+				_selectedIndex = value;
 				OnPropertyChanged();
 			}
 		}

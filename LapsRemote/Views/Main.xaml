@@ -124,8 +124,14 @@
 				</StackPanel>
 			</Border>
 
+			<ComboBox Grid.Row="1"
+					  SelectedIndex="{Binding SelectedIndex}">
+				<ComboBoxItem Content="Hello"/>
+				<ComboBoxItem Content="World"/>
+			</ComboBox>
+			
 			<liveChart:CartesianChart Grid.Column="0"
-									  Grid.Row="1"
+									  Grid.Row="2"
 									  Grid.ColumnSpan="4"
 									  Height="500"
 									  Width="700"
