@@ -137,7 +137,7 @@
 			
 			<liveChart:CartesianChart Grid.Column="0"
 									  Grid.Row="2"
-									  Grid.ColumnSpan="4"
+									  Grid.ColumnSpan="5"
 									  Height="500"
 									  Width="700"
 									  Series="{Binding MonitorModel}"
@@ -155,7 +155,8 @@
 
 				<liveChart:CartesianChart.AxisY>
 					<liveChart:Axis MinValue="0"
-									MaxValue="{Binding MaxY}"/>
+									MaxValue="{Binding MaxY}">
+					</liveChart:Axis>
 				</liveChart:CartesianChart.AxisY>
 			</liveChart:CartesianChart>
 		</Grid>

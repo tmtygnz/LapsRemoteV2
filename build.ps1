@@ -5,16 +5,16 @@ function Log {
     )
 
     $Time = Get-Date -Format "dd/MM/yyyy HH:mm"
-    Write-Output "$Time $StringOutput"
+    Write-Host "$Time $StringOutput" -ForegroundColor Green
 }
 
-function LogError {
+function LogWarning {
     param (
         $StringOutput
     )
 
     $Time = Get-Date -Format "dd/MM/yyyy HH:mm"
-    Write-Error "$Time $StringOutput"
+    Write-Host "$Time $StringOutput" -ForegroundColor DarkYellow
 }
 
 $BuildDirectory = "$PSScriptRoot\build"
@@ -45,7 +45,7 @@ Log("Building Project")
 dotnet.exe publish --configuration Release --runtime win10-x64 --self-contained false --output "$BuildDirectory\LapsRemote" 
 
 if (-not(Test-Path -Path "$BuildDirectory\LapsRemote\LapsRemote.exe")){
-    LogError("Unable To Build The Project Make Sure You Have .net5.0")
+    LogWarning("Unable To Build The Project Make Sure You Have .net5.0")
 }
 
 #Create Archive
@@ -53,7 +53,7 @@ Log("Creating Portable Archive")
 Get-ChildItem -Path "$BuildDirectory\LapsRemote" | Compress-Archive -CompressionLevel Fastest -DestinationPath "$BuildDirectory\LapsRemoteArchived.zip"
 
 if (-not(Test-Path -Path "$BuildDirectory\LapsRemoteArchived.zip")){
-    LogError("Unable To Create A Portable Archive")
+    LogWarning("Unable To Create A Portable Archive")
 }
 
 #Inno Setup Installer
@@ -65,7 +65,7 @@ if (Test-Path -Path $InnoExecutableDirectory){
     Log("Setup Created")
 }
 else {
-    Log("Inno Setup Not Found I ${env:ProgramFiles(x86)}\Inno Setup 6. Skipping...")
+    LogWarning("Inno Setup Not Found I ${env:ProgramFiles(x86)}\Inno Setup 6. Skipping...")
 }
 
 foreach ($ItemFile in Get-ChildItem $BuildDirectory | Where-Object {$_.Name.EndsWith(".exe") -or $_.Name.EndsWith(".zip")} | Get-FileHash){

@@ -28,6 +28,7 @@ namespace LapsRemote.ViewsModel
 			Title = $"LAPS <{Environment.OSVersion}>";
 			ValueComboBox = new ObservableCollection<string> {"Temperature", "02Stat", "BPM", "RespRate"};
 			SelectedIndex = 0;
+			DangerousLevel = 37.5;
 			MonitorModel = new SeriesCollection
 			{
 				new LineSeries
@@ -198,6 +199,19 @@ namespace LapsRemote.ViewsModel
 				if (value == _valueComboBox)
 					return;
 				_valueComboBox = value;
+				OnPropertyChanged();
+			}
+		}
+
+		private double _dangerousLevel;
+		public double DangerousLevel
+		{
+			get => _dangerousLevel;
+			set
+			{
+				if (value == _dangerousLevel)
+					return;
+				_dangerousLevel = value;
 				OnPropertyChanged();
 			}
 		}
