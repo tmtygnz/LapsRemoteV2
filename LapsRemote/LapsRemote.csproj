@@ -27,6 +27,7 @@
     <PackageReference Include="MindFusion.Charting.Wpf" Version="2.2.1" />
     <PackageReference Include="OxyPlot.Wpf" Version="2.1.0-Preview1" />
     <PackageReference Include="ScottPlot.WPF" Version="4.1.16" />
+    <PackageReference Include="System.Windows.Interactivity.WPF" Version="2.0.20525" />
   </ItemGroup>
 
   <ItemGroup>

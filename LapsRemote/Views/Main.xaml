@@ -6,6 +6,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:liveChart="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+		xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
 		xmlns:oxy="http://oxyplot.org/wpf"
 		Title="{Binding Title}" Height="1280" Width="1280" Closing="MetroWindow_Closing">
 
@@ -24,8 +25,7 @@
 
 	<DockPanel>
 		<Menu DockPanel.Dock="Top">
-			<MenuItem Header="Files" >
-				<MenuItem Header="Exit" Command="{Binding Exit_Command}"/>
+			<MenuItem Header="Files">
 			</MenuItem>
 			<MenuItem Header="Vitals">
 				<MenuItem Header="Recording">
@@ -125,9 +125,13 @@
 			</Border>
 
 			<ComboBox Grid.Row="1"
-					  SelectedIndex="{Binding SelectedIndex}">
-				<ComboBoxItem Content="Hello"/>
-				<ComboBoxItem Content="World"/>
+					  ItemsSource="{Binding ValueComboBox}"
+					  SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
+				<i:Interaction.Triggers>
+					<i:EventTrigger EventName="SelectionChanged">
+						<i:InvokeCommandAction Command="{Binding SelectionChange_Command}"/>
+					</i:EventTrigger>
+				</i:Interaction.Triggers>
 			</ComboBox>
 			
 			<liveChart:CartesianChart Grid.Column="0"

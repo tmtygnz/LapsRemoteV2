@@ -16,6 +16,7 @@ using LiveCharts.Wpf;
 using LiveCharts.Configurations;
 using LiveCharts.Defaults;
 using System.Windows.Media;
+using System.Collections.ObjectModel;
 
 namespace LapsRemote.ViewsModel
 {
@@ -24,15 +25,17 @@ namespace LapsRemote.ViewsModel
 
 		public MainViewModel()
 		{
-			Title = $"LAPS {Environment.OSVersion} {SelectedIndex}";
+			Title = $"LAPS {Environment.OSVersion}";
+			ValueComboBox = new ObservableCollection<string> {"Temperature", "02Stat", "BPM", "RespRate"};
+			SelectedIndex = 0;
 			MonitorModel = new SeriesCollection
 			{
 				new LineSeries
 				{
-					Stroke = new SolidColorBrush(Color.FromRgb(204, 255, 189)),
-					Fill = new SolidColorBrush(Color.FromArgb (0,0,0,0)),
+					Stroke = new SolidColorBrush(Color.FromRgb(116, 156, 117)),
+					Fill = new SolidColorBrush(Color.FromArgb(50, 148, 179, 148)),
 					LineSmoothness = 0.1,
-					StrokeThickness = 10,
+					StrokeThickness = 3,
 					Opacity = 1.0,
 					AreaLimit = -5,
 					Values = new ChartValues<ObservableValue>(),
@@ -86,6 +89,12 @@ namespace LapsRemote.ViewsModel
 					Level.Error, DateTime.Now);
 				Logger.Log(exp.StackTrace, Level.Error, DateTime.Now);
 			}
+		}
+
+		public ICommand SelectionChange_Command => new RelayCommand(param => SelectionChange_Action());
+		public void SelectionChange_Action()
+		{
+			MonitorModel[0].Values.Clear();
 		}
 
 		private string _temperatureString;
@@ -180,15 +189,28 @@ namespace LapsRemote.ViewsModel
 			}
 		}
 
-		private int _selectedIndex;
-		public int SelectedIndex
+		private ObservableCollection<string> _valueComboBox;
+		public ObservableCollection<string> ValueComboBox
 		{
-			get => _selectedIndex;
+			get => _valueComboBox;
 			set
 			{
-				if (value == _selectedIndex)
+				if (value == _valueComboBox)
 					return;
-				_selectedIndex = value;
+				_valueComboBox = value;
+				OnPropertyChanged();
+			}
+		}
+
+		private int _selectedValue;
+		public int SelectedIndex
+		{
+			get => _selectedValue;
+			set
+			{
+				if (value == _selectedValue)
+					return;
+				_selectedValue = value;
 				OnPropertyChanged();
 			}
 		}
@@ -200,17 +222,38 @@ namespace LapsRemote.ViewsModel
 				while (_isUpdating)
 				{
 					Thread.Sleep(400);
-					TemperatureString = Temperature.RandomTemperature().ToString();
-					OxyStatString = OxyStat.RandomOxyStat().ToString();
-					BPMString = BPM.RandomBPM().ToString();
-					RespRateString = RespRate.RandomRespRate().ToString();
+
+					double TemperatureValue = Temperature.RandomTemperature();
+					double OxyStatValue = OxyStat.RandomOxyStat();
+					double BPMValue = BPM.RandomBPM();
+					double RespRateValue = RespRate.RandomRespRate();
+
+					double value = 0;
+
+					if (SelectedIndex == 0)
+						value = TemperatureValue;
+
+					if (SelectedIndex == 1)
+						value = OxyStatValue;
+
+					if (SelectedIndex == 2)
+						value = BPMValue;
+
+					if (SelectedIndex == 3)
+						value = RespRateValue;
+
+					TemperatureString = TemperatureValue.ToString();
+					OxyStatString = OxyStatValue.ToString();
+					BPMString = BPMValue.ToString();
+					RespRateString = RespRateValue.ToString();
+
 
 					if (double.Parse(BPMString) < 100 )
 						MaxY = 100;
 					else
 						MaxY = double.NaN;
 
-					MonitorModel[0].Values.Add(new ObservableValue(double.Parse(BPMString)));
+					MonitorModel[0].Values.Add(new ObservableValue(value));
 
 					if (MonitorModel[0].Values.Count > 19)
 						MonitorModel[0].Values.RemoveAt(0);
