@@ -8,7 +8,7 @@
         xmlns:liveChart="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
 		xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
 		xmlns:oxy="http://oxyplot.org/wpf"
-		Title="{Binding Title}" Height="1280" Width="1280" Closing="MetroWindow_Closing">
+		Title="{Binding Title}" Height="830" Width="1280" Closing="MetroWindow_Closing">
 
 	<mah:MetroWindow.RightWindowCommands>
 		<mah:WindowCommands>
@@ -126,6 +126,7 @@
 
 			<ComboBox Grid.Row="1"
 					  ItemsSource="{Binding ValueComboBox}"
+					  Margin="0 9 0 0"
 					  SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
 				<i:Interaction.Triggers>
 					<i:EventTrigger EventName="SelectionChanged">
@@ -141,7 +142,7 @@
 									  Width="700"
 									  Series="{Binding MonitorModel}"
 									  Hoverable="False"
-									  Margin="0 0 0 0">
+									  Margin="0 9 0 0">
 				<liveChart:CartesianChart.AxisX>
 					<liveChart:Axis MinValue="2"
 									MaxValue="18"

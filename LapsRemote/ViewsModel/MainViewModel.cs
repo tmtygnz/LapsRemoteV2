@@ -25,7 +25,7 @@ namespace LapsRemote.ViewsModel
 
 		public MainViewModel()
 		{
-			Title = $"LAPS {Environment.OSVersion}";
+			Title = $"LAPS <{Environment.OSVersion}>";
 			ValueComboBox = new ObservableCollection<string> {"Temperature", "02Stat", "BPM", "RespRate"};
 			SelectedIndex = 0;
 			MonitorModel = new SeriesCollection
@@ -228,19 +228,19 @@ namespace LapsRemote.ViewsModel
 					double BPMValue = BPM.RandomBPM();
 					double RespRateValue = RespRate.RandomRespRate();
 
-					double value = 0;
+					double ValueToShow = 0;
 
 					if (SelectedIndex == 0)
-						value = TemperatureValue;
+						ValueToShow = TemperatureValue;
 
 					if (SelectedIndex == 1)
-						value = OxyStatValue;
+						ValueToShow = OxyStatValue;
 
 					if (SelectedIndex == 2)
-						value = BPMValue;
+						ValueToShow = BPMValue;
 
 					if (SelectedIndex == 3)
-						value = RespRateValue;
+						ValueToShow = RespRateValue;
 
 					TemperatureString = TemperatureValue.ToString();
 					OxyStatString = OxyStatValue.ToString();
@@ -253,7 +253,7 @@ namespace LapsRemote.ViewsModel
 					else
 						MaxY = double.NaN;
 
-					MonitorModel[0].Values.Add(new ObservableValue(value));
+					MonitorModel[0].Values.Add(new ObservableValue(ValueToShow));
 
 					if (MonitorModel[0].Values.Count > 19)
 						MonitorModel[0].Values.RemoveAt(0);
