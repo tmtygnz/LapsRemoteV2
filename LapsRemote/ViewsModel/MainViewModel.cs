@@ -17,6 +17,10 @@ using LiveCharts.Configurations;
 using LiveCharts.Defaults;
 using System.Windows.Media;
 using System.Collections.ObjectModel;
+using Newtonsoft.Json;
+using System.IO;
+using Microsoft.Win32;
+using LapsRemote.Models;
 
 namespace LapsRemote.ViewsModel
 {
@@ -26,9 +30,17 @@ namespace LapsRemote.ViewsModel
 		public MainViewModel()
 		{
 			Title = $"LAPS <{Environment.OSVersion}>";
-			ValueComboBox = new ObservableCollection<string> {"Temperature", "02Stat", "BPM", "RespRate"};
 			SelectedIndex = 0;
-			DangerousLevel = 37.5;
+			_isRecording = false;
+			RecordingStatus = "Status: Not Recording";
+
+			
+			TemperatureRecordedList = new List<double>();
+			OxyStatRecordedList = new List<double>();
+			BPMRecordedList = new List<double>();
+			RespRateRecordedList = new List<double>();
+
+			ValueComboBox = new ObservableCollection<string> { "Temperature", "02Stat", "BPM", "RespRate" };
 			MonitorModel = new SeriesCollection
 			{
 				new LineSeries
@@ -48,7 +60,9 @@ namespace LapsRemote.ViewsModel
 			new Thread(new ThreadStart(UpdateVitals)).Start();
 		}
 
-		public bool _isUpdating;
+		public bool _isUpdating { set; get; }
+
+		private bool _isRecording { set; get; }
 
 		public ICommand OpenRepositoryWebsite_Command => new RelayCommand(param => OpenRepositoryWebsite_Action());
 		public void OpenRepositoryWebsite_Action()
@@ -96,6 +110,34 @@ namespace LapsRemote.ViewsModel
 		public void SelectionChange_Action()
 		{
 			MonitorModel[0].Values.Clear();
+		}
+
+		public ICommand StartRecording_Command => new RelayCommand(param => StartRecording_Action());
+		public void StartRecording_Action()
+		{
+			_isRecording = true;
+			RecordingStatus = "Status: Recording";
+		}
+
+		public ICommand StopRecording_Command => new RelayCommand(param => StopRecording_Action());
+		public void StopRecording_Action()
+		{
+			_isRecording = false;
+			RecordingStatus = "Status: Not Recording";
+			VitalsRecodModel ModelToSave = new VitalsRecodModel
+			{
+				Temperature = TemperatureRecordedList,
+				OxyStat = OxyStatRecordedList,
+				BPM = BPMRecordedList,
+				RespRate = RespRateRecordedList
+			};
+
+			SaveFileDialog saveFileDialog = new SaveFileDialog();
+			if (saveFileDialog.ShowDialog() == true)
+			{
+				string ToSave = JsonConvert.SerializeObject(ModelToSave, Formatting.Indented);
+				File.WriteAllTextAsync(saveFileDialog.FileName, ToSave);
+			}
 		}
 
 		private string _temperatureString;
@@ -203,19 +245,6 @@ namespace LapsRemote.ViewsModel
 			}
 		}
 
-		private double _dangerousLevel;
-		public double DangerousLevel
-		{
-			get => _dangerousLevel;
-			set
-			{
-				if (value == _dangerousLevel)
-					return;
-				_dangerousLevel = value;
-				OnPropertyChanged();
-			}
-		}
-
 		private int _selectedValue;
 		public int SelectedIndex
 		{
@@ -229,14 +258,79 @@ namespace LapsRemote.ViewsModel
 			}
 		}
 
+		private List<double> _temperatureRecordedList;
+		public List<double> TemperatureRecordedList
+		{
+			get => _temperatureRecordedList;
+			set
+			{
+				if (value == _temperatureRecordedList)
+					return;
+				_temperatureRecordedList = value;
+				OnPropertyChanged();
+			}
+		}
+
+		private List<double> _oxyStatRecordedList;
+		public List<double> OxyStatRecordedList
+		{
+			get => _oxyStatRecordedList;
+			set
+			{
+				if (value == _oxyStatRecordedList)
+					return;
+				_oxyStatRecordedList = value;
+				OnPropertyChanged();
+			}
+		}
+
+		private List<double> _bpmRecordedList;
+		public List<double> BPMRecordedList
+		{
+			get => _bpmRecordedList;
+			set
+			{
+				if (value == _bpmRecordedList)
+					return;
+				_bpmRecordedList = value;
+				OnPropertyChanged();
+			}
+		}
+
+		private List<double> _respRateRecordedList;
+		public List<double> RespRateRecordedList
+		{
+			get => _respRateRecordedList;
+			set
+			{
+				if (value == _respRateRecordedList)
+					return;
+				_respRateRecordedList = value;
+				OnPropertyChanged();
+			}
+		}
+
+		private string _recordingStatus;
+		public string RecordingStatus
+		{
+			get => _recordingStatus;
+			set
+			{
+				if (value == _recordingStatus)
+					return;
+				_recordingStatus = value;
+				OnPropertyChanged();
+			}
+		}
+
 		public void UpdateVitals()
 		{
 			lock (this)
 			{
 				while (_isUpdating)
 				{
-					Thread.Sleep(400);
-
+					Thread.Sleep(500);
+					int a = 0;
 					double TemperatureValue = Temperature.RandomTemperature();
 					double OxyStatValue = OxyStat.RandomOxyStat();
 					double BPMValue = BPM.RandomBPM();
@@ -244,6 +338,17 @@ namespace LapsRemote.ViewsModel
 
 					double ValueToShow = 0;
 
+					#region Recording
+					if (_isRecording)
+					{
+						TemperatureRecordedList.Add(TemperatureValue);
+						OxyStatRecordedList.Add(OxyStatValue);
+						BPMRecordedList.Add(BPMValue);
+						RespRateRecordedList.Add(RespRateValue);
+					}
+					#endregion Recording
+
+					#region CheckSelectedValueToLoad
 					if (SelectedIndex == 0)
 						ValueToShow = TemperatureValue;
 
@@ -255,7 +360,9 @@ namespace LapsRemote.ViewsModel
 
 					if (SelectedIndex == 3)
 						ValueToShow = RespRateValue;
+					#endregion CheckSelectedValueToLoad
 
+					#region LoadValueToTheScreen
 					TemperatureString = TemperatureValue.ToString();
 					OxyStatString = OxyStatValue.ToString();
 					BPMString = BPMValue.ToString();
@@ -271,6 +378,7 @@ namespace LapsRemote.ViewsModel
 
 					if (MonitorModel[0].Values.Count > 19)
 						MonitorModel[0].Values.RemoveAt(0);
+					#endregion LoadValueToTheScreen
 				}
 			}
 		}

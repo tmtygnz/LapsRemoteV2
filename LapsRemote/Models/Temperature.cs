@@ -12,7 +12,6 @@ namespace LapsRemote.Vitals
 		{
 			int rnd = new Random().Next(35, 37);
 			return rnd;
-			
 		}
 	}
 }
