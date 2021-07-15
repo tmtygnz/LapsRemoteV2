@@ -33,13 +33,5 @@ namespace LapsRemote.Screens
 			_viewModel = new MainViewModel();
 			DataContext = _viewModel;
 		}
-
-		private async void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-		{
-			Logger.Log("Closing App", Level.Debug, DateTime.Now);
-			_viewModel._isUpdating = false;
-			Logger.KillAll();
-			App.Current.Shutdown();
-		}
 	}
 }

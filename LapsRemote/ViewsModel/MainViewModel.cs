@@ -32,6 +32,7 @@ namespace LapsRemote.ViewsModel
 			Title = $"LAPS <{Environment.OSVersion}>";
 			SelectedIndex = 0;
 			_isRecording = false;
+			_isUpdating = true;
 			RecordingStatus = "Status: Not Recording";
 
 			
@@ -56,13 +57,11 @@ namespace LapsRemote.ViewsModel
 				}
 			};
 
-			_isUpdating = true;
 			new Thread(new ThreadStart(UpdateVitals)).Start();
 		}
 
-		public bool _isUpdating { set; get; }
-
-		private bool _isRecording { set; get; }
+		public bool _isUpdating;
+		private bool _isRecording;
 
 		public ICommand OpenRepositoryWebsite_Command => new RelayCommand(param => OpenRepositoryWebsite_Action());
 		public void OpenRepositoryWebsite_Action()
@@ -138,6 +137,16 @@ namespace LapsRemote.ViewsModel
 				string ToSave = JsonConvert.SerializeObject(ModelToSave, Formatting.Indented);
 				File.WriteAllTextAsync(saveFileDialog.FileName, ToSave);
 			}
+		}
+
+		public ICommand CloseApplication_Command => new RelayCommand(param => CloseApplication_Action());
+		public void CloseApplication_Action()
+		{
+			MonitorModel[0].Values.Clear();
+			_isUpdating = false;
+			Logger.Log("App Closed", Level.Debug, DateTime.Now);
+			Logger.KillAll();
+			Environment.Exit(0);
 		}
 
 		private string _temperatureString;

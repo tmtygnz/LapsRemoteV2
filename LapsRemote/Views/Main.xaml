@@ -8,10 +8,16 @@
         xmlns:liveChart="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
 		xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
 		xmlns:oxy="http://oxyplot.org/wpf"
-		Title="{Binding Title}" Height="830" Width="1280" Closing="MetroWindow_Closing"
+		Title="{Binding Title}" Height="830" Width="1280"
 		MinHeight="830"
 		MinWidth="1280">
 
+	<i:Interaction.Triggers>
+		<i:EventTrigger EventName="Closing">
+			<i:InvokeCommandAction Command="{Binding CloseApplication_Command}"/>
+		</i:EventTrigger>
+	</i:Interaction.Triggers>
+	
 	<mah:MetroWindow.RightWindowCommands>
 		<mah:WindowCommands>
 			<Button ToolTip="Open Github Repository" 
@@ -28,23 +34,20 @@
 	<DockPanel>
 		<Menu DockPanel.Dock="Top">
 			<MenuItem Header="Files">
+				<MenuItem Header="Exit"/>
 			</MenuItem>
-			
 			<MenuItem Header="Vitals">
 				<MenuItem Header="Recording">
-					
 					<MenuItem Header="Start" Command="{Binding StartRecording_Command}">
 						<MenuItem.Icon>
 							<iconPacks:PackIconModern Kind="ControlPlay" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 						</MenuItem.Icon>
 					</MenuItem>
-
 					<MenuItem Header="Stop" Command="{Binding StopRecording_Command}">
 						<MenuItem.Icon>
 							<iconPacks:PackIconModern Kind="ControlStop" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 						</MenuItem.Icon>
 					</MenuItem>
-					
 				</MenuItem>
 				<MenuItem Header="Read"/>
 			</MenuItem>
