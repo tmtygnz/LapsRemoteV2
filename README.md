@@ -12,6 +12,7 @@ This month is the last quarter of my school year so i will be out in a few weeks
 ## Currently Working On
 - [x] Implementing MVVM
 - [x] Adding Vitals Monitor
+- [x] Vital Recorder
 - [ ] Adding video and audio check up call
 - [ ] Better User Interface
 
