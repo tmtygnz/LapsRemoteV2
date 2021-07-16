@@ -49,7 +49,7 @@
 						</MenuItem.Icon>
 					</MenuItem>
 				</MenuItem>
-				<MenuItem Header="Read"/>
+				<MenuItem Header="Read" Command="{Binding OpenReader_Command}"/>
 			</MenuItem>
 		</Menu>
 

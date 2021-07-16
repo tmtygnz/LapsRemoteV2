@@ -9,6 +9,7 @@ using LapsRemote.Logging;
 using System.Windows.Input;
 using LapsRemote.Utilities;
 using LapsRemote.Vitals;
+using LapsRemote.Views;
 using System.Threading;
 using System.Windows;
 using LiveCharts;
@@ -147,6 +148,13 @@ namespace LapsRemote.ViewsModel
 			Logger.Log("App Closed", Level.Debug, DateTime.Now);
 			Logger.KillAll();
 			Environment.Exit(0);
+		}
+
+		public ICommand OpenReader_Command => new RelayCommand(param => OpenReader_Action());
+		public void OpenReader_Action()
+		{
+			Reader reader = new Reader();
+			reader.Show();
 		}
 
 		private string _temperatureString;
