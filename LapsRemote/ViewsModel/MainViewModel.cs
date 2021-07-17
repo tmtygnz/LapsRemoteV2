@@ -133,6 +133,7 @@ namespace LapsRemote.ViewsModel
 			};
 
 			SaveFileDialog saveFileDialog = new SaveFileDialog();
+			saveFileDialog.Filter = "Json files (*.json)|*.json|Text files (*.txt)|*.txt";
 			if (saveFileDialog.ShowDialog() == true)
 			{
 				string ToSave = JsonConvert.SerializeObject(ModelToSave, Formatting.Indented);

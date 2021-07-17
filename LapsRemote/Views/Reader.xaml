@@ -5,10 +5,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:liveChart="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+		xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"		 
         xmlns:local="clr-namespace:LapsRemote.Views"
         mc:Ignorable="d"
         Title="Reader" Height="450" Width="800">
-    <Grid Margin="20">
+
+	<Grid Margin="20">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="auto"/>
 			<ColumnDefinition Width="*"/>
@@ -22,11 +24,25 @@
 				  Grid.Row="0"
 				  VerticalAlignment="Center"
 				  HorizontalAlignment="Left"
-				  Width="150"/>
+				  Width="150"
+				  ItemsSource="{Binding ValueComboBox}"
+				  SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"/>
 
 		<liveChart:CartesianChart Grid.Column="0"
 								  Grid.Row="1"
-								  Grid.ColumnSpan="2"/>
+								  Grid.ColumnSpan="2"
+								  Series="{Binding ValueToLoad}">
+			<liveChart:CartesianChart.AxisX>
+				<liveChart:Axis MinValue="2"
+									MaxValue="18"
+									ShowLabels="False">
+					<liveChart:Axis.Separator>
+						<liveChart:Separator StrokeThickness="0"/>
+					</liveChart:Axis.Separator>
+				</liveChart:Axis>
+			</liveChart:CartesianChart.AxisX>
+			
+		</liveChart:CartesianChart>
 
 	</Grid>
 </mah:MetroWindow>

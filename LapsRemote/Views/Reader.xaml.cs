@@ -12,6 +12,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+using LapsRemote.Models;
+using Newtonsoft.Json;
+using LapsRemote.ViewsModel;
 
 namespace LapsRemote.Views
 {
@@ -20,9 +24,12 @@ namespace LapsRemote.Views
 	/// </summary>
 	public partial class Reader : MetroWindow
 	{
+		ReaderViewModel _viewModel;
 		public Reader()
 		{
 			InitializeComponent();
+			_viewModel = new ReaderViewModel();
+			DataContext = _viewModel;
 		}
 	}
 }
