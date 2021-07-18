@@ -29,7 +29,8 @@ namespace LapsRemote.ViewsModel
 			RespRateList = new List<double>();
 			ValueComboBox = new ObservableCollection<string> { "Temperature", "O2Sat", "BPM", "Resperation Rate" };
 			SelectedIndex = 0;
-			To = 5;
+			DisableAnimation = false;
+			To = 10;
 
 			OpenFileDialog openFileDialog = new OpenFileDialog();
 			openFileDialog.Filter = "Json files (*.json)|*.json|Text files (*.txt)|*.txt";
@@ -49,7 +50,7 @@ namespace LapsRemote.ViewsModel
 			{
 				Logger.Log("Hardware Acceleration Not Supported", Level.Warning, DateTime.Now);
 				MessageBox.Show("Hardware Acceleration is not supported in this device and could " +
-					"cause lag especially with big data.", "Hardware Warning");
+					"cause lag especially with big data. Disabling animations could help.", "Hardware Warning");
 			}
 
 			ReaderLineSeries = new SeriesCollection
@@ -173,6 +174,20 @@ namespace LapsRemote.ViewsModel
 				OnPropertyChanged();
 			}
 		}
+
+		private bool _disableAnimation;
+		public bool DisableAnimation
+		{
+			get => _disableAnimation;
+			set
+			{
+				if (value == _disableAnimation)
+					return;
+				_disableAnimation = value;
+				OnPropertyChanged();
+			}
+		}
+
 		private SeriesCollection _scrollerLineSeries;
 		public SeriesCollection ScrollerLineSeries
 		{

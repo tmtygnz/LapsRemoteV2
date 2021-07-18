@@ -14,6 +14,7 @@
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="auto"/>
 			<ColumnDefinition Width="auto"/>
+			<ColumnDefinition Width="auto"/>
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
@@ -40,11 +41,16 @@
 				Grid.Column="1"
 				Margin="9 0 0 0"
 				Command="{Binding ResetScrollBar_Command}"/>
+		
+		<CheckBox Content="Disable Animations"
+				  Grid.Column="2"
+				  IsChecked="{Binding DisableAnimation}"
+				  Margin="9 0 0 0"/>
 
 		<liveChart:CartesianChart Grid.Column="0"
 								  Grid.Row="1"
-								  Grid.ColumnSpan="3"
-								  DisableAnimations="True"
+								  Grid.ColumnSpan="4"
+								  DisableAnimations="{Binding DisableAnimation}"
 								  Series="{Binding ReaderLineSeries}"
 								  Zoom="X">
 
@@ -62,7 +68,8 @@
 
 		<liveChart:CartesianChart Grid.Row="2"
 								  Grid.Column="0"
-								  Grid.ColumnSpan="3"
+								  Grid.ColumnSpan="4"
+								  DisableAnimations="{Binding DisableAnimation}"
 								  ScrollMode="X"
 								  ScrollHorizontalFrom="{Binding From, Mode=TwoWay}"
 								  ScrollHorizontalTo="{Binding To, Mode=TwoWay}"
