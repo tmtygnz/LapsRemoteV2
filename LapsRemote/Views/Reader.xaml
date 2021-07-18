@@ -78,10 +78,10 @@
 								  DataTooltip="{x:Null}"
 								  Hoverable="False">
 
+
 			<liveChart:CartesianChart.AxisY>
 				<liveChart:Axis ShowLabels="False"/>
 			</liveChart:CartesianChart.AxisY>
 		</liveChart:CartesianChart>
-		
 	</Grid>
 </mah:MetroWindow>
