@@ -14,7 +14,7 @@ This month is the last quarter of my school year so i will be out in a few weeks
 - [x] Implementing MVVM
 - [x] Adding Vitals Monitor
 - [x] Vital Recorder
-- [ ] Vital Record Reader
+- [x] Vital Record Reader
 - [ ] Adding video and audio check up call
 - [ ] Better User Interface
 
