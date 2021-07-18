@@ -8,6 +8,8 @@ using System.Windows;
 using LapsRemote.Logging;
 using System.Threading;
 using System.IO;
+using System.Windows.Media;
+using System.Windows.Interop;
 
 namespace LapsRemote
 {

@@ -13,36 +13,68 @@
 	<Grid Margin="20">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="auto"/>
+			<ColumnDefinition Width="auto"/>
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="auto"/>
 			<RowDefinition Height="*"/>
+			<RowDefinition Height="auto"/>
 		</Grid.RowDefinitions>
 
-		<ComboBox Grid.Column="1"
+		<ComboBox Grid.Column="0"
 				  Grid.Row="0"
 				  VerticalAlignment="Center"
 				  HorizontalAlignment="Left"
 				  Width="150"
 				  ItemsSource="{Binding ValueComboBox}"
-				  SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"/>
+				  SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="SelectionChanged">
+					<i:InvokeCommandAction Command="{Binding SelectionChanged_Command}"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</ComboBox>
+
+		<Button Content="Reset ScrollBar"
+				Grid.Column="1"
+				Margin="9 0 0 0"
+				Command="{Binding ResetScrollBar_Command}"/>
 
 		<liveChart:CartesianChart Grid.Column="0"
 								  Grid.Row="1"
-								  Grid.ColumnSpan="2"
-								  Series="{Binding ValueToLoad}">
+								  Grid.ColumnSpan="3"
+								  DisableAnimations="True"
+								  Series="{Binding ReaderLineSeries}"
+								  Zoom="X">
+
 			<liveChart:CartesianChart.AxisX>
-				<liveChart:Axis MinValue="2"
-									MaxValue="18"
-									ShowLabels="False">
-					<liveChart:Axis.Separator>
-						<liveChart:Separator StrokeThickness="0"/>
-					</liveChart:Axis.Separator>
-				</liveChart:Axis>
+				<liveChart:Axis ShowLabels="False"
+								MinValue="{Binding From, Mode=TwoWay}"
+								MaxValue="{Binding To, Mode=TwoWay}"/>
 			</liveChart:CartesianChart.AxisX>
-			
+			<liveChart:CartesianChart.AxisY>
+				<liveChart:Axis MinValue="0"
+								MaxValue="100"/>
+			</liveChart:CartesianChart.AxisY>
+
 		</liveChart:CartesianChart>
 
+		<liveChart:CartesianChart Grid.Row="2"
+								  Grid.Column="0"
+								  Grid.ColumnSpan="3"
+								  ScrollMode="X"
+								  ScrollHorizontalFrom="{Binding From, Mode=TwoWay}"
+								  ScrollHorizontalTo="{Binding To, Mode=TwoWay}"
+								  ScrollBarFill="#25303030"
+								  Series="{Binding ScrollerLineSeries}"
+								  DataTooltip="{x:Null}"
+								  Hoverable="False">
+
+			<liveChart:CartesianChart.AxisY>
+				<liveChart:Axis ShowLabels="False"/>
+			</liveChart:CartesianChart.AxisY>
+		</liveChart:CartesianChart>
+		
 	</Grid>
 </mah:MetroWindow>
