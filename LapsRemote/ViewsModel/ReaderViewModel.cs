@@ -46,10 +46,10 @@ namespace LapsRemote.ViewsModel
 				RespRateList = recordModel.RespRate;
 			}
 
-			if(RenderCapability.Tier >> 16 < 3)
+			if(RenderCapability.Tier >> 16 < 2)
 			{
 				Logger.Log("Hardware Acceleration Not Supported", Level.Warning, DateTime.Now);
-				MessageBox.Show("Hardware Acceleration is not supported in this device and could " +
+				MessageBox.Show($"Hardware Acceleration is not supported or not fully supported in this device [Rendering Tier: {RenderCapability.Tier >> 16}] and could " +
 					"cause lag especially with big data. Disabling animations could help.", "Hardware Warning");
 			}
 
@@ -58,7 +58,7 @@ namespace LapsRemote.ViewsModel
 				new LineSeries
 				{
 					Stroke = new SolidColorBrush(Color.FromRgb(116, 156, 117)),
-					Fill = new SolidColorBrush(Color.FromArgb(50, 148, 179, 148)),
+					Fill = new SolidColorBrush(Color.FromArgb(50,148, 179, 148)),
 					LineSmoothness = 0.1,
 					StrokeThickness = 3,
 					Opacity = 1.0,
@@ -73,6 +73,7 @@ namespace LapsRemote.ViewsModel
 				new LineSeries
 				{
 					LineSmoothness = 0.1,
+					Fill = new SolidColorBrush(Color.FromRgb(192, 192, 192)),
 					PointGeometry = DefaultGeometries.None,
 					Values = new ChartValues<ObservableValue>()
 				}
@@ -143,7 +144,7 @@ namespace LapsRemote.ViewsModel
 			{
 				if (value == _valueComboBox)
 					return;
-				_valueComboBox = value;
+				_valueComboBox = value; 
 				OnPropertyChanged();
 			}
 		}

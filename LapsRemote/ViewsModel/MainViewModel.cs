@@ -42,7 +42,7 @@ namespace LapsRemote.ViewsModel
 			BPMRecordedList = new List<double>();
 			RespRateRecordedList = new List<double>();
 
-			ValueComboBox = new ObservableCollection<string> { "Temperature", "02Stat", "BPM", "RespRate" };
+			ValueComboBox = new ObservableCollection<string> { "Temperature", "02Sat", "BPM", "RespRate" };
 			MonitorModel = new SeriesCollection
 			{
 				new LineSeries
