@@ -1,4 +1,5 @@
-# Laps Remote 2 [![Laps Remote Stats](https://circleci.com/gh/jostimian/LapsRemoteV2.svg?style=svg)](https://circleci.com/gh/jostimian/LapsRemoteV2)
+# Laps Remote 2 [![Laps Remote Stats](https://circleci.com/gh/jostimian/LapsRemoteV2.svg?style=svg)](https://circleci.com/gh/jostimian/LapsRemoteV2) [![](https://tokei.rs/b1/github/jostimian/LapsRemoteV2)](https://github.com/jostimian/LapsRemoteV2)
+
 
 <img width="100" height="100" src="./img/ico.ico" align ="right">
 
@@ -13,7 +14,7 @@ This month is the last quarter of my school year so i will be out in a few weeks
 - [x] Implementing MVVM
 - [x] Adding Vitals Monitor
 - [x] Vital Recorder
-- [ ] Vital Record Reader
+- [x] Vital Record Reader
 - [ ] Adding video and audio check up call
 - [ ] Better User Interface
 
