@@ -92,7 +92,7 @@
 						   HorizontalAlignment="Left"
 						   VerticalAlignment="Center"
 						   Margin="20 0 0 0">
-					<Hyperlink NavigateUri="https://www.google.com">
+					<Hyperlink NavigateUri="">
 						Help
 					</Hyperlink>
 				</TextBlock>
