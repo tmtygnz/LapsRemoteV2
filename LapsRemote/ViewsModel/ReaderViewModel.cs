@@ -30,7 +30,7 @@ namespace LapsRemote.ViewsModel
 			ValueComboBox = new ObservableCollection<string> { "Temperature", "O2Sat", "BPM", "Resperation Rate" };
 			SelectedIndex = 0;
 			DisableAnimation = false;
-			To = 10;
+			To = Settings.settingsModel.ScrollerThumbSize;
 
 			OpenFileDialog openFileDialog = new OpenFileDialog();
 			openFileDialog.Filter = "Json files (*.json)|*.json|Text files (*.txt)|*.txt";
@@ -57,8 +57,8 @@ namespace LapsRemote.ViewsModel
 			{
 				new LineSeries
 				{
-					Stroke = new SolidColorBrush(Color.FromRgb(116, 156, 117)),
-					Fill = new SolidColorBrush(Color.FromArgb(50,148, 179, 148)),
+					Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString(Settings.settingsModel.SelectedStrokeColor)),
+					Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString(Settings.settingsModel.SelectedFillColor)),
 					LineSmoothness = 0.1,
 					StrokeThickness = 3,
 					Opacity = 1.0,

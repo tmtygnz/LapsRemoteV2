@@ -12,9 +12,15 @@
     <Compile Update="Views\Reader.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\SettingsEditor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Reader.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SettingsEditor.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

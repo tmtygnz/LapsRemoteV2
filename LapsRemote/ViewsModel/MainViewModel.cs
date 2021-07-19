@@ -47,8 +47,8 @@ namespace LapsRemote.ViewsModel
 			{
 				new LineSeries
 				{
-					Stroke = new SolidColorBrush(Color.FromRgb(116, 156, 117)),
-					Fill = new SolidColorBrush(Color.FromArgb(50, 148, 179, 148)),
+					Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString(Settings.settingsModel.SelectedStrokeColor)),
+					Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString(Settings.settingsModel.SelectedFillColor)),
 					LineSmoothness = 0.1,
 					StrokeThickness = 3,
 					Opacity = 1.0,
@@ -156,6 +156,13 @@ namespace LapsRemote.ViewsModel
 		{
 			Reader reader = new Reader();
 			reader.Show();
+		}
+
+		public ICommand OpenPreferneces_Command => new RelayCommand(param => OpenPreferences_Action());
+		public void OpenPreferences_Action()
+		{
+			SettingsEditor settings = new SettingsEditor();
+			settings.Show();
 		}
 
 		private string _temperatureString;
@@ -347,7 +354,7 @@ namespace LapsRemote.ViewsModel
 			{
 				while (_isUpdating)
 				{
-					Thread.Sleep(500);
+					Thread.Sleep(Settings.settingsModel.PollingRate);
 					int a = 0;
 					double TemperatureValue = Temperature.RandomTemperature();
 					double OxyStatValue = OxyStat.RandomOxyStat();

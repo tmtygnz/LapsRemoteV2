@@ -34,6 +34,7 @@
 	<DockPanel>
 		<Menu DockPanel.Dock="Top">
 			<MenuItem Header="Files">
+				<MenuItem Header="Preferences" Command="{Binding OpenPreferneces_Command}"/>
 				<MenuItem Header="Exit"/>
 			</MenuItem>
 			<MenuItem Header="Vitals">
