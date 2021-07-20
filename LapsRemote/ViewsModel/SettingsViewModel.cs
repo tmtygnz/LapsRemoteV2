@@ -20,6 +20,7 @@ namespace LapsRemote.ViewsModel
 			ScrollerThumbSize = Settings.settingsModel.ScrollerThumbSize;
 			SelectedStrokeColor = Settings.settingsModel.SelectedStrokeColor;
 			SelectedFillColor = Settings.settingsModel.SelectedFillColor;
+			ApplicationLogPath = Settings.settingsModel.AppLicationLogPath;
 		}
 
 		private string _selectedFillColor;
@@ -75,6 +76,20 @@ namespace LapsRemote.ViewsModel
 					return;
 				Settings.settingsModel.ScrollerThumbSize = value;
 				_scrollerThumbSize = value;
+				OnPropertyChanged();
+			}
+		}
+
+		private string _applicationLogPath;
+		public string ApplicationLogPath
+		{
+			get => _applicationLogPath;
+			set
+			{
+				if (value == _applicationLogPath)
+					return;
+				Settings.settingsModel.AppLicationLogPath = value;
+				_applicationLogPath = value;
 				OnPropertyChanged();
 			}
 		}

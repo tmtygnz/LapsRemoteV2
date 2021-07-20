@@ -22,7 +22,7 @@
 			<TabItem Header="General">
 				<Grid Margin="20">
 					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="100"/>
+						<ColumnDefinition Width="150"/>
 						<ColumnDefinition Width="auto"/>
 					</Grid.ColumnDefinitions>
 					<Grid.RowDefinitions>
@@ -34,22 +34,22 @@
 
 					<xctk:IntegerUpDown Value="{Binding PollingRate}"
 										Grid.Row="0"
-										Grid.Column="0"
-										Width="100"/>
+										Grid.Column="0"/>
 					<TextBlock Text="Polling Rate"
 							   Margin="9 0 0 0"
 							   Grid.Row="0"
-							   Grid.Column="1"/>
+							   Grid.Column="1"
+							   VerticalAlignment="Center"/>
 
 					<xctk:IntegerUpDown Value="{Binding ScrollerThumbSize}"
 										Grid.Row="1"
 										Grid.Column="0"
-										Margin="0 9 0 0"
-										Width="100"/>
+										Margin="0 9 0 0"/>
 					<TextBlock Text="Scroller Thumb Size"
 							   Margin="9 9 0 0"
 							   Grid.Row="1"
-							   Grid.Column="1"/>
+							   Grid.Column="1"
+							   VerticalAlignment="Center"/>
 
 					<xctk:ColorPicker Grid.Row="2"
 									  Grid.Column="0"
@@ -58,7 +58,8 @@
 					<TextBlock Text="Fill Color"
 							   Margin="9 9 0 0"
 							   Grid.Row="2"
-							   Grid.Column="1"/>
+							   Grid.Column="1"
+							   VerticalAlignment="Center"/>
 
 					<xctk:ColorPicker Grid.Row="3"
 									  Grid.Column="0"
@@ -67,10 +68,30 @@
 					<TextBlock Text="Stroke Color"
 							   Margin="9 9 0 0"
 							   Grid.Row="3"
-							   Grid.Column="1"/>
+							   Grid.Column="1"
+							   VerticalAlignment="Center"/>
 				</Grid>
 			</TabItem>
-			<TabItem Header="Advanced"/>
+			<TabItem Header="Advanced">
+				<Grid Margin="20">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="150"/>
+						<ColumnDefinition Width="auto"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="auto"/>
+					</Grid.RowDefinitions>
+
+					<TextBox Grid.Column="0"
+							 Grid.Row="0"
+							 Text="{Binding ApplicationLogPath}"/>
+					<TextBlock Text="Default Log Path"
+							   Grid.Column="1"
+							   Grid.Row="0"
+							   Margin="9 0 0 0"
+							   VerticalAlignment="Center"/>
+				</Grid>
+			</TabItem>
 		</TabControl>
 
 		<Border Grid.Column="0"
@@ -96,22 +117,20 @@
 						Help
 					</Hyperlink>
 				</TextBlock>
-				
+
 				<Button Grid.Column="1"
 						Grid.Row="0"
 						Content="Save"
 						Height="30"
 						Width="70"
 						Command="{Binding Save_Command}"/>
-				
+
 				<Button Grid.Column="2"
 						Grid.Row="0"
 						Content="Cancel"
 						Height="30"
 						Width="70"/>
 			</Grid>
-
 		</Border>
-
 	</Grid>
 </mah:MetroWindow>

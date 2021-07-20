@@ -23,9 +23,9 @@ namespace LapsRemote
 		{
 			base.OnStartup(e);
 
+			Settings.Initialize();
 			Logger.Initialize();
 			Logger.Log("App Startup", Level.Debug, DateTime.Now);
-			Settings.Initialize();
 
   			if (Environment.OSVersion.Version.Major != 10)
 			{

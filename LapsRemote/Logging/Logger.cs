@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.IO;
 using System.Windows;
+using LapsRemote.Utilities;
 
 namespace LapsRemote.Logging
 {
@@ -18,10 +19,10 @@ namespace LapsRemote.Logging
 
 		public static void Initialize()
 		{
-			string AppDataFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "LapsRemoteV2");
+			string AppDataFolderPath = Settings.settingsModel.AppLicationLogPath;
 			string LogFilePath = Path.Combine(AppDataFolderPath, "LapsRemoteV2.log");
 			_logging = true;
-
+			MessageBox.Show(LogFilePath);
 			if (!Directory.Exists(AppDataFolderPath))
 				Directory.CreateDirectory(AppDataFolderPath);
 

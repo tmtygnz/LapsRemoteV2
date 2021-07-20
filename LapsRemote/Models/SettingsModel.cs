@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,7 +59,7 @@ namespace LapsRemote.Models
 			}
 		}
 
-		private string? _selectedFillColor;
+		private string _selectedFillColor;
 		public string SelectedFillColor
 		{
 			get => _selectedFillColor ?? "#71EFA3";
@@ -67,6 +68,18 @@ namespace LapsRemote.Models
 				if (value == _selectedFillColor)
 					return;
 				_selectedFillColor = value;
+			}
+		}
+
+		private string _applicationLogPath;
+		public string AppLicationLogPath
+		{
+			get => _applicationLogPath ?? Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "LapsRemoteV2");
+			set
+			{
+				if (value == _applicationLogPath)
+					return;
+				_applicationLogPath = value;
 			}
 		}
 	}
