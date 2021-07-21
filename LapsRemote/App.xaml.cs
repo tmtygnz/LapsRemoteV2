@@ -14,11 +14,16 @@ using System.Windows.Interop;
 
 namespace LapsRemote
 {
-	/// <summary>
+	/// <summary> 
 	/// Interaction logic for App.xaml
 	/// </summary>
 	public partial class App : Application
 	{
+		public App() : base()
+		{
+			this.Dispatcher.UnhandledException += OnDispatcherUnhandledException;
+		}
+
 		protected override void OnStartup(StartupEventArgs e)
 		{
 			base.OnStartup(e);
@@ -32,6 +37,13 @@ namespace LapsRemote
 				Logger.Log("OS Not Windows 10", Level.Warning, DateTime.Now);
 				Logger.MessageBoxLog("You Are Not Running Windows 10. UI Components might not work correctly", Level.Warning, DateTime.Now);
 			}
+		}
+
+		//(https://stackoverflow.com/questions/49497090/wpf-where-i-can-catch-application-crash-event)
+		void OnDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+		{
+			Logger.Log(e.Exception.Message, Level.Fatal, DateTime.Now);
+			MessageBox.Show("Unhandled exception occurred: \n" + e.Exception.Message, "Fatal", MessageBoxButton.OK, MessageBoxImage.Error);
 		}
 	}
 }

@@ -57,7 +57,9 @@
 			<liveChart:CartesianChart.AxisX>
 				<liveChart:Axis ShowLabels="False"
 								MinValue="{Binding From, Mode=TwoWay}"
-								MaxValue="{Binding To, Mode=TwoWay}"/>
+								MaxValue="{Binding To, Mode=TwoWay}"
+								RangeChangedCommand="{Binding RangeChange_Command}">
+				</liveChart:Axis>
 			</liveChart:CartesianChart.AxisX>
 			<liveChart:CartesianChart.AxisY>
 				<liveChart:Axis MinValue="0"

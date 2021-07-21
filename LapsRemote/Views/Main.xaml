@@ -7,7 +7,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:liveChart="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
 		xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-		xmlns:oxy="http://oxyplot.org/wpf"
 		Title="{Binding Title}" Height="830" Width="1280"
 		MinHeight="830"
 		MinWidth="1280">

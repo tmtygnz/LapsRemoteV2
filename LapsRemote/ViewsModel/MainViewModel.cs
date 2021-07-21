@@ -22,6 +22,8 @@ using Newtonsoft.Json;
 using System.IO;
 using Microsoft.Win32;
 using LapsRemote.Models;
+using Prism;
+using Prism.Commands;
 
 namespace LapsRemote.ViewsModel
 {
@@ -64,7 +66,7 @@ namespace LapsRemote.ViewsModel
 		public bool _isUpdating;
 		private bool _isRecording;
 
-		public ICommand OpenRepositoryWebsite_Command => new RelayCommand(param => OpenRepositoryWebsite_Action());
+		public ICommand OpenRepositoryWebsite_Command => new DelegateCommand(OpenRepositoryWebsite_Action);
 		public void OpenRepositoryWebsite_Action()
 		{
 			try
@@ -85,7 +87,7 @@ namespace LapsRemote.ViewsModel
 			}
 		}
 
-		public ICommand SubmitBug_Command => new RelayCommand(param => SubmitBug_Action());
+		public ICommand SubmitBug_Command => new DelegateCommand(SubmitBug_Action);
 		public void SubmitBug_Action()
 		{
 			try
@@ -106,20 +108,20 @@ namespace LapsRemote.ViewsModel
 			}
 		}
 
-		public ICommand SelectionChange_Command => new RelayCommand(param => SelectionChange_Action());
+		public ICommand SelectionChange_Command => new DelegateCommand(SelectionChange_Action);
 		public void SelectionChange_Action()
 		{
 			MonitorModel[0].Values.Clear();
 		}
 
-		public ICommand StartRecording_Command => new RelayCommand(param => StartRecording_Action());
+		public ICommand StartRecording_Command => new DelegateCommand(StartRecording_Action);
 		public void StartRecording_Action()
 		{
 			_isRecording = true;
 			RecordingStatus = "Status: Recording";
 		}
 
-		public ICommand StopRecording_Command => new RelayCommand(param => StopRecording_Action());
+		public ICommand StopRecording_Command => new DelegateCommand(StopRecording_Action);
 		public void StopRecording_Action()
 		{
 			_isRecording = false;
@@ -141,7 +143,7 @@ namespace LapsRemote.ViewsModel
 			}
 		}
 
-		public ICommand CloseApplication_Command => new RelayCommand(param => CloseApplication_Action());
+		public ICommand CloseApplication_Command => new DelegateCommand(CloseApplication_Action);
 		public void CloseApplication_Action()
 		{
 			MonitorModel[0].Values.Clear();
@@ -151,14 +153,14 @@ namespace LapsRemote.ViewsModel
 			Environment.Exit(0);
 		}
 
-		public ICommand OpenReader_Command => new RelayCommand(param => OpenReader_Action());
+		public ICommand OpenReader_Command => new DelegateCommand(OpenReader_Action);
 		public void OpenReader_Action()
 		{
 			Reader reader = new Reader();
 			reader.Show();
 		}
 
-		public ICommand OpenPreferneces_Command => new RelayCommand(param => OpenPreferences_Action());
+		public ICommand OpenPreferneces_Command => new DelegateCommand(OpenPreferences_Action);
 		public void OpenPreferences_Action()
 		{
 			SettingsEditor settings = new SettingsEditor();

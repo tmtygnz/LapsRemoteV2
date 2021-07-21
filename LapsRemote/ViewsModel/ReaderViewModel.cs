@@ -16,6 +16,8 @@ using System.Windows.Media;
 using LiveCharts.Defaults;
 using System.Windows;
 using LapsRemote.Logging;
+using Prism;
+using Prism.Commands;
 
 namespace LapsRemote.ViewsModel
 {
@@ -46,11 +48,11 @@ namespace LapsRemote.ViewsModel
 				RespRateList = recordModel.RespRate;
 			}
 
-			if(RenderCapability.Tier >> 16 < 2)
+			if(RenderCapability.Tier >> 16 < 3)
 			{
 				Logger.Log("Hardware Acceleration Not Supported", Level.Warning, DateTime.Now);
-				MessageBox.Show($"Hardware Acceleration is not supported or not fully supported in this device [Rendering Tier: {RenderCapability.Tier >> 16}] and could " +
-					"cause lag especially with big data. Disabling animations could help.", "Hardware Warning");
+				Logger.MessageBoxLog($"Hardware Acceleration is not supported or not fully supported in this device [Rendering Tier: {RenderCapability.Tier >> 16}] and could " +
+					"cause lag especially with big data. Disabling animations could help.", Level.Fatal, DateTime.Now);
 			}
 
 			ReaderLineSeries = new SeriesCollection
@@ -87,7 +89,7 @@ namespace LapsRemote.ViewsModel
 			
 		}
 
-		public ICommand SelectionChanged_Command => new RelayCommand(param => SelectionChanged_Action());
+		public ICommand SelectionChanged_Command => new DelegateCommand(SelectionChanged_Action);
 		public void SelectionChanged_Action()
 		{
 			ReaderLineSeries[0].Values.Clear();
@@ -129,7 +131,15 @@ namespace LapsRemote.ViewsModel
 			}
 		}
 
-		public ICommand ResetScrollBar_Command => new RelayCommand(param => ResetScrollbar_Action());
+		public ICommand RangeChange_Command => new DelegateCommand(RangeChange_Action);
+		public void RangeChange_Action()
+		{
+			Console.Beep(100, 100);
+			if (From <= 0) From = 0;
+			if (To >= TemperatureList.Count) To = TemperatureList.Count;
+		}
+
+		public ICommand ResetScrollBar_Command => new DelegateCommand(ResetScrollbar_Action);
 		public void ResetScrollbar_Action()
 		{
 			To = 5;

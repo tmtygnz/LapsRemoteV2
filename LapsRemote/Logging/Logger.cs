@@ -93,9 +93,14 @@ namespace LapsRemote.Logging
 
 		public static void KillAll()
 		{
-			_logging = false;
-			LogQueue.Clear();
-			LogWriter.Close();
+			if (LogQueue.Count > 0)
+			{
+				_logging = false;
+				LogQueue.Clear();
+				LogWriter.Close();
+			}
+
+			else KillAll();
 		}
 	}
 }

@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using LapsRemote.Logging;
 using LapsRemote.Utilities;
-
+using Prism;
+using Prism.Commands;
 
 namespace LapsRemote.ViewsModel
 {
 	class SettingsViewModel : ViewModelBase
 	{
-
 		public SettingsViewModel()
 		{
 			PollingRate = Settings.settingsModel.PollingRate;
@@ -22,6 +23,18 @@ namespace LapsRemote.ViewsModel
 			SelectedFillColor = Settings.settingsModel.SelectedFillColor;
 			ApplicationLogPath = Settings.settingsModel.AppLicationLogPath;
 		}
+
+		public ICommand Save_Command => new DelegateCommand<Window>(param => Save_Action(param));
+		public void Save_Action(Window window)
+		{
+			Settings.Save();
+			Logger.MessageBoxLog("Some changes that you made will only take effect after you restart the application.",
+				Level.Warning, DateTime.Now);
+			window.Close();
+		}
+
+		public ICommand Cancel_Command => new DelegateCommand<Window>(param => Cancel_Action(param));
+		public void Cancel_Action(Window window) => window.Close();
 
 		private string _selectedFillColor;
 		public string SelectedFillColor
@@ -92,14 +105,6 @@ namespace LapsRemote.ViewsModel
 				_applicationLogPath = value;
 				OnPropertyChanged();
 			}
-		}
-
-		public ICommand Save_Command => new RelayCommand(param => Save_Action());
-		public void Save_Action()
-		{
-			Settings.Save();
-			MessageBox.Show("Some changes that you made will only take effect after you restart the application.", "Warning", 
-				MessageBoxButton.OK,MessageBoxImage.Warning);
 		}
 	}
 }

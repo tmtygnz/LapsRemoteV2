@@ -47,7 +47,7 @@ namespace LapsRemote.Models
 			}
 		}
 
-		private string? _selectedStrokeColor;
+		private string _selectedStrokeColor;
 		public string SelectedStrokeColor
 		{
 			get => _selectedStrokeColor ?? "#50CB93";

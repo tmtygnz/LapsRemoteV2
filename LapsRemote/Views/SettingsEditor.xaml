@@ -9,6 +9,7 @@
 		xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
 		ResizeMode="NoResize"
+		x:Name="SettingsWindow"
         Title="Settings" Height="632" Width="502">
     <Grid>
 		<Grid.ColumnDefinitions>
@@ -123,13 +124,16 @@
 						Content="Save"
 						Height="30"
 						Width="70"
-						Command="{Binding Save_Command}"/>
+						Command="{Binding Save_Command}"
+						CommandParameter="{Binding ElementName=SettingsWindow}"/>
 
 				<Button Grid.Column="2"
 						Grid.Row="0"
 						Content="Cancel"
 						Height="30"
-						Width="70"/>
+						Width="70"
+						Command="{Binding Cancel_Command}"
+						CommandParameter="{Binding ElementName=SettingsWindow}"/>
 			</Grid>
 		</Border>
 	</Grid>
