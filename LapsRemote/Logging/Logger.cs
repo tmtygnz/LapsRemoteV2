@@ -10,7 +10,7 @@ using LapsRemote.Utilities;
 
 namespace LapsRemote.Logging
 {
-	static class Logger
+	public static class Logger
 	{
 		public static Queue<Message> LogQueue;
 		public static StreamWriter LogWriter;

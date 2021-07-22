@@ -48,7 +48,7 @@ namespace LapsRemote.ViewsModel
 				RespRateList = recordModel.RespRate;
 			}
 
-			if(RenderCapability.Tier >> 16 < 3)
+			if(RenderCapability.Tier >> 16 < 2)
 			{
 				Logger.Log("Hardware Acceleration Not Supported", Level.Warning, DateTime.Now);
 				Logger.MessageBoxLog($"Hardware Acceleration is not supported or not fully supported in this device [Rendering Tier: {RenderCapability.Tier >> 16}] and could " +

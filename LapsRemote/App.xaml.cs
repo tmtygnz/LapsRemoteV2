@@ -11,6 +11,7 @@ using System.Threading;
 using System.IO;
 using System.Windows.Media;
 using System.Windows.Interop;
+using ControlzEx.Theming;
 
 namespace LapsRemote
 {
@@ -27,6 +28,8 @@ namespace LapsRemote
 		protected override void OnStartup(StartupEventArgs e)
 		{
 			base.OnStartup(e);
+
+			ThemeManager.Current.ChangeTheme(this, "Light.Orange");
 
 			Settings.Initialize();
 			Logger.Initialize();
