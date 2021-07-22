@@ -22,7 +22,7 @@ namespace LapsRemote.Logging
 			string AppDataFolderPath = Settings.settingsModel.AppLicationLogPath;
 			string LogFilePath = Path.Combine(AppDataFolderPath, "LapsRemoteV2.log");
 			_logging = true;
-			MessageBox.Show(LogFilePath);
+
 			if (!Directory.Exists(AppDataFolderPath))
 				Directory.CreateDirectory(AppDataFolderPath);
 
