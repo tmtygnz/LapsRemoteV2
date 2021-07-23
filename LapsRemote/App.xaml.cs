@@ -30,12 +30,11 @@ namespace LapsRemote
 			base.OnStartup(e);
 
 			ThemeManager.Current.ChangeTheme(this, "Light.Orange");
-
 			Settings.Initialize();
 			Logger.Initialize();
 			Logger.Log("App Startup", Level.Debug, DateTime.Now);
 
-  			if (Environment.OSVersion.Version.Major != 10)
+			if (Environment.OSVersion.Version.Major != 10)
 			{
 				Logger.Log("OS Not Windows 10", Level.Warning, DateTime.Now);
 				Logger.MessageBoxLog("You Are Not Running Windows 10. UI Components might not work correctly", Level.Warning, DateTime.Now);
@@ -46,6 +45,7 @@ namespace LapsRemote
 		void OnDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
 		{
 			Logger.Log(e.Exception.Message, Level.Fatal, DateTime.Now);
+
 			MessageBox.Show("Unhandled exception occurred: \n" + e.Exception.Message, "Fatal", MessageBoxButton.OK, MessageBoxImage.Error);
 		}
 	}

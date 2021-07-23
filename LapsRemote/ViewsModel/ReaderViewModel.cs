@@ -29,7 +29,7 @@ namespace LapsRemote.ViewsModel
 			OxyStatList = new List<double>();
 			BPMList = new List<double>();
 			RespRateList = new List<double>();
-			ValueComboBox = new ObservableCollection<string> { "Temperature", "O2Sat", "BPM", "Resperation Rate" };
+			ValueComboBox = new ObservableCollection<string> { "Temperature", "O2Sat", "BPM", "Respiration Rate" };
 			SelectedIndex = 0;
 			DisableAnimation = false;
 			To = Settings.settingsModel.ScrollerThumbSize;
@@ -195,8 +195,7 @@ namespace LapsRemote.ViewsModel
 			get => _disableAnimation;
 			set
 			{
-				if (value == _disableAnimation)
-					return;
+				if (value == _disableAnimation) { return; }
 				Logger.Log($"[Reader] Disable Animation Is Set To {value}", Level.Debug, DateTime.Now);
 				_disableAnimation = value;
 				OnPropertyChanged();
@@ -209,8 +208,7 @@ namespace LapsRemote.ViewsModel
 			get => _scrollerLineSeries;
 			set
 			{
-				if (value == _scrollerLineSeries)
-					return;
+				if (value == _scrollerLineSeries) { return; }
 				_scrollerLineSeries = value;
 				OnPropertyChanged();
 			}
@@ -222,8 +220,8 @@ namespace LapsRemote.ViewsModel
 			get => _temperatureList;
 			set
 			{
-				if (value == _temperatureList)
-					return;
+				if (value == _temperatureList) { return; }
+
 				_temperatureList = value;
 				OnPropertyChanged();
 			}
@@ -235,8 +233,7 @@ namespace LapsRemote.ViewsModel
 			get => _oxyStatList;
 			set
 			{
-				if (value == _oxyStatList)
-					return;
+				if (value == _oxyStatList) { return; }
 				_oxyStatList = value;
 				OnPropertyChanged();
 			}
@@ -248,8 +245,7 @@ namespace LapsRemote.ViewsModel
 			get => _bpmList;
 			set
 			{
-				if (value == _bpmList)
-					return;
+				if (value == _bpmList) { return; }
 				_bpmList = value;
 				OnPropertyChanged();
 			}
@@ -261,8 +257,7 @@ namespace LapsRemote.ViewsModel
 			get => _respRateList;
 			set
 			{
-				if (value == _respRateList)
-					return;
+				if (value == _respRateList) { return; }
 				_respRateList = value;
 				OnPropertyChanged();
 			}
@@ -274,8 +269,7 @@ namespace LapsRemote.ViewsModel
 			get => _from;
 			set
 			{
-				if (value == _from)
-					return;
+				if (value == _from) { return; }
 				_from = value;
 				OnPropertyChanged();
 			}
@@ -287,8 +281,7 @@ namespace LapsRemote.ViewsModel
 			get => _to;
 			set
 			{
-				if (value == _to)
-					return;
+				if (value == _to) { return; }
 				_to = value;
 				OnPropertyChanged();
 			}

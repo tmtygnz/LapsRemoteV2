@@ -99,7 +99,6 @@ namespace LapsRemote.Logging
 				LogQueue.Clear();
 				LogWriter.Close();
 			}
-			KillAll();
 		}
 	}
 }

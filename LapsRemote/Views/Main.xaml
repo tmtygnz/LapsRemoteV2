@@ -40,12 +40,12 @@
 				<MenuItem Header="Recording">
 					<MenuItem Header="Start" Command="{Binding StartRecording_Command}">
 						<MenuItem.Icon>
-							<iconPacks:PackIconModern Kind="ControlPlay" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+							<iconPacks:PackIconMaterial Kind="Play" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 						</MenuItem.Icon>
 					</MenuItem>
 					<MenuItem Header="Stop" Command="{Binding StopRecording_Command}">
 						<MenuItem.Icon>
-							<iconPacks:PackIconModern Kind="ControlStop" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+							<iconPacks:PackIconMaterial Kind="Stop" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 						</MenuItem.Icon>
 					</MenuItem>
 				</MenuItem>
@@ -85,78 +85,131 @@
 			</Grid.RowDefinitions>
 
 			<Border x:Name="TemperatureRect" 
-					Height="200"
-					Width="150"
-					CornerRadius="20"
-					Background="#f5e6ca"
+					Height="100"
+					Width="250"
+					CornerRadius="10"	
 					Grid.Column="0"
-					Grid.Row="0">
-				<StackPanel Orientation="Vertical"
-							HorizontalAlignment="Center"
-							Margin="4">
-					<TextBlock Text="Temperature" HorizontalAlignment="Center" FontSize="20"/>
-					<TextBlock x:Name="TemperatureTextView"
-							   Text="{Binding TemperatureString}" FontSize="100"
-							   HorizontalAlignment="Center"
-							   VerticalAlignment="Center"/>
-				</StackPanel>
+					Grid.Row="0"
+					BorderBrush="Black"
+					BorderThickness="1">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="150"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<StackPanel Orientation="Vertical"
+								Margin="10 0 0 0">
+						<TextBlock FontSize="50" Text="{Binding TemperatureString}" />
+						<TextBlock FontSize="19" Text="Temperature"/>
+					</StackPanel>
+					<Border Grid.Column="1"
+							Background="Orange"
+							CornerRadius="10"
+							Height="80"
+							Width="80">
+						<iconPacks:PackIconBoxIcons Kind="SolidThermometer"
+													Height="50" Width="50" 
+													VerticalAlignment="Center" 
+													HorizontalAlignment="Center"/>
+					</Border>
+				</Grid>
+				
 			</Border>
 
 			<Border x:Name="OxyStatRect" 
-					Height="200"
-					Width="150"
-					CornerRadius="20"
-					Background="#f5e6ca"
+					Height="100"
+					Width="250"
+					CornerRadius="10"
 					Grid.Column="1"
 					Grid.Row="0"
-					Margin="9 0 0 0">
-				<StackPanel Orientation="Vertical"
-							HorizontalAlignment="Center"
-							Margin="4">
-					<TextBlock Text="02Stat" HorizontalAlignment="Center" FontSize="20"/>
-					<TextBlock x:Name="OxyStatTextIvew"
-							   Text="{Binding OxyStatString}" FontSize="100"
-							   HorizontalAlignment="Center"
-							   VerticalAlignment="Center"/>
-				</StackPanel>
+					Margin="9 0 0 0"
+					BorderBrush="Black"
+					BorderThickness="1">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="150"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<StackPanel Orientation="Vertical"
+								Margin="10 0 0 0">
+						<TextBlock FontSize="50" Text="{Binding OxyStatString}" />
+						<TextBlock FontSize="19" Text="02Sat"/>
+					</StackPanel>
+					<Border Grid.Column="1"
+							Background="Orange"
+							CornerRadius="10"
+							Height="80"
+							Width="80">
+						<iconPacks:PackIconBoxIcons Kind="SolidTree" 
+													Height="50" Width="50"
+													HorizontalAlignment="Center"
+													VerticalAlignment="Center"/>
+					</Border>
+				</Grid>
 			</Border>
 
 			<Border x:Name="BPMRect" 
-					Height="200"
-					Width="150"
-					CornerRadius="20"
-					Background="#f5e6ca"
+					Height="100"
+					Width="250"
+					CornerRadius="10"
 					Grid.Column="2"
 					Grid.Row="0"
-					Margin="9 0 0 0">
-				<StackPanel Orientation="Vertical"
-							HorizontalAlignment="Center"
-							Margin="4">
-					<TextBlock Text="BPM" HorizontalAlignment="Center" FontSize="20"/>
-					<TextBlock x:Name="BPMTextView"
-							   Text="{Binding BPMString}" FontSize="100"
-							   HorizontalAlignment="Center"
-							   VerticalAlignment="Center"/>
-				</StackPanel>
+					Margin="9 0 0 0"
+					BorderBrush="Black"
+					BorderThickness="1">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="150"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<StackPanel Orientation="Vertical"
+								Margin="10 0 0 0">
+						<TextBlock FontSize="50" Text="{Binding BPMString}" />
+						<TextBlock FontSize="19" Text="BPM"/>
+					</StackPanel>
+					<Border Grid.Column="1"
+							Background="Orange"
+							CornerRadius="10"
+							Height="80"
+							Width="80">
+						<iconPacks:PackIconBoxIcons Kind="RegularHeart"
+													Height="50" Width="50"
+													VerticalAlignment="Center"
+													HorizontalAlignment="Center"/>
+					</Border>
+				</Grid>
 			</Border>
 
 			<Border x:Name="RespRateRect" 
-					Height="200"
-					Width="150"
-					CornerRadius="20"
-					Background="#f5e6ca"
+					Height="100"
+					Width="250"
+					CornerRadius="10"
 					Grid.Column="3"
 					Grid.Row="0"
-					Margin="9 0 0 0">
-				<StackPanel Orientation="Vertical"
-							HorizontalAlignment="Center"
-							Margin="4">
-					<TextBlock Text="RespRate" HorizontalAlignment="Center" FontSize="20"/>
-					<TextBlock x:Name="RespRateTextView"
-							   Text="{Binding RespRateString}" FontSize="100"
-							   HorizontalAlignment="Center"
-							   VerticalAlignment="Center"/>
-				</StackPanel>
+					Margin="9 0 0 0"
+					BorderBrush="Black"
+					BorderThickness="1">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="150"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<StackPanel Orientation="Vertical"
+								Margin="10 0 0 0">
+						<TextBlock FontSize="50" Text="{Binding RespRateString}" />
+						<TextBlock FontSize="19" Text="Resp Rate"/>
+					</StackPanel>
+					<Border Grid.Column="1"
+							Background="Orange"
+							CornerRadius="10"
+							Height="80"
+							Width="80">
+						<iconPacks:PackIconBoxIcons Kind="RegularFace"
+													Height="50" Width="50"
+													VerticalAlignment="Center"
+													HorizontalAlignment="Center"/>
+					</Border>
+				</Grid>
 			</Border>
 
 			<ComboBox Grid.Row="1"
@@ -169,12 +222,13 @@
 					</i:EventTrigger>
 				</i:Interaction.Triggers>
 			</ComboBox>
-			
+
 			<liveChart:CartesianChart Grid.Column="0"
 									  Grid.Row="2"
-									  Grid.ColumnSpan="5"
+									  Grid.ColumnSpan="4"
 									  Height="500"
 									  Width="700"
+									  HorizontalAlignment="Left"
 									  Series="{Binding MonitorModel}"
 									  Hoverable="False"
 									  Margin="0 9 0 0">
