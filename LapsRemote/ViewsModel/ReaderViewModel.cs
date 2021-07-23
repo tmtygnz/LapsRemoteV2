@@ -92,6 +92,7 @@ namespace LapsRemote.ViewsModel
 		public ICommand SelectionChanged_Command => new DelegateCommand(SelectionChanged_Action);
 		public void SelectionChanged_Action()
 		{
+			Logger.Log($"[Reader] Selection change", Level.Debug, DateTime.Now);
 			ReaderLineSeries[0].Values.Clear();
 			ScrollerLineSeries[0].Values.Clear();
 			if (SelectedIndex == 0)
@@ -142,6 +143,7 @@ namespace LapsRemote.ViewsModel
 		public ICommand ResetScrollBar_Command => new DelegateCommand(ResetScrollbar_Action);
 		public void ResetScrollbar_Action()
 		{
+			Logger.Log("[Reader] Resseting Scrollbar", Level.Debug, DateTime.Now);
 			To = 5;
 			From = 0;
 		}
@@ -167,6 +169,7 @@ namespace LapsRemote.ViewsModel
 			{
 				if (value == _selectedIndex)
 					return;
+				Logger.Log($"[Reader] Selected Index Change To {value}", Level.Debug, DateTime.Now);
 				_selectedIndex = value;
 				OnPropertyChanged();
 			}
@@ -194,6 +197,7 @@ namespace LapsRemote.ViewsModel
 			{
 				if (value == _disableAnimation)
 					return;
+				Logger.Log($"[Reader] Disable Animation Is Set To {value}", Level.Debug, DateTime.Now);
 				_disableAnimation = value;
 				OnPropertyChanged();
 			}

@@ -71,6 +71,7 @@ namespace LapsRemote.ViewsModel
 		{
 			try
 			{
+				Logger.Log("Opening Repo Page", Level.Debug, DateTime.Now);
 				ProcessStartInfo startInfo = new ProcessStartInfo()
 				{
 					UseShellExecute = true,
@@ -92,6 +93,7 @@ namespace LapsRemote.ViewsModel
 		{
 			try
 			{
+				Logger.Log("Opening Issue Page", Level.Debug, DateTime.Now);
 				ProcessStartInfo startInfo = new ProcessStartInfo()
 				{
 					UseShellExecute = true,
@@ -111,12 +113,15 @@ namespace LapsRemote.ViewsModel
 		public ICommand SelectionChange_Command => new DelegateCommand(SelectionChange_Action);
 		public void SelectionChange_Action()
 		{
+			Logger.Log("Selection Change", Level.Debug, DateTime.Now);
 			MonitorModel[0].Values.Clear();
 		}
 
 		public ICommand StartRecording_Command => new DelegateCommand(StartRecording_Action);
 		public void StartRecording_Action()
 		{
+			Logger.Log("Recording Started", Level.Debug, DateTime.Now);
+
 			_isRecording = true;
 			RecordingStatus = "Status: Recording";
 		}
@@ -124,6 +129,7 @@ namespace LapsRemote.ViewsModel
 		public ICommand StopRecording_Command => new DelegateCommand(StopRecording_Action);
 		public void StopRecording_Action()
 		{
+			Logger.Log("Recording Stoped", Level.Debug, DateTime.Now);
 			_isRecording = false;
 			RecordingStatus = "Status: Not Recording";
 			VitalsRecodModel ModelToSave = new VitalsRecodModel
@@ -156,6 +162,7 @@ namespace LapsRemote.ViewsModel
 		public ICommand OpenReader_Command => new DelegateCommand(OpenReader_Action);
 		public void OpenReader_Action()
 		{
+			Logger.Log("Opening Reader", Level.Debug, DateTime.Now);
 			Reader reader = new Reader();
 			reader.Show();
 		}
@@ -163,6 +170,7 @@ namespace LapsRemote.ViewsModel
 		public ICommand OpenPreferneces_Command => new DelegateCommand(OpenPreferences_Action);
 		public void OpenPreferences_Action()
 		{
+			Logger.Log("Opening Settings", Level.Debug, DateTime.Now);
 			SettingsEditor settings = new SettingsEditor();
 			settings.Show();
 		}
@@ -272,15 +280,17 @@ namespace LapsRemote.ViewsModel
 			}
 		}
 
-		private int _selectedValue;
+		private int _selectedIndex;
 		public int SelectedIndex
 		{
-			get => _selectedValue;
+			get => _selectedIndex;
 			set
 			{
-				if (value == _selectedValue)
+				Logger.Log($"Selected index changed to {value}",
+					Level.Debug, DateTime.Now);
+				if (value == _selectedIndex)
 					return;
-				_selectedValue = value;
+				_selectedIndex = value;
 				OnPropertyChanged();
 			}
 		}
@@ -352,6 +362,7 @@ namespace LapsRemote.ViewsModel
 
 		public void UpdateVitals()
 		{
+			Logger.Log("Update Vital Thread Started", Level.Debug, DateTime.Now);
 			lock (this)
 			{
 				while (_isUpdating)
