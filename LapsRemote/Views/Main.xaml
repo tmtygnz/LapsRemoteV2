@@ -70,7 +70,7 @@
 			</StatusBarItem>
 		</StatusBar>
 		
-		<Grid Margin="20">
+		<Grid Margin="10">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="auto"/>
 				<ColumnDefinition Width="auto"/>
@@ -212,42 +212,71 @@
 				</Grid>
 			</Border>
 
-			<ComboBox Grid.Row="1"
-					  ItemsSource="{Binding ValueComboBox}"
-					  Margin="0 9 0 0"
-					  SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
-				<i:Interaction.Triggers>
-					<i:EventTrigger EventName="SelectionChanged">
-						<i:InvokeCommandAction Command="{Binding SelectionChange_Command}"/>
-					</i:EventTrigger>
-				</i:Interaction.Triggers>
-			</ComboBox>
+			<Border Grid.Column="0"
+					Grid.Row="2"
+					Grid.ColumnSpan="4"
+					CornerRadius="10"
+					BorderBrush="Black"
+					BorderThickness="1"
+					Height="auto"
+					Width="auto"
+					HorizontalAlignment="Left"
+					Margin="0 9 0 0">
+				<Grid Margin="9">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="auto"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="auto"/>
+						<RowDefinition Height="*"/>
+					</Grid.RowDefinitions>
 
-			<liveChart:CartesianChart Grid.Column="0"
-									  Grid.Row="2"
-									  Grid.ColumnSpan="4"
-									  Height="500"
-									  Width="700"
-									  HorizontalAlignment="Left"
-									  Series="{Binding MonitorModel}"
-									  Hoverable="False"
-									  Margin="0 9 0 0">
-				<liveChart:CartesianChart.AxisX>
-					<liveChart:Axis MinValue="2"
+					<ComboBox Grid.Row="0"
+							  Grid.Column="1"
+							  Width="100"
+							  HorizontalAlignment="Right"
+							  ItemsSource="{Binding ValueComboBox}"
+							  SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
+							  BorderThickness="0">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="SelectionChanged">
+								<i:InvokeCommandAction Command="{Binding SelectionChange_Command}"/>
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+					</ComboBox>
+
+					<TextBlock Text="Patients Vitals"
+							   Grid.Column="0"
+							   Grid.Row="0"
+							   FontSize="18"/>
+
+					<liveChart:CartesianChart Grid.Column="0"
+											  Grid.Row="1"
+											  Grid.ColumnSpan="2"
+											  Height="500"
+											  Width="748"
+											  Series="{Binding MonitorModel}"
+											  Hoverable="False"
+											  Margin="0 9 0 0">
+						<liveChart:CartesianChart.AxisX>
+							<liveChart:Axis MinValue="2"
 									MaxValue="18"
 									ShowLabels="False">
-						<liveChart:Axis.Separator>
-							<liveChart:Separator StrokeThickness="0"/>
-						</liveChart:Axis.Separator>
-					</liveChart:Axis>
-				</liveChart:CartesianChart.AxisX>
+								<liveChart:Axis.Separator>
+									<liveChart:Separator StrokeThickness="0"/>
+								</liveChart:Axis.Separator>
+							</liveChart:Axis>
+						</liveChart:CartesianChart.AxisX>
 
-				<liveChart:CartesianChart.AxisY>
-					<liveChart:Axis MinValue="0"
+						<liveChart:CartesianChart.AxisY>
+							<liveChart:Axis MinValue="0"
 									MaxValue="{Binding MaxY}">
-					</liveChart:Axis>
-				</liveChart:CartesianChart.AxisY>
-			</liveChart:CartesianChart>
+							</liveChart:Axis>
+						</liveChart:CartesianChart.AxisY>
+					</liveChart:CartesianChart>
+				</Grid>
+			</Border>
 		</Grid>
 	</DockPanel>
 

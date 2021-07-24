@@ -44,14 +44,18 @@ namespace LapsRemote.ViewsModel
 			BPMRecordedList = new List<double>();
 			RespRateRecordedList = new List<double>();
 
+			gradientBrush = new LinearGradientBrush { StartPoint = new Point(0, 0), EndPoint = new Point(0, 1) };
+			gradientBrush.GradientStops.Add(new GradientStop((Color)ColorConverter.ConvertFromString(Settings.settingsModel.SelectedFillColor),0));
+			gradientBrush.GradientStops.Add(new GradientStop(Colors.Transparent, 1));
+
 			ValueComboBox = new ObservableCollection<string> { "Temperature", "02Sat", "BPM", "RespRate" };
 			MonitorModel = new SeriesCollection
 			{
 				new LineSeries
 				{
 					Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString(Settings.settingsModel.SelectedStrokeColor)),
-					Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString(Settings.settingsModel.SelectedFillColor)),
-					LineSmoothness = 0.1,
+					Fill = gradientBrush,
+					LineSmoothness = 1,
 					StrokeThickness = 3,
 					Opacity = 1.0,
 					AreaLimit = -5,
@@ -65,6 +69,7 @@ namespace LapsRemote.ViewsModel
 
 		public bool _isUpdating;
 		private bool _isRecording;
+		private GradientBrush gradientBrush;
 
 		public ICommand OpenRepositoryWebsite_Command => new DelegateCommand(OpenRepositoryWebsite_Action);
 		public void OpenRepositoryWebsite_Action()
