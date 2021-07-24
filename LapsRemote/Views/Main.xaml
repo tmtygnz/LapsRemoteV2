@@ -91,7 +91,7 @@
 					Grid.Column="0"
 					Grid.Row="0"
 					BorderBrush="Black"
-					BorderThickness="1">
+					BorderThickness="0.5">
 				<Grid>
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="150"/>
@@ -124,7 +124,7 @@
 					Grid.Row="0"
 					Margin="9 0 0 0"
 					BorderBrush="Black"
-					BorderThickness="1">
+					BorderThickness="0.5">
 				<Grid>
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="150"/>
@@ -156,7 +156,7 @@
 					Grid.Row="0"
 					Margin="9 0 0 0"
 					BorderBrush="Black"
-					BorderThickness="1">
+					BorderThickness="0.5">
 				<Grid>
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="150"/>
@@ -188,7 +188,7 @@
 					Grid.Row="0"
 					Margin="9 0 0 0"
 					BorderBrush="Black"
-					BorderThickness="1">
+					BorderThickness="0.5">
 				<Grid>
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="150"/>
@@ -217,7 +217,7 @@
 					Grid.ColumnSpan="4"
 					CornerRadius="10"
 					BorderBrush="Black"
-					BorderThickness="1"
+					BorderThickness="0.5"
 					Height="auto"
 					Width="auto"
 					HorizontalAlignment="Left"
