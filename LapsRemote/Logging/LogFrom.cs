@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace LapsRemote.Logging
 {
-	public struct Message
+	public enum LogFrom
 	{
-		public string LogMessage;
-		public LogFrom LoggingFrom;
-		public Level LogLevel;
-		public DateTime LogTime;
+		AppXamlcs,
+		MainViewModelcs,
+		ReaderViewModelcs,
+		SettingsViewModelcs
 	}
 }

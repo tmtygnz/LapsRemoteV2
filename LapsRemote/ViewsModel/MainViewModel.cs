@@ -76,7 +76,7 @@ namespace LapsRemote.ViewsModel
 		{
 			try
 			{
-				Logger.Log("Opening Repo Page", Level.Debug, DateTime.Now);
+				Logger.Log("Opening Repo Page", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
 				ProcessStartInfo startInfo = new ProcessStartInfo()
 				{
 					UseShellExecute = true,
@@ -88,8 +88,8 @@ namespace LapsRemote.ViewsModel
 			catch (Exception exp)
 			{
 				Logger.MessageBoxLog($"Can't Open Website \n {exp.StackTrace}",
-					Level.Error, DateTime.Now);
-				Logger.Log(exp.StackTrace, Level.Error, DateTime.Now);
+					LogFrom.MainViewModelcs, Level.Error, DateTime.Now);
+				Logger.Log(exp.StackTrace, LogFrom.MainViewModelcs, Level.Error, DateTime.Now);
 			}
 		}
 
@@ -98,7 +98,7 @@ namespace LapsRemote.ViewsModel
 		{
 			try
 			{
-				Logger.Log("Opening Issue Page", Level.Debug, DateTime.Now);
+				Logger.Log("Opening Issue Page", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
 				ProcessStartInfo startInfo = new ProcessStartInfo()
 				{
 					UseShellExecute = true,
@@ -110,22 +110,22 @@ namespace LapsRemote.ViewsModel
 			catch (Exception exp)
 			{
 				Logger.MessageBoxLog($"Can't Open Issues Page \n {exp.StackTrace}",
-					Level.Error, DateTime.Now);
-				Logger.Log(exp.StackTrace, Level.Error, DateTime.Now);
+					LogFrom.MainViewModelcs, Level.Error, DateTime.Now);
+				Logger.Log(exp.StackTrace, LogFrom.MainViewModelcs, Level.Error, DateTime.Now);
 			}
 		}
 
 		public ICommand SelectionChange_Command => new DelegateCommand(SelectionChange_Action);
 		public void SelectionChange_Action()
 		{
-			Logger.Log("Selection Change", Level.Debug, DateTime.Now);
+			Logger.Log("Selection Change", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
 			MonitorModel[0].Values.Clear();
 		}
 
 		public ICommand StartRecording_Command => new DelegateCommand(StartRecording_Action);
 		public void StartRecording_Action()
 		{
-			Logger.Log("Recording Started", Level.Debug, DateTime.Now);
+			Logger.Log("Recording Started", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
 
 			_isRecording = true;
 			RecordingStatus = "Status: Recording";
@@ -134,7 +134,7 @@ namespace LapsRemote.ViewsModel
 		public ICommand StopRecording_Command => new DelegateCommand(StopRecording_Action);
 		public void StopRecording_Action()
 		{
-			Logger.Log("Recording Stoped", Level.Debug, DateTime.Now);
+			Logger.Log("Recording Stopped", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
 			_isRecording = false;
 			RecordingStatus = "Status: Not Recording";
 			VitalsRecodModel ModelToSave = new VitalsRecodModel
@@ -159,7 +159,7 @@ namespace LapsRemote.ViewsModel
 		{
 			MonitorModel[0].Values.Clear();
 			_isUpdating = false;
-			Logger.Log("App Closed", Level.Debug, DateTime.Now);
+			Logger.Log("App Closed", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
 			Logger.KillAll();
 			Environment.Exit(0);
 		}
@@ -167,7 +167,7 @@ namespace LapsRemote.ViewsModel
 		public ICommand OpenReader_Command => new DelegateCommand(OpenReader_Action);
 		public void OpenReader_Action()
 		{
-			Logger.Log("Opening Reader", Level.Debug, DateTime.Now);
+			Logger.Log("Opening Reader", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
 			Reader reader = new Reader();
 			reader.Show();
 		}
@@ -175,7 +175,7 @@ namespace LapsRemote.ViewsModel
 		public ICommand OpenPreferneces_Command => new DelegateCommand(OpenPreferences_Action);
 		public void OpenPreferences_Action()
 		{
-			Logger.Log("Opening Settings", Level.Debug, DateTime.Now);
+			Logger.Log("Opening Settings", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
 			SettingsEditor settings = new SettingsEditor();
 			settings.Show();
 		}
@@ -292,7 +292,7 @@ namespace LapsRemote.ViewsModel
 			set
 			{
 				Logger.Log($"Selected index changed to {value}",
-					Level.Debug, DateTime.Now);
+					LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
 				if (value == _selectedIndex)
 					return;
 				_selectedIndex = value;
@@ -367,7 +367,7 @@ namespace LapsRemote.ViewsModel
 
 		public void UpdateVitals()
 		{
-			Logger.Log("Update Vital Thread Started", Level.Debug, DateTime.Now);
+			Logger.Log("Update Vital Thread Started", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
 			lock (this)
 			{
 				while (_isUpdating)

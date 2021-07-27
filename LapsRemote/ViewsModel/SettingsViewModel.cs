@@ -29,7 +29,7 @@ namespace LapsRemote.ViewsModel
 		{
 			Settings.Save();
 			Logger.MessageBoxLog("Some changes that you made will only take effect after you restart the application.",
-				Level.Warning, DateTime.Now);
+				LogFrom.SettingsViewModelcs, Level.Warning, DateTime.Now);
 			window.Close();
 		}
 

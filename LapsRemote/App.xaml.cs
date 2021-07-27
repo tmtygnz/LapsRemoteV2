@@ -32,21 +32,19 @@ namespace LapsRemote
 			ThemeManager.Current.ChangeTheme(this, "Light.Orange");
 			Settings.Initialize();
 			Logger.Initialize();
-			Logger.Log("App Startup", Level.Debug, DateTime.Now);
+			Logger.Log("App Startup", LogFrom.AppXamlcs, Level.Debug, DateTime.Now);
 
 			if (Environment.OSVersion.Version.Major != 10)
 			{
-				Logger.Log("OS Not Windows 10", Level.Warning, DateTime.Now);
-				Logger.MessageBoxLog("You Are Not Running Windows 10. UI Components might not work correctly", Level.Warning, DateTime.Now);
+				Logger.Log("OS Not Windows 10", LogFrom.AppXamlcs, Level.Warning, DateTime.Now);
+				Logger.MessageBoxLog("You Are Not Running Windows 10. UI Components might not work correctly", LogFrom.AppXamlcs, Level.Warning, DateTime.Now);
 			}
 		}
 
 		//(https://stackoverflow.com/questions/49497090/wpf-where-i-can-catch-application-crash-event)
 		void OnDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
 		{
-			Logger.Log(e.Exception.Message, Level.Fatal, DateTime.Now);
-
-			MessageBox.Show("Unhandled exception occurred: \n" + e.Exception.Message, "Fatal", MessageBoxButton.OK, MessageBoxImage.Error);
+			Logger.MessageBoxLog(e.Exception.Message, LogFrom.AppXamlcs, Level.Fatal, DateTime.Now);
 		}
 	}
 }

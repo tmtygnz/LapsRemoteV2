@@ -12,11 +12,10 @@ namespace LapsRemote.Logging
 {
 	public static class Logger
 	{
-		public static Queue<Message> LogQueue;
-		public static StreamWriter LogWriter;
+		static Queue<Message> LogQueue;
+		public static StreamWriter MainWriter;
 		private static volatile bool _logging;
 		
-
 		public static void Initialize()
 		{
 			string AppDataFolderPath = Settings.settingsModel.AppLicationLogPath;
@@ -30,7 +29,7 @@ namespace LapsRemote.Logging
 				File.Create(LogFilePath);
 			
 			LogQueue = new Queue<Message>();
-			LogWriter = File.AppendText(LogFilePath);
+			MainWriter = File.AppendText(LogFilePath);
 
 			new Thread(() => StartLogging()).Start();
 		}
@@ -42,52 +41,54 @@ namespace LapsRemote.Logging
 						DiskWrite(LogQueue.Peek());
 		}
 
-		public static void Log(string LogMessage, Level Level, DateTime Time)
+		public static void Log(string LogMessage, LogFrom LoggingFrom, Level LogLevel, DateTime LogTime)
 		{
 			Message MsgToEnq = new Message
 			{
 				LogMessage = LogMessage,
-				Level = Level,
-				Time = Time
+				LoggingFrom = LoggingFrom,
+				LogLevel = LogLevel,
+				LogTime = LogTime
 			};
 			LogQueue.Enqueue(MsgToEnq);
 		}
 		
-		public static void MessageBoxLog(string LogMessage, Level Level, DateTime Time)
+		public static void MessageBoxLog(string LogMessage, LogFrom LoggingFrom, Level LogLevel, DateTime LogTime)
 		{
 			Message MsgToEnq = new Message
 			{
 				LogMessage = LogMessage,
-				Level = Level,
-				Time = Time
+				LoggingFrom = LoggingFrom,
+				LogLevel = LogLevel,
+				LogTime = LogTime
 			};
 			LogQueue.Enqueue(MsgToEnq);
 
-			switch (Level)
+			switch (LogLevel)
 			{
 				case Level.Fatal:
-					MessageBox.Show(LogMessage, Time.ToString(),MessageBoxButton.OK,MessageBoxImage.Error);
+					MessageBox.Show(LogMessage, LogTime.ToString(), MessageBoxButton.OK,MessageBoxImage.Error);
 					break;
 
 				case Level.Error:
-					MessageBox.Show(LogMessage, Time.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
+					MessageBox.Show(LogMessage, LogTime.ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
 					break;
 
 				case Level.Warning:
-					MessageBox.Show(LogMessage, Time.ToString(), MessageBoxButton.OK, MessageBoxImage.Warning);
+					MessageBox.Show(LogMessage, LogTime.ToString(), MessageBoxButton.OK, MessageBoxImage.Warning);
 					break;
 
 				case Level.Debug:
-					MessageBox.Show(LogMessage, Time.ToString(), MessageBoxButton.OK, MessageBoxImage.Information);
+					MessageBox.Show(LogMessage, LogTime.ToString(), MessageBoxButton.OK, MessageBoxImage.Information);
 					break;
 			}
 		}
 
 		private static void DiskWrite(Message LogMessage)
 		{
-			string LogToWrite = $"{LogMessage.Time} {LogMessage.Level} {LogMessage.LogMessage}";
-			LogWriter.WriteLine(LogToWrite);
-			LogWriter.Flush();
+			string LogToWrite = $"{LogMessage.LogTime} [{LogMessage.LoggingFrom}] {LogMessage.LogLevel} {LogMessage.LogMessage}";
+			MainWriter.WriteLine(LogToWrite);
+			MainWriter.Flush();
 			LogQueue.Dequeue();
 		}
 
@@ -97,7 +98,7 @@ namespace LapsRemote.Logging
 			{
 				_logging = false;
 				LogQueue.Clear();
-				LogWriter.Close();
+				MainWriter.Close();
 			}
 		}
 	}
