@@ -86,7 +86,7 @@ namespace LapsRemote.Logging
 
 		private static void DiskWrite(Message LogMessage)
 		{
-			string LogToWrite = $"{LogMessage.LogTime} [{LogMessage.LoggingFrom}] {LogMessage.LogLevel} {LogMessage.LogMessage}";
+			string LogToWrite = $"{LogMessage.LogTime} [{LogMessage.LoggingFrom}/{LogMessage.LogLevel}] {LogMessage.LogMessage}";
 			MainWriter.WriteLine(LogToWrite);
 			MainWriter.Flush();
 			LogQueue.Dequeue();
