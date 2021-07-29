@@ -7,9 +7,6 @@ Laps Remote 2 is a complete rewrite of Laps Remote to a newer framework.
 Laps Remote is a project that will try to eliminate cross contamination among humans
 by using telemedice
 
-## Note👇
-This month is the last quarter of my school year so i will be out in a few weeks
-
 ## Currently Working On
 - [x] Implementing MVVM
 - [x] Adding Vitals Monitor
