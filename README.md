@@ -12,7 +12,7 @@ by using telemedice
 - [x] Adding Vitals Monitor
 - [x] Vital Recorder
 - [x] Vital Record Reader
-- [ ] Adding video and audio check up call
+- [ ] Adding video and audio check up call [in progress]
 - [ ] Better User Interface
 
 ## Build And Installation
