@@ -88,7 +88,7 @@ namespace LapsRemote.ViewsModel
 				ScrollerLineSeries[0].Values.Add(new ObservableValue(TemperatureList[i]));
 			}
 
-			if (RenderCapability.Tier >> 16 < 3)
+			if (RenderCapability.Tier >> 16 < 2)
 			{
 				Logger.Log("Hardware Acceleration Not Supported", LogFrom.ReaderViewModelcs, Level.Warning, DateTime.Now);
 				await _dialogCoordinator.ShowMessageAsync(this, "Warning!","Hardware acceleration is not fully supported in this " +
