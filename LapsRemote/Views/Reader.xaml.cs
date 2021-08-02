@@ -16,6 +16,7 @@ using System.IO;
 using LapsRemote.Models;
 using Newtonsoft.Json;
 using LapsRemote.ViewsModel;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace LapsRemote.Views
 {
@@ -28,7 +29,7 @@ namespace LapsRemote.Views
 		public Reader()
 		{
 			InitializeComponent();
-			_viewModel = new ReaderViewModel();
+			_viewModel = new ReaderViewModel(DialogCoordinator.Instance);
 			DataContext = _viewModel;
 		}
 	}

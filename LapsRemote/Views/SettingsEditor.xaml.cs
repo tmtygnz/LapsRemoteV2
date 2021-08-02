@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using LapsRemote.ViewsModel;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace LapsRemote.Views
 {
@@ -25,7 +26,7 @@ namespace LapsRemote.Views
 		public SettingsEditor()
 		{
 			InitializeComponent();
-			_viewModel = new SettingsViewModel();
+			_viewModel = new SettingsViewModel(DialogCoordinator.Instance);
 			DataContext = _viewModel;
 		}
 	}

@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using LapsRemote.Logging;
 using LapsRemote.Utilities;
+using MahApps.Metro.Controls.Dialogs;
 using Prism;
 using Prism.Commands;
 
@@ -15,26 +16,38 @@ namespace LapsRemote.ViewsModel
 {
 	class SettingsViewModel : ViewModelBase
 	{
-		public SettingsViewModel()
+		public SettingsViewModel(IDialogCoordinator _dialogCoordinatorInstance)
 		{
 			PollingRate = Settings.settingsModel.PollingRate;
 			ScrollerThumbSize = Settings.settingsModel.ScrollerThumbSize;
 			SelectedStrokeColor = Settings.settingsModel.SelectedStrokeColor;
 			SelectedFillColor = Settings.settingsModel.SelectedFillColor;
 			ApplicationLogPath = Settings.settingsModel.AppLicationLogPath;
+			_dialogCoordinator = _dialogCoordinatorInstance;
 		}
 
+		private IDialogCoordinator _dialogCoordinator;
+
 		public ICommand Save_Command => new DelegateCommand<Window>(param => Save_Action(param));
-		public void Save_Action(Window window)
+		public async void Save_Action(Window window)
 		{
 			Settings.Save();
-			Logger.MessageBoxLog("Some changes that you made will only take effect after you restart the application.",
-				LogFrom.SettingsViewModelcs, Level.Warning, DateTime.Now);
+			Logger.Log("Settings Saved", LogFrom.SettingsViewModelcs, Level.Debug, DateTime.Now);
+			await _dialogCoordinator.ShowMessageAsync(this, "Warning!", 
+				"Some changes that you made will only take effect after you restart the application.");
 			window.Close();
 		}
 
-		public ICommand Cancel_Command => new DelegateCommand<Window>(param => Cancel_Action(param));
-		public void Cancel_Action(Window window) => window.Close();
+		public ICommand Cancel_Command => new DelegateCommand<Window>(param => Cancel_ActionAsync(param));
+		public async Task Cancel_ActionAsync(Window window) {
+			Logger.Log("Settings Quit", LogFrom.SettingsViewModelcs, Level.Debug, DateTime.Now);
+			MessageDialogResult _dialog = await _dialogCoordinator.ShowMessageAsync(this, "Warning!",
+				"You might have some unsaved changes. Clicking ok will close " +
+				"the settings page and void all of the changes.", MessageDialogStyle.AffirmativeAndNegative);
+
+			if (_dialog != MessageDialogResult.Affirmative) { return; }
+			window.Close();
+		}
 
 		private string _selectedFillColor;
 		public string SelectedFillColor

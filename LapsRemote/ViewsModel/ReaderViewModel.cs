@@ -18,13 +18,15 @@ using System.Windows;
 using LapsRemote.Logging;
 using Prism;
 using Prism.Commands;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace LapsRemote.ViewsModel
 {
 	class ReaderViewModel : ViewModelBase
 	{
-		public ReaderViewModel()
+		public ReaderViewModel(IDialogCoordinator _dialogCoordinatorInstance)
 		{
+			_dialogCoordinator = _dialogCoordinatorInstance;
 			TemperatureList = new List<double>();
 			OxyStatList = new List<double>();
 			BPMList = new List<double>();
@@ -47,14 +49,7 @@ namespace LapsRemote.ViewsModel
 				BPMList = recordModel.BPM;
 				RespRateList = recordModel.RespRate;
 			}
-
-			if(RenderCapability.Tier >> 16 < 2)
-			{
-				Logger.Log("Hardware Acceleration Not Supported", LogFrom.ReaderViewModelcs, Level.Warning, DateTime.Now);
-				Logger.MessageBoxLog($"Hardware Acceleration is not supported or not fully supported in this device [Rendering Tier: {RenderCapability.Tier >> 16}] and could " +
-					"cause lag especially with big data. Disabling animations could help.", LogFrom.ReaderViewModelcs, Level.Fatal, DateTime.Now);
-			}
-
+			
 			ReaderLineSeries = new SeriesCollection
 			{
 				new LineSeries
@@ -80,13 +75,25 @@ namespace LapsRemote.ViewsModel
 					Values = new ChartValues<ObservableValue>()
 				}
 			};
+		}
 
+		private IDialogCoordinator _dialogCoordinator;
+
+		public ICommand Loaded_Command => new DelegateCommand(Loaded_Action);
+		public async void Loaded_Action()
+		{
 			for (int i = 0; i != TemperatureList.Count; i++)
 			{
 				ReaderLineSeries[0].Values.Add(new ObservableValue(TemperatureList[i]));
 				ScrollerLineSeries[0].Values.Add(new ObservableValue(TemperatureList[i]));
 			}
-			
+
+			if (RenderCapability.Tier >> 16 < 3)
+			{
+				Logger.Log("Hardware Acceleration Not Supported", LogFrom.ReaderViewModelcs, Level.Warning, DateTime.Now);
+				await _dialogCoordinator.ShowMessageAsync(this, "Warning!","Hardware acceleration is not fully supported in this " +
+					"machine and could cause some lag. Disabling animations could help.");
+			}
 		}
 
 		public ICommand SelectionChanged_Command => new DelegateCommand(SelectionChanged_Action);
@@ -135,7 +142,6 @@ namespace LapsRemote.ViewsModel
 		public ICommand RangeChange_Command => new DelegateCommand(RangeChange_Action);
 		public void RangeChange_Action()
 		{
-			Console.Beep(100, 100);
 			if (From <= 0) From = 0;
 			if (To >= TemperatureList.Count) To = TemperatureList.Count;
 		}
@@ -144,7 +150,7 @@ namespace LapsRemote.ViewsModel
 		public void ResetScrollbar_Action()
 		{
 			Logger.Log("[Reader] Reseting Scrollbar", LogFrom.ReaderViewModelcs, Level.Debug, DateTime.Now);
-			To = 5;
+			To = Settings.settingsModel.ScrollerThumbSize;
 			From = 0;
 		}
 
@@ -270,6 +276,7 @@ namespace LapsRemote.ViewsModel
 			set
 			{
 				if (value == _from) { return; }
+
 				_from = value;
 				OnPropertyChanged();
 			}
@@ -282,6 +289,7 @@ namespace LapsRemote.ViewsModel
 			set
 			{
 				if (value == _to) { return; }
+
 				_to = value;
 				OnPropertyChanged();
 			}

@@ -5,12 +5,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+		xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:LapsRemote.Views"
 		xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
 		ResizeMode="NoResize"
 		x:Name="SettingsWindow"
-        Title="Settings" Height="632" Width="502">
+        Title="Settings" Height="632" Width="502"
+		Dialog:DialogParticipation.Register="{Binding}">
     <Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="*"/>
@@ -33,19 +35,19 @@
 						<RowDefinition Height="auto"/>
 					</Grid.RowDefinitions>
 
-					<xctk:IntegerUpDown Value="{Binding PollingRate}"
-										Grid.Row="0"
-										Grid.Column="0"/>
+					<mah:NumericUpDown Value="{Binding PollingRate}"
+									   Grid.Row="0"
+									   Grid.Column="0"/>
 					<TextBlock Text="Polling Rate"
 							   Margin="9 0 0 0"
 							   Grid.Row="0"
 							   Grid.Column="1"
 							   VerticalAlignment="Center"/>
 
-					<xctk:IntegerUpDown Value="{Binding ScrollerThumbSize}"
-										Grid.Row="1"
-										Grid.Column="0"
-										Margin="0 9 0 0"/>
+					<mah:NumericUpDown Value="{Binding ScrollerThumbSize}"
+									   Grid.Row="1"
+									   Grid.Column="0"
+									   Margin="0 9 0 0"/>
 					<TextBlock Text="Scroller Thumb Size"
 							   Margin="9 9 0 0"
 							   Grid.Row="1"
