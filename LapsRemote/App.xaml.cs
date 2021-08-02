@@ -29,7 +29,7 @@ namespace LapsRemote
 		{
 			base.OnStartup(e);
 
-			ThemeManager.Current.ChangeTheme(this, "Light.Teal");
+			ThemeManager.Current.ChangeTheme(this, "Light.Orange");
 			Settings.Initialize();
 			Logger.Initialize();
 			Logger.Log("App Startup", LogFrom.AppXamlcs, Level.Debug, DateTime.Now);
