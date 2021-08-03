@@ -39,3 +39,4 @@ git clone https://github.com/jostimian/LapsRemoteV2.git; .\LapsRemoteV2\build.ps
 - [WPF Extended Toolkit](https://github.com/xceedsoftware/wpftoolkit) All the controls missing in WPF.
 - [Live Charts](https://github.com/Live-Charts/Live-Charts) Simple, flexible, interactive & powerful charts, maps and gauges for .Net.
 - [Prism](https://github.com/PrismLibrary/Prism) Prism is a framework for building loosely coupled, maintainable, and testable XAML applications in WPF, Xamarin Forms, and Uno / Win UI Applications.
+- [Xaml Behaviors](https://github.com/microsoft/XamlBehaviorsWpf) Easily add interactivity to your apps using XAML Behaviors for WPF.
