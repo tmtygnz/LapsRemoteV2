@@ -32,3 +32,10 @@ Use this command in powershell to clone and build the project.
 ```bash
 git clone https://github.com/jostimian/LapsRemoteV2.git; .\LapsRemoteV2\build.ps1
 ```
+## Credits
+- [Mah Apps Metro](https://github.com/MahApps/MahApps.Metro) A toolkit for creating modern WPF applications.
+- [Mah Apps Metro Icons](https://github.com/MahApps/MahApps.Metro.IconPacks) Awesome icon packs for WPF and UWP in one library.
+- [Newtonsoft Json](https://github.com/JamesNK/Newtonsoft.Json) high-performance JSON framework for .NET.
+- [WPF Extended Toolkit](https://github.com/xceedsoftware/wpftoolkit) All the controls missing in WPF.
+- [Live Charts](https://github.com/Live-Charts/Live-Charts) Simple, flexible, interactive & powerful charts, maps and gauges for .Net.
+- [Prism](https://github.com/PrismLibrary/Prism) Prism is a framework for building loosely coupled, maintainable, and testable XAML applications in WPF, Xamarin Forms, and Uno / Win UI Applications.
