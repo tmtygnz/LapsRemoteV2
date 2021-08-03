@@ -42,7 +42,7 @@ namespace LapsRemote.ViewsModel
 		public async Task Cancel_ActionAsync(Window window) {
 			Logger.Log("Settings Quit", LogFrom.SettingsViewModelcs, Level.Debug, DateTime.Now);
 			MessageDialogResult _dialog = await _dialogCoordinator.ShowMessageAsync(this, "Warning!",
-				"You might have some unsaved changes. Clicking ok will close " +
+				"You might have some unsaved changes. Clicking okay will close " +
 				"the settings page and void all of the changes.", MessageDialogStyle.AffirmativeAndNegative);
 
 			if (_dialog != MessageDialogResult.Affirmative) { return; }
