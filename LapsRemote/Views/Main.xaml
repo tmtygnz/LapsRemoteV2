@@ -9,7 +9,8 @@
 		xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
 		Title="{Binding Title}" Height="830" Width="1280"
 		MinHeight="830"
-		MinWidth="1280">
+		MinWidth="1280"
+		GlowBrush="OrangeRed">
 
 	<i:Interaction.Triggers>
 		<i:EventTrigger EventName="Closing">
