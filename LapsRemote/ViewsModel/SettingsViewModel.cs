@@ -23,6 +23,7 @@ namespace LapsRemote.ViewsModel
 			SelectedStrokeColor = Settings.settingsModel.SelectedStrokeColor;
 			SelectedFillColor = Settings.settingsModel.SelectedFillColor;
 			ApplicationLogPath = Settings.settingsModel.AppLicationLogPath;
+			DisableAnimationReader = Settings.settingsModel.DisableAnimationReader;
 			_dialogCoordinator = _dialogCoordinatorInstance;
 		}
 
@@ -119,6 +120,19 @@ namespace LapsRemote.ViewsModel
 				OnPropertyChanged();
 			}
 		}
+
+		private bool _disableAnimationReader;
+		public bool DisableAnimationReader
+		{
+			get => _disableAnimationReader;
+			set
+			{
+				if (value == _disableAnimationReader) 
+					return;
+				Settings.settingsModel.DisableAnimationReader = value;
+				_disableAnimationReader = value;
+				OnPropertyChanged();
+			}
+		}
 	}
 }
-

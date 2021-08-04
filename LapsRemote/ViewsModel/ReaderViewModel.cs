@@ -33,7 +33,7 @@ namespace LapsRemote.ViewsModel
 			RespRateList = new List<double>();
 			ValueComboBox = new ObservableCollection<string> { "Temperature", "O2Sat", "BPM", "Respiration Rate" };
 			SelectedIndex = 0;
-			DisableAnimation = false;
+			DisableAnimationReader = Settings.settingsModel.DisableAnimationReader;
 			To = Settings.settingsModel.ScrollerThumbSize;
 
 			OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -195,15 +195,15 @@ namespace LapsRemote.ViewsModel
 			}
 		}
 
-		private bool _disableAnimation;
-		public bool DisableAnimation
+		private bool _disableAnimationReader;
+		public bool DisableAnimationReader
 		{
-			get => _disableAnimation;
+			get => _disableAnimationReader;
 			set
 			{
-				if (value == _disableAnimation) { return; }
+				if (value == _disableAnimationReader) { return; }
 				Logger.Log($"[Reader] Disable Animation Is Set To {value}", LogFrom.ReaderViewModelcs, Level.Debug, DateTime.Now);
-				_disableAnimation = value;
+				_disableAnimationReader = value;
 				OnPropertyChanged();
 			}
 		}

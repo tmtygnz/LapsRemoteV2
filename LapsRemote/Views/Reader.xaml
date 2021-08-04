@@ -51,13 +51,13 @@
 		
 		<CheckBox Content="Disable Animations"
 				  Grid.Column="2"
-				  IsChecked="{Binding DisableAnimation}"
+				  IsChecked="{Binding DisableAnimationReader}"
 				  Margin="9 0 0 0"/>
 
 		<liveChart:CartesianChart Grid.Column="0"
 								  Grid.Row="1"
 								  Grid.ColumnSpan="4"
-								  DisableAnimations="{Binding DisableAnimation}"
+								  DisableAnimations="{Binding DisableAnimationReader}"
 								  Series="{Binding ReaderLineSeries}"
 								  Zoom="X">
 

@@ -16,8 +16,7 @@ namespace LapsRemote.Models
 			get => _pollingRate ?? 500;
 			set
 			{
-				if (value == _pollingRate)
-					return;
+				if (value == _pollingRate) { return; }
 				_pollingRate = value;
 			}
 		}
@@ -29,8 +28,7 @@ namespace LapsRemote.Models
 			get => _scrollerThumbSize ?? 10;
 			set
 			{
-				if (value == _scrollerThumbSize)
-					return;
+				if (value == _scrollerThumbSize) { return; }
 				_scrollerThumbSize = value;
 			}
 		}
@@ -41,8 +39,7 @@ namespace LapsRemote.Models
 			get => _gPURendering ?? 1;
 			set
 			{
-				if (value == _gPURendering)
-					return;
+				if (value == _gPURendering) { return; }
 				_gPURendering = value;
 			}
 		}
@@ -53,8 +50,7 @@ namespace LapsRemote.Models
 			get => _selectedStrokeColor ?? "#50CB93";
 			set
 			{
-				if (value == _selectedStrokeColor)
-					return;
+				if (value == _selectedStrokeColor) { return; }
 				_selectedStrokeColor = value;
 			}
 		}
@@ -65,8 +61,7 @@ namespace LapsRemote.Models
 			get => _selectedFillColor ?? "#71EFA3";
 			set
 			{
-				if (value == _selectedFillColor)
-					return;
+				if (value == _selectedFillColor) { return; }
 				_selectedFillColor = value;
 			}
 		}
@@ -77,9 +72,19 @@ namespace LapsRemote.Models
 			get => _applicationLogPath ?? Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "LapsRemoteV2");
 			set
 			{
-				if (value == _applicationLogPath)
-					return;
+				if (value == _applicationLogPath) { return; }
 				_applicationLogPath = value;
+			}
+		}
+
+		private bool? _disableAnimationReader;
+		public bool DisableAnimationReader
+		{
+			get => _disableAnimationReader ?? true;
+			set
+			{
+				if (value == _disableAnimationReader) { return; }
+				_disableAnimationReader = value;
 			}
 		}
 	}

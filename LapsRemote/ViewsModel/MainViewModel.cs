@@ -32,7 +32,7 @@ namespace LapsRemote.ViewsModel
 
 		public MainViewModel()
 		{
-			Title = $"LAPS <{Environment.OSVersion}>";
+			Title = $"Laps Remote <{Environment.OSVersion}>";
 			SelectedIndex = 0;
 			_isRecording = false;
 			_isUpdating = true;
