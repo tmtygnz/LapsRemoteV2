@@ -21,7 +21,7 @@
 			<RowDefinition Height="*"/>
 			<RowDefinition Height="100"/>
 		</Grid.RowDefinitions>
-		<TabControl>
+		<TabControl Style="{DynamicResource MahApps.Styles.TabControl.Animated}">
 			<TabItem Header="General">
 				<Grid Margin="20">
 					<Grid.ColumnDefinitions>
