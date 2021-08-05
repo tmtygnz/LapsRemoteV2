@@ -23,27 +23,32 @@ namespace LapsRemote.Logging
 			_logging = true;
 
 			if (!Directory.Exists(AppDataFolderPath))
+			{
 				Directory.CreateDirectory(AppDataFolderPath);
+			}
 
 			if (!File.Exists(LogFilePath))
+			{
 				File.Create(LogFilePath);
-			
+			}
+
 			LogQueue = new Queue<Message>();
 			MainWriter = File.AppendText(LogFilePath);
 
 			new Thread(() => StartLogging()).Start();
 		}
-		
+
 		private static void StartLogging()
 		{
 			while (_logging)
-				if (LogQueue.Count != 0)
-						DiskWrite(LogQueue.Peek());
+			{
+				if (LogQueue.Count != 0) { DiskWrite(LogQueue.Peek()); }
+			}
 		}
 
 		public static void Log(string LogMessage, LogFrom LoggingFrom, Level LogLevel, DateTime LogTime)
 		{
-			Message MsgToEnq = new Message
+			Message MsgToEnq = new()
 			{
 				LogMessage = LogMessage,
 				LoggingFrom = LoggingFrom,
@@ -52,10 +57,10 @@ namespace LapsRemote.Logging
 			};
 			LogQueue.Enqueue(MsgToEnq);
 		}
-		
+
 		public static void MessageBoxLog(string LogMessage, LogFrom LoggingFrom, Level LogLevel, DateTime LogTime)
 		{
-			Message MsgToEnq = new Message
+			Message MsgToEnq = new()
 			{
 				LogMessage = LogMessage,
 				LoggingFrom = LoggingFrom,
