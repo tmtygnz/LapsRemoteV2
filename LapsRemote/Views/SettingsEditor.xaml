@@ -55,7 +55,7 @@
 									   Grid.Row="1"
 									   Grid.Column="0"
 									   Margin="0 9 0 0"/>
-					<TextBlock Text="Scroller Thumb Size"
+					<TextBlock Text="Scroll Thumb Size"
 							   Margin="9 9 0 0"
 							   Grid.Row="1"
 							   Grid.Column="1"

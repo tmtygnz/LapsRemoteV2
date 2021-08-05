@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
 using System.Diagnostics;
 using LapsRemote.Logging;
 using System.Windows.Input;
@@ -14,7 +10,6 @@ using System.Threading;
 using System.Windows;
 using LiveCharts;
 using LiveCharts.Wpf;
-using LiveCharts.Configurations;
 using LiveCharts.Defaults;
 using System.Windows.Media;
 using System.Collections.ObjectModel;
@@ -22,7 +17,6 @@ using Newtonsoft.Json;
 using System.IO;
 using Microsoft.Win32;
 using LapsRemote.Models;
-using Prism;
 using Prism.Commands;
 
 namespace LapsRemote.ViewsModel
@@ -38,14 +32,14 @@ namespace LapsRemote.ViewsModel
 			_isUpdating = true;
 			RecordingStatus = "Status: Not Recording";
 
-			
+
 			TemperatureRecordedList = new List<double>();
 			OxyStatRecordedList = new List<double>();
 			BPMRecordedList = new List<double>();
 			RespRateRecordedList = new List<double>();
 
 			gradientBrush = new LinearGradientBrush { StartPoint = new Point(0, 0), EndPoint = new Point(0, 1) };
-			gradientBrush.GradientStops.Add(new GradientStop((Color)ColorConverter.ConvertFromString(Settings.settingsModel.SelectedFillColor),0));
+			gradientBrush.GradientStops.Add(new GradientStop((Color)ColorConverter.ConvertFromString(Settings.settingsModel.SelectedFillColor), 0));
 			gradientBrush.GradientStops.Add(new GradientStop(Colors.Transparent, 1));
 
 			ValueComboBox = new ObservableCollection<string> { "Temperature", "02Sat", "BPM", "RespRate" };
@@ -77,7 +71,7 @@ namespace LapsRemote.ViewsModel
 			try
 			{
 				Logger.Log("Opening Repo Page", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
-				ProcessStartInfo startInfo = new ProcessStartInfo()
+				ProcessStartInfo startInfo = new()
 				{
 					UseShellExecute = true,
 					FileName = "https://github.com/jostimian/LapsRemoteV2"
@@ -99,7 +93,7 @@ namespace LapsRemote.ViewsModel
 			try
 			{
 				Logger.Log("Opening Issue Page", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
-				ProcessStartInfo startInfo = new ProcessStartInfo()
+				ProcessStartInfo startInfo = new()
 				{
 					UseShellExecute = true,
 					FileName = "https://github.com/jostimian/LapsRemoteV2/issues"
@@ -137,7 +131,7 @@ namespace LapsRemote.ViewsModel
 			Logger.Log("Recording Stopped", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
 			_isRecording = false;
 			RecordingStatus = "Status: Not Recording";
-			VitalsRecodModel ModelToSave = new VitalsRecodModel
+			VitalsRecodModel ModelToSave = new()
 			{
 				Temperature = TemperatureRecordedList,
 				OxyStat = OxyStatRecordedList,
@@ -145,7 +139,7 @@ namespace LapsRemote.ViewsModel
 				RespRate = RespRateRecordedList
 			};
 
-			SaveFileDialog saveFileDialog = new SaveFileDialog();
+			SaveFileDialog saveFileDialog = new();
 			saveFileDialog.Filter = "Json files (*.json)|*.json|Text files (*.txt)|*.txt";
 			if (saveFileDialog.ShowDialog() == true)
 			{
@@ -168,7 +162,7 @@ namespace LapsRemote.ViewsModel
 		public void OpenReader_Action()
 		{
 			Logger.Log("Opening Reader", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
-			Reader reader = new Reader();
+			Reader reader = new();
 			reader.Show();
 		}
 
@@ -176,18 +170,17 @@ namespace LapsRemote.ViewsModel
 		public void OpenPreferences_Action()
 		{
 			Logger.Log("Opening Settings", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
-			SettingsEditor settings = new SettingsEditor();
+			SettingsEditor settings = new();
 			settings.Show();
 		}
 
 		private string _temperatureString;
-		public string TemperatureString 
+		public string TemperatureString
 		{
 			get => _temperatureString;
 			set
 			{
-				if (value == _temperatureString)
-					return;
+				if (value == _temperatureString) { return; }
 				_temperatureString = value;
 				OnPropertyChanged();
 			}
@@ -199,8 +192,7 @@ namespace LapsRemote.ViewsModel
 			get => _oxyStatString;
 			set
 			{
-				if (value == _oxyStatString)
-					return;
+				if (value == _oxyStatString) { return; }
 				_oxyStatString = value;
 				OnPropertyChanged();
 			}
@@ -212,8 +204,7 @@ namespace LapsRemote.ViewsModel
 			get => _bpmString;
 			set
 			{
-				if (value == _bpmString)
-					return;
+				if (value == _bpmString) { return; }
 				_bpmString = value;
 				OnPropertyChanged();
 			}
@@ -225,8 +216,7 @@ namespace LapsRemote.ViewsModel
 			get => _respRateString;
 			set
 			{
-				if (value == _respRateString)
-					return;
+				if (value == _respRateString) { return; }
 				_respRateString = value;
 				OnPropertyChanged();
 			}
@@ -237,10 +227,9 @@ namespace LapsRemote.ViewsModel
 		{
 			get => _title;
 
-			set 
+			set
 			{
-				if (value == _title)
-					return;
+				if (value == _title) { return; }
 				_title = value;
 				OnPropertyChanged();
 			}
@@ -252,8 +241,7 @@ namespace LapsRemote.ViewsModel
 			get => _monitorModel;
 			set
 			{
-				if (value == _monitorModel)
-					return;
+				if (value == _monitorModel) { return; }
 				_monitorModel = value;
 				OnPropertyChanged();
 			}
@@ -265,8 +253,7 @@ namespace LapsRemote.ViewsModel
 			get => _maxY;
 			set
 			{
-				if (value == _maxY)
-					return;
+				if (value == _maxY) { return; }
 				_maxY = value;
 				OnPropertyChanged();
 			}
@@ -278,8 +265,7 @@ namespace LapsRemote.ViewsModel
 			get => _valueComboBox;
 			set
 			{
-				if (value == _valueComboBox)
-					return;
+				if (value == _valueComboBox) { return; }
 				_valueComboBox = value;
 				OnPropertyChanged();
 			}
@@ -293,8 +279,7 @@ namespace LapsRemote.ViewsModel
 			{
 				Logger.Log($"Selected index changed to {value}",
 					LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
-				if (value == _selectedIndex)
-					return;
+				if (value == _selectedIndex) { return; }
 				_selectedIndex = value;
 				OnPropertyChanged();
 			}
@@ -306,8 +291,7 @@ namespace LapsRemote.ViewsModel
 			get => _temperatureRecordedList;
 			set
 			{
-				if (value == _temperatureRecordedList)
-					return;
+				if (value == _temperatureRecordedList) { return; }
 				_temperatureRecordedList = value;
 				OnPropertyChanged();
 			}
@@ -319,8 +303,7 @@ namespace LapsRemote.ViewsModel
 			get => _oxyStatRecordedList;
 			set
 			{
-				if (value == _oxyStatRecordedList)
-					return;
+				if (value == _oxyStatRecordedList) { return; }
 				_oxyStatRecordedList = value;
 				OnPropertyChanged();
 			}
@@ -332,8 +315,7 @@ namespace LapsRemote.ViewsModel
 			get => _bpmRecordedList;
 			set
 			{
-				if (value == _bpmRecordedList)
-					return;
+				if (value == _bpmRecordedList) { return; }
 				_bpmRecordedList = value;
 				OnPropertyChanged();
 			}
@@ -345,8 +327,7 @@ namespace LapsRemote.ViewsModel
 			get => _respRateRecordedList;
 			set
 			{
-				if (value == _respRateRecordedList)
-					return;
+				if (value == _respRateRecordedList) { return; }
 				_respRateRecordedList = value;
 				OnPropertyChanged();
 			}
@@ -358,8 +339,7 @@ namespace LapsRemote.ViewsModel
 			get => _recordingStatus;
 			set
 			{
-				if (value == _recordingStatus)
-					return;
+				if (value == _recordingStatus) { return; }
 				_recordingStatus = value;
 				OnPropertyChanged();
 			}
@@ -392,17 +372,13 @@ namespace LapsRemote.ViewsModel
 					#endregion Recording
 
 					#region CheckSelectedValueToLoad
-					if (SelectedIndex == 0)
-						ValueToShow = TemperatureValue;
+					if (SelectedIndex == 0) { ValueToShow = TemperatureValue; }
 
-					if (SelectedIndex == 1)
-						ValueToShow = OxyStatValue;
+					if (SelectedIndex == 1) { ValueToShow = OxyStatValue; }
 
-					if (SelectedIndex == 2)
-						ValueToShow = BPMValue;
+					if (SelectedIndex == 2) { ValueToShow = BPMValue; }
 
-					if (SelectedIndex == 3)
-						ValueToShow = RespRateValue;
+					if (SelectedIndex == 3) { ValueToShow = RespRateValue; }
 					#endregion CheckSelectedValueToLoad
 
 					#region LoadValueToTheScreen
@@ -412,15 +388,13 @@ namespace LapsRemote.ViewsModel
 					RespRateString = RespRateValue.ToString();
 
 
-					if (double.Parse(BPMString) < 100 )
-						MaxY = 100;
-					else
-						MaxY = double.NaN;
+					if (double.Parse(BPMString) < 100 ) { MaxY = 100; }
+
+					else { MaxY = double.NaN; }
 
 					MonitorModel[0].Values.Add(new ObservableValue(ValueToShow));
 
-					if (MonitorModel[0].Values.Count > 19)
-						MonitorModel[0].Values.RemoveAt(0);
+					if (MonitorModel[0].Values.Count > 19) { MonitorModel[0].Values.RemoveAt(0); }
 					#endregion LoadValueToTheScreen
 				}
 			}
