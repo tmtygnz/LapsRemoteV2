@@ -36,12 +36,11 @@ namespace LapsRemote.ViewsModel
 			DisableAnimationReader = Settings.settingsModel.DisableAnimationReader;
 			To = Settings.settingsModel.ScrollerThumbSize;
 
-			OpenFileDialog openFileDialog = new OpenFileDialog();
-			openFileDialog.Filter = "Json files (*.json)|*.json|Text files (*.txt)|*.txt";
+			OpenFileDialog openFileDialog = new() { Filter = "Json files (*.json)|*.json|Text files (*.txt)|*.txt" };
 
 			if (openFileDialog.ShowDialog() == true)
 			{
-				StreamReader streamReader = new StreamReader(openFileDialog.FileName);
+				StreamReader streamReader = new(openFileDialog.FileName);
 				VitalsRecodModel recordModel = JsonConvert.DeserializeObject<VitalsRecodModel>(streamReader.ReadToEnd());
 
 				TemperatureList = recordModel.Temperature;
@@ -49,7 +48,7 @@ namespace LapsRemote.ViewsModel
 				BPMList = recordModel.BPM;
 				RespRateList = recordModel.RespRate;
 			}
-			
+
 			ReaderLineSeries = new SeriesCollection
 			{
 				new LineSeries
@@ -142,8 +141,8 @@ namespace LapsRemote.ViewsModel
 		public ICommand RangeChange_Command => new DelegateCommand(RangeChange_Action);
 		public void RangeChange_Action()
 		{
-			if (From <= 0) From = 0;
-			if (To >= TemperatureList.Count) To = TemperatureList.Count;
+			if (From <= 0) { From = 0; }
+			if (To >= TemperatureList.Count) { To = TemperatureList.Count; }
 		}
 
 		public ICommand ResetScrollBar_Command => new DelegateCommand(ResetScrollbar_Action);
@@ -160,9 +159,8 @@ namespace LapsRemote.ViewsModel
 			get => _valueComboBox;
 			set
 			{
-				if (value == _valueComboBox)
-					return;
-				_valueComboBox = value; 
+				if (value == _valueComboBox) { return; }
+				_valueComboBox = value;
 				OnPropertyChanged();
 			}
 		}
@@ -173,8 +171,7 @@ namespace LapsRemote.ViewsModel
 			get => _selectedIndex;
 			set
 			{
-				if (value == _selectedIndex)
-					return;
+				if (value == _selectedIndex) { return; }
 				Logger.Log($"[Reader] Selected Index Change To {value}", LogFrom.ReaderViewModelcs, Level.Debug, DateTime.Now);
 				_selectedIndex = value;
 				OnPropertyChanged();
@@ -188,8 +185,7 @@ namespace LapsRemote.ViewsModel
 			get => _readerLineSeries;
 			set
 			{
-				if (value == _readerLineSeries)
-					return;
+				if (value == _readerLineSeries) { return; }
 				_readerLineSeries = value;
 				OnPropertyChanged();
 			}
