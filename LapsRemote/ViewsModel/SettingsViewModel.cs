@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
 using LapsRemote.Logging;
 using LapsRemote.Utilities;
 using MahApps.Metro.Controls.Dialogs;
-using Prism;
 using Prism.Commands;
 
 namespace LapsRemote.ViewsModel
@@ -40,7 +35,8 @@ namespace LapsRemote.ViewsModel
 		}
 
 		public ICommand Cancel_Command => new DelegateCommand<Window>(param => Cancel_ActionAsync(param));
-		public async Task Cancel_ActionAsync(Window window) {
+		public async Task Cancel_ActionAsync(Window window)
+		{
 			Logger.Log("Settings Quit", LogFrom.SettingsViewModelcs, Level.Debug, DateTime.Now);
 			MessageDialogResult _dialog = await _dialogCoordinator.ShowMessageAsync(this, "Warning!",
 				"You might have some unsaved changes. Clicking okay will close " +
@@ -56,8 +52,7 @@ namespace LapsRemote.ViewsModel
 			get => _selectedFillColor;
 			set
 			{
-				if (value == _selectedFillColor)
-					return;
+				if (value == _selectedFillColor) { return; }
 				Settings.settingsModel.SelectedFillColor = value;
 				_selectedFillColor = value;
 				OnPropertyChanged();
@@ -70,8 +65,7 @@ namespace LapsRemote.ViewsModel
 			get => _selectedStrokeColor;
 			set
 			{
-				if (value == _selectedStrokeColor)
-					return;
+				if (value == _selectedStrokeColor) { return; }
 				Settings.settingsModel.SelectedStrokeColor = value;
 				_selectedStrokeColor = value;
 				OnPropertyChanged();
@@ -85,8 +79,7 @@ namespace LapsRemote.ViewsModel
 			get => _pollingRate;
 			set
 			{
-				if (value == _pollingRate)
-					return;
+				if (value == _pollingRate) { return; }
 				Settings.settingsModel.PollingRate = value;
 				_pollingRate = value;
 				OnPropertyChanged();
@@ -99,8 +92,7 @@ namespace LapsRemote.ViewsModel
 			get => _scrollerThumbSize;
 			set
 			{
-				if (value == _scrollerThumbSize)
-					return;
+				if (value == _scrollerThumbSize) { return; }
 				Settings.settingsModel.ScrollerThumbSize = value;
 				_scrollerThumbSize = value;
 				OnPropertyChanged();
@@ -113,8 +105,7 @@ namespace LapsRemote.ViewsModel
 			get => _applicationLogPath;
 			set
 			{
-				if (value == _applicationLogPath)
-					return;
+				if (value == _applicationLogPath) { return; }
 				Settings.settingsModel.AppLicationLogPath = value;
 				_applicationLogPath = value;
 				OnPropertyChanged();
@@ -127,8 +118,7 @@ namespace LapsRemote.ViewsModel
 			get => _disableAnimationReader;
 			set
 			{
-				if (value == _disableAnimationReader) 
-					return;
+				if (value == _disableAnimationReader) { return; }
 				Settings.settingsModel.DisableAnimationReader = value;
 				_disableAnimationReader = value;
 				OnPropertyChanged();
