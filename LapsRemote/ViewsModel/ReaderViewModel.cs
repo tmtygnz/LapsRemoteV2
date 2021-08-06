@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using LapsRemote.Utilities;
 using LapsRemote.Models;
@@ -14,9 +11,7 @@ using LiveCharts;
 using LiveCharts.Wpf;
 using System.Windows.Media;
 using LiveCharts.Defaults;
-using System.Windows;
 using LapsRemote.Logging;
-using Prism;
 using Prism.Commands;
 using MahApps.Metro.Controls.Dialogs;
 

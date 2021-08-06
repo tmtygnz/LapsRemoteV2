@@ -45,7 +45,7 @@ Log("Building Project")
 dotnet.exe publish --configuration Release --runtime win10-x64 --self-contained false --output "$BuildDirectory\LapsRemote" 
 
 if (-not(Test-Path -Path "$BuildDirectory\LapsRemote\LapsRemote.exe")){
-    LogWarning("Unable To Build The Project Make Sure You Have .net5.0")
+    LogWarning("Unable to buld project. Make sure you have .net5 installed")
 }
 
 #Create Archive
@@ -53,7 +53,7 @@ Log("Creating Portable Archive")
 Get-ChildItem -Path "$BuildDirectory\LapsRemote" | Compress-Archive -CompressionLevel Fastest -DestinationPath "$BuildDirectory\LapsRemoteArchived.zip"
 
 if (-not(Test-Path -Path "$BuildDirectory\LapsRemoteArchived.zip")){
-    LogWarning("Unable To Create A Portable Archive")
+    LogWarning("Uh oh! The script is unable to create an portable archive")
 }
 
 #Inno Setup Installer
@@ -62,10 +62,10 @@ $InnoExecutableDirectory = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
 if (Test-Path -Path $InnoExecutableDirectory){
     Log("Inno Setup Excecutable Found. Creating Installer")
     Start-Process -FilePath $InnoExecutableDirectory -ArgumentList """$PSScriptRoot\InnoSetup.iss""" -NoNewWindow -Wait
-    Log("Setup Created")
+    Log("Installer Created")
 }
 else {
-    LogWarning("Inno Setup Not Found I ${env:ProgramFiles(x86)}\Inno Setup 6. Skipping...")
+    LogWarning("Inno Setup not found in ${env:ProgramFiles(x86)}\Inno Setup 6. Make sure Inno Setup is installed.")
 }
 
 foreach ($ItemFile in Get-ChildItem $BuildDirectory | Where-Object {$_.Name.EndsWith(".exe") -or $_.Name.EndsWith(".zip")} | Get-FileHash){
@@ -73,4 +73,4 @@ foreach ($ItemFile in Get-ChildItem $BuildDirectory | Where-Object {$_.Name.Ends
     "$([System.IO.Path]::GetFileName($ItemFile.Path)) | $($ItemFile.Algorithm) | $($ItemFile.Hash)" | Out-File "$BuildDirectory\LapsRemote_Hash.txt" -Encoding utf8 -Append
 }
 
-Log("Build Is Complete! You Can See Your Files Here $BuildDirectory")
+Log("The project is now built. You can see it here $BuildDirectory")
