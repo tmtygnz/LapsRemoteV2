@@ -18,6 +18,7 @@ using System.IO;
 using Microsoft.Win32;
 using LapsRemote.Models;
 using Prism.Commands;
+using System.Threading.Tasks;
 
 namespace LapsRemote.ViewsModel
 {
@@ -353,8 +354,7 @@ namespace LapsRemote.ViewsModel
 				while (_isUpdating)
 				{
 					Thread.Sleep(Settings.settingsModel.PollingRate);
-					int a = 0;
-					double TemperatureValue = Temperature.RandomTemperature();
+					double TemperatureValue =  Temperature.RandomTemperature();
 					double OxyStatValue = OxyStat.RandomOxyStat();
 					double BPMValue = BPM.RandomBPM();
 					double RespRateValue = RespRate.RandomRespRate();
