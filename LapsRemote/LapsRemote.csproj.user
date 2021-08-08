@@ -9,6 +9,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\PopupWebView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Reader.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -17,6 +20,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Views\PopupWebView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Reader.xaml">
       <SubType>Designer</SubType>
     </Page>

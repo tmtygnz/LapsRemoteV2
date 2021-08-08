@@ -18,7 +18,6 @@ using System.IO;
 using Microsoft.Win32;
 using LapsRemote.Models;
 using Prism.Commands;
-using System.Threading.Tasks;
 
 namespace LapsRemote.ViewsModel
 {
@@ -69,45 +68,15 @@ namespace LapsRemote.ViewsModel
 		public ICommand OpenRepositoryWebsite_Command => new DelegateCommand(OpenRepositoryWebsite_Action);
 		public void OpenRepositoryWebsite_Action()
 		{
-			try
-			{
-				Logger.Log("Opening Repo Page", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
-				ProcessStartInfo startInfo = new()
-				{
-					UseShellExecute = true,
-					FileName = "https://github.com/jostimian/LapsRemoteV2"
-				};
-				Process.Start(startInfo);
-			}
-
-			catch (Exception exp)
-			{
-				Logger.MessageBoxLog($"Can't Open Website \n {exp.StackTrace}",
-					LogFrom.MainViewModelcs, Level.Error, DateTime.Now);
-				Logger.Log(exp.StackTrace, LogFrom.MainViewModelcs, Level.Error, DateTime.Now);
-			}
+			PopupWebView webView = new PopupWebView("https://github.com/jostimian/LapsRemoteV2");
+			webView.Show();
 		}
 
 		public ICommand SubmitBug_Command => new DelegateCommand(SubmitBug_Action);
 		public void SubmitBug_Action()
 		{
-			try
-			{
-				Logger.Log("Opening Issue Page", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
-				ProcessStartInfo startInfo = new()
-				{
-					UseShellExecute = true,
-					FileName = "https://github.com/jostimian/LapsRemoteV2/issues"
-				};
-				Process.Start(startInfo);
-			}
-
-			catch (Exception exp)
-			{
-				Logger.MessageBoxLog($"Can't Open Issues Page \n {exp.StackTrace}",
-					LogFrom.MainViewModelcs, Level.Error, DateTime.Now);
-				Logger.Log(exp.StackTrace, LogFrom.MainViewModelcs, Level.Error, DateTime.Now);
-			}
+			PopupWebView webView = new PopupWebView("https://github.com/jostimian/LapsRemoteV2/issues");
+			webView.Show();
 		}
 
 		public ICommand SelectionChange_Command => new DelegateCommand(SelectionChange_Action);

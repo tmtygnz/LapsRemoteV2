@@ -1,0 +1,49 @@
+﻿<mah:MetroWindow x:Class="LapsRemote.Views.PopupWebView"
+		xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+		xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:LapsRemote.Views"
+		xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+		mc:Ignorable="d"
+		Title="PopupWebView" Height="800" Width="800">
+
+	<mah:MetroWindow.RightWindowCommands>
+		<mah:WindowCommands>
+			<Button ToolTip="Open In Browser" 
+					Command="{Binding OpenInBrowser_Command}">
+				<iconPacks:PackIconBootstrapIcons Kind="ArrowUpRightSquare" VerticalAlignment="Center" Width="20" Height="20"/>
+			</Button>
+		</mah:WindowCommands>
+	</mah:MetroWindow.RightWindowCommands>
+	
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="28"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<Rectangle Fill="#2B2B2B"
+				   Grid.Column="0"
+				   Grid.Row="0"/>
+
+		<TextBox Text="{Binding WebsiteURI}"
+				 Margin="3 0 3 0"
+				 VerticalAlignment="Center"
+				 Background="#2B2B2B"
+				 Foreground="White"
+				 BorderThickness="0"
+				 IsReadOnly="True"
+				 FontSize="15"
+				 FontFamily="Arial"/>
+
+		<wv2:WebView2 Grid.Column="0"
+					  Grid.Row="1"
+					  Source="{Binding WebsiteURI, Mode=TwoWay}"/>
+	</Grid>
+</mah:MetroWindow>

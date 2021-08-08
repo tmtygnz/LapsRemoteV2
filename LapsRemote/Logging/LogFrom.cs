@@ -11,6 +11,7 @@ namespace LapsRemote.Logging
 		AppXamlcs,
 		MainViewModelcs,
 		ReaderViewModelcs,
-		SettingsViewModelcs
+		SettingsViewModelcs,
+		PopupWebviewViewModelcs
 	}
 }
