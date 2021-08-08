@@ -7,8 +7,9 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:LapsRemote.Views"
 		xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+		xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
 		mc:Ignorable="d"
-		Title="PopupWebView" Height="800" Width="800">
+		Title="{Binding Title}" Height="800" Width="800">
 
 	<mah:MetroWindow.RightWindowCommands>
 		<mah:WindowCommands>
@@ -42,8 +43,28 @@
 				 FontSize="15"
 				 FontFamily="Arial"/>
 
+		<mah:ProgressRing IsActive="{Binding IsLoading}"
+						  Grid.Column="1"
+						  Grid.Row="0"
+						  Width="21"
+						  Height="21"
+						  VerticalAlignment="Center"
+						  HorizontalAlignment="Right"
+						  Margin="0 0 3 0"
+						  Foreground="White"/>
+
 		<wv2:WebView2 Grid.Column="0"
 					  Grid.Row="1"
-					  Source="{Binding WebsiteURI, Mode=TwoWay}"/>
+					  Grid.ColumnSpan="1"
+					  Source="{Binding WebsiteURI, Mode=TwoWay}">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="ContentLoading">
+					<i:InvokeCommandAction Command="{Binding ContentLoading_Command}"/>
+				</i:EventTrigger>
+				<i:EventTrigger EventName="NavigationCompleted">
+					<i:InvokeCommandAction Command="{Binding ContentLoaded_Command}"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</wv2:WebView2>
 	</Grid>
 </mah:MetroWindow>
