@@ -19,6 +19,18 @@
 			</Button>
 		</mah:WindowCommands>
 	</mah:MetroWindow.RightWindowCommands>
+
+	<mah:MetroWindow.LeftWindowCommands>
+		<mah:WindowCommands Visibility="{Binding IsVisible}">
+			<mah:ProgressRing IsActive="{Binding IsLoading}"
+							  Width="10"
+							  Height="10"
+							  Margin="3 0 3 0"
+							  VerticalAlignment="Center"
+							  Foreground="White"
+							  IsEnabled="{Binding IsLoading}"/>
+		</mah:WindowCommands>
+	</mah:MetroWindow.LeftWindowCommands>
 	
 	<Grid>
 		<Grid.ColumnDefinitions>
@@ -43,15 +55,7 @@
 				 FontSize="15"
 				 FontFamily="Arial"/>
 
-		<mah:ProgressRing IsActive="{Binding IsLoading}"
-						  Grid.Column="1"
-						  Grid.Row="0"
-						  Width="21"
-						  Height="21"
-						  VerticalAlignment="Center"
-						  HorizontalAlignment="Right"
-						  Margin="0 0 3 0"
-						  Foreground="{StaticResource MahApps.Brushes.AccentBase}"/>
+		
 
 		<wv2:WebView2 Grid.Column="0"
 					  Grid.Row="1"

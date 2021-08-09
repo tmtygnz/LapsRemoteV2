@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using LapsRemote.Logging;
 using Prism;
@@ -19,6 +20,7 @@ namespace LapsRemote.ViewsModel
 			Title = $"{WebsiteURI}";
 			Logger.Log($"Opening {WebsiteURI}", LogFrom.PopupWebviewViewModelcs, Level.Debug, DateTime.Now);
 			IsLoading = true;
+			IsVisible = Visibility.Collapsed;
 		}
 
 		public ICommand OpenInBrowser_Command => new DelegateCommand(OpenInBrowser_Action);
@@ -48,6 +50,7 @@ namespace LapsRemote.ViewsModel
 		{
 			Title = $"{WebsiteURI} - Loading";
 			IsLoading = true;
+			IsVisible = Visibility.Visible;
 		}
 
 		public ICommand ContentLoaded_Command => new DelegateCommand(ContentLoaded_Action);
@@ -55,6 +58,19 @@ namespace LapsRemote.ViewsModel
 		{
 			Title = $"{WebsiteURI} - Loaded";
 			IsLoading = false;
+			IsVisible = Visibility.Collapsed;
+		}
+
+		private Visibility _isVisible;
+		public Visibility IsVisible
+		{
+			get => _isVisible;
+			set
+			{
+				if (value == _isVisible) { return; }
+				_isVisible = value;
+				OnPropertyChanged();
+			}
 		}
 
 		private bool _isLoading;
