@@ -24,7 +24,7 @@ LicenseFile=.\LICENSE
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=build
-OutputBaseFilename=LapsRemoteV2pre
+OutputBaseFilename=LapsRemoteV2_Setup
 SolidCompression=yes
 Compression=lzma2/ultra64
 LZMAUseSeparateProcess=yes
@@ -39,6 +39,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
+; Build\LapsRemote will be included
 [Files]
 Source: "Build\LapsRemote\LapsRemote.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Build\LapsRemote\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs

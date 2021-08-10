@@ -15,7 +15,7 @@ namespace LapsRemote.Logging
 		static Queue<Message> LogQueue;
 		public static StreamWriter MainWriter;
 		private static volatile bool _logging;
-		
+
 		public static void Initialize()
 		{
 			string AppDataFolderPath = Settings.settingsModel.AppLicationLogPath;

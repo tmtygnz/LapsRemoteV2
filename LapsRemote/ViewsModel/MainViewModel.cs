@@ -58,6 +58,8 @@ namespace LapsRemote.ViewsModel
 				}
 			};
 
+			Logger.Log($"Users machine os version {Environment.OSVersion}", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
+
 			new Thread(new ThreadStart(UpdateVitals)).Start();
 		}
 
