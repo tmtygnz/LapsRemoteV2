@@ -18,6 +18,8 @@ using System.IO;
 using Microsoft.Win32;
 using LapsRemote.Models;
 using Prism.Commands;
+using Microsoft.MixedReality.WebRTC;
+using System.Threading.Tasks;
 
 namespace LapsRemote.ViewsModel
 {
@@ -28,9 +30,26 @@ namespace LapsRemote.ViewsModel
 		{
 			Title = $"Laps Remote <{Environment.OSVersion}>";
 			SelectedIndex = 0;
+
 			_isRecording = false;
-			_isUpdating = true;
+			IsUpdating = true;
 			RecordingStatus = "Status: Not Recording";
+
+			_webcamSource = null;
+			_localWebcamTrack = null;
+			_webcamTransceiver = null;
+			_microphoneSource = null;
+			_localMicrophoneTrack = null;
+			_microphoneTransceiver = null;
+
+			_peerConnection = new PeerConnection();
+			_peerConnectionConfiguration = new PeerConnectionConfiguration()
+			{
+				IceServers = new List<IceServer>
+				{
+					new IceServer{ Urls = {"stun:stun.l.google.com:19302"}}
+				}
+			};
 
 
 			TemperatureRecordedList = new List<double>();
@@ -38,9 +57,9 @@ namespace LapsRemote.ViewsModel
 			BPMRecordedList = new List<double>();
 			RespRateRecordedList = new List<double>();
 
-			gradientBrush = new LinearGradientBrush { StartPoint = new Point(0, 0), EndPoint = new Point(0, 1) };
-			gradientBrush.GradientStops.Add(new GradientStop((Color)ColorConverter.ConvertFromString(Settings.settingsModel.SelectedFillColor), 0));
-			gradientBrush.GradientStops.Add(new GradientStop(Colors.Transparent, 1));
+			_gradientBrush = new LinearGradientBrush { StartPoint = new Point(0, 0), EndPoint = new Point(0, 1) };
+			_gradientBrush.GradientStops.Add(new GradientStop((Color)ColorConverter.ConvertFromString(Settings.settingsModel.SelectedFillColor), 0));
+			_gradientBrush.GradientStops.Add(new GradientStop(Colors.Transparent, 1));
 
 			ValueComboBox = new ObservableCollection<string> { "Temperature", "02Sat", "BPM", "RespRate" };
 			MonitorModel = new SeriesCollection
@@ -48,7 +67,7 @@ namespace LapsRemote.ViewsModel
 				new LineSeries
 				{
 					Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString(Settings.settingsModel.SelectedStrokeColor)),
-					Fill = gradientBrush,
+					Fill = _gradientBrush,
 					LineSmoothness = 1,
 					StrokeThickness = 3,
 					Opacity = 1.0,
@@ -58,14 +77,61 @@ namespace LapsRemote.ViewsModel
 				}
 			};
 
-			Logger.Log($"Users machine os version {Environment.OSVersion}", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
-
+			Setup();
 			new Thread(new ThreadStart(UpdateVitals)).Start();
 		}
 
-		public bool _isUpdating;
+		public bool IsUpdating;
 		private bool _isRecording;
-		private GradientBrush gradientBrush;
+		private GradientBrush _gradientBrush;
+		private PeerConnection _peerConnection;
+		
+		private VideoTrackSource _webcamSource;
+		private LocalVideoTrack _localWebcamTrack;
+		private Transceiver _webcamTransceiver;
+
+		private AudioTrackSource _microphoneSource;
+		private LocalAudioTrack _localMicrophoneTrack;
+		private Transceiver _microphoneTransceiver;
+
+		private PeerConnectionConfiguration _peerConnectionConfiguration;
+
+		public async Task Setup()
+		{
+			try
+			{
+				IReadOnlyList<VideoCaptureDevice> _deviceList = await DeviceVideoTrackSource.GetCaptureDevicesAsync();
+				foreach (VideoCaptureDevice webcam in _deviceList)
+				{
+					Logger.MessageBoxLog($"Found Webcam {webcam.name} (id {webcam.id})", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
+				}
+
+				await _peerConnection.InitializeAsync();
+
+				_webcamSource = await DeviceVideoTrackSource.CreateAsync();
+				_microphoneSource = await DeviceAudioTrackSource.CreateAsync();
+
+				LocalVideoTrackInitConfig _videoTrackConfig = new LocalVideoTrackInitConfig { trackName = "webcam_track" };
+				_localWebcamTrack = LocalVideoTrack.CreateFromSource(_webcamSource, _videoTrackConfig);
+
+				LocalAudioTrackInitConfig _audioTrackConfig = new LocalAudioTrackInitConfig { trackName = "microphone_track" };
+				_localMicrophoneTrack = LocalAudioTrack.CreateFromSource(_microphoneSource, _audioTrackConfig);
+
+
+				_webcamTransceiver = _peerConnection.AddTransceiver(MediaKind.Video);
+				_webcamTransceiver.LocalVideoTrack = _localWebcamTrack;
+				_webcamTransceiver.DesiredDirection = Transceiver.Direction.SendReceive;
+
+				_microphoneTransceiver = _peerConnection.AddTransceiver(MediaKind.Audio);
+				_microphoneTransceiver.LocalAudioTrack = _localMicrophoneTrack;
+				_microphoneTransceiver.DesiredDirection = Transceiver.Direction.SendReceive;
+			}
+			catch (Exception e)
+			{
+				Logger.MessageBoxLog($"{e.StackTrace}", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
+				throw new Exception(e.StackTrace);
+			}
+		}
 
 		public ICommand OpenRepositoryWebsite_Command => new DelegateCommand(OpenRepositoryWebsite_Action);
 		public void OpenRepositoryWebsite_Action()
@@ -124,7 +190,16 @@ namespace LapsRemote.ViewsModel
 		public void CloseApplication_Action()
 		{
 			MonitorModel[0].Values.Clear();
-			_isUpdating = false;
+			IsUpdating = false;
+
+			_webcamSource?.Dispose();
+			_localWebcamTrack?.Dispose();
+
+			_microphoneSource?.Dispose();
+			_localMicrophoneTrack?.Dispose();
+
+			_peerConnection?.Dispose();
+
 			Logger.Log("App Closed", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
 			Logger.KillAll();
 			Environment.Exit(0);
@@ -322,7 +397,7 @@ namespace LapsRemote.ViewsModel
 			Logger.Log("Update Vital Thread Started", LogFrom.MainViewModelcs, Level.Debug, DateTime.Now);
 			lock (this)
 			{
-				while (_isUpdating)
+				while (IsUpdating)
 				{
 					Thread.Sleep(Settings.settingsModel.PollingRate);
 					double TemperatureValue =  Temperature.RandomTemperature();
